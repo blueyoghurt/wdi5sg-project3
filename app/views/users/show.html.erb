@@ -6,11 +6,6 @@
 </p>
 
 <p>
-  <strong>Password:</strong>
-  <%= @user.password %>
-</p>
-
-<p>
   <strong>Contact:</strong>
   <%= @user.contact %>
 </p>
@@ -30,5 +25,5 @@
   <%= @user.is_admin %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Edit', profile_edit_path(@user) %> |
 <%= link_to 'Back', users_path %>
