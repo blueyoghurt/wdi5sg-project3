@@ -1,0 +1,1 @@
+json.partial! "bizowners/bizowner", bizowner: @bizowner

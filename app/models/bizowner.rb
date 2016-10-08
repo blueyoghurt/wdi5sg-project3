@@ -1,0 +1,2 @@
+class Bizowner < ApplicationRecord
+end

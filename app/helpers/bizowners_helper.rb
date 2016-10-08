@@ -1,0 +1,2 @@
+module BizownersHelper
+end

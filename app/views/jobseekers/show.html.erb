@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Dob:</strong>
+  <%= @jobseeker.dob %>
+</p>
+
+<p>
+  <strong>Postal code:</strong>
+  <%= @jobseeker.postal_code %>
+</p>
+
+<p>
+  <strong>Highest qualification:</strong>
+  <%= @jobseeker.highest_qualification %>
+</p>
+
+<p>
+  <strong>Preferred area:</strong>
+  <%= @jobseeker.preferred_area %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @jobseeker.description %>
+</p>
+
+<p>
+  <strong>Wage:</strong>
+  <%= @jobseeker.wage %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @jobseeker.start_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @jobseeker.end_date %>
+</p>
+
+<p>
+  <strong>Availability:</strong>
+  <%= @jobseeker.availability %>
+</p>
+
+<%= link_to 'Edit', edit_jobseeker_path(@jobseeker) %> |
+<%= link_to 'Back', jobseekers_path %>

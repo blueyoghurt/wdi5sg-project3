@@ -1,0 +1,2 @@
+json.extract! jobseeker, :id, :dob, :postal_code, :highest_qualification, :preferred_area, :description, :wage, :start_date, :end_date, :availability, :created_at, :updated_at
+json.url jobseeker_url(jobseeker, format: :json)
