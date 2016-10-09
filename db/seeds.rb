@@ -7,8 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.find_or_create_by!(email: ENV["seed_email"]) do |user|
-  user.first_name = 'Dexter'
-  user.last_name = 'Wei Ying'
+  user.first_name = 'dexter'
+  user.last_name = 'wei ying'
   user.is_seeker = true
   user.is_biz = true
   user.is_admin = true
