@@ -18,6 +18,8 @@
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
+
+
 </head>
 <body>
 
@@ -79,7 +81,7 @@
               <input type="password" class="form-control" id="passwordinput" aria-describedby="passwordinput" required="">
               <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
             </div>
-            
+
             <div class="form-group has-feedback">
               <label class="control-label" for="re-enterpasswordlabel">* Re-enter password</label>
               <input type="password" class="form-control" id="re-enterpasswordinput" aria-describedby="re-enterpasswordinput" required="">
@@ -185,21 +187,23 @@
   In our presentation, the default location will be spacemob. -->
 
   <div id="contact" class="map">
-    <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe>
-    <br />
-    <small>
-      <a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A"></a>
-    </small>
-  </iframe>
+
+  <div id="map"></div>
+
+      <script src="js/map.js"></script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZzwCvTDriQgX_bFx2nC6Lbphm2iToO4k&callback=initMap">
+    </script>
+
 </div>
 <!-- /Map -->
 
 
-
-
 <div class="container">
   <legend>Search Form</legend>
-
+  users will be able to search by the job that is nearest to them or pay the highest wages.
+  <br>
+  Limit by 5. Top 5 Nearest or top 5 highest Wages.
   <form class="form-inline">
 
     <div class="form-group">
