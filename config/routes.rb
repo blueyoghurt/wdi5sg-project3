@@ -17,6 +17,16 @@ Rails.application.routes.draw do
     patch 'admin' => "users#toggle_admin", on: :member
   end
 
+  # Jobseekers - custom routes for job seekers
+  get "job/register-profile" => "jobseekers#new"
+  post "jobseekers" => "jobseekers#create"
+  get "job/profile" => "jobseekers#show"
+
+  # Bizowners - custom routes for biz owners
+  get "business/register-profile" => "bizowners#new"
+  post "business" => "bizowners#create"
+  get "business/profile" => "bizowners#show"
+
   resources :jobseekers
   resources :bizowners
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

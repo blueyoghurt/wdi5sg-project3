@@ -12,6 +12,7 @@ class User < ApplicationRecord
   def name
     "#{first_name.titlecase} #{last_name.titlecase}"
   end
+
   def self.authenticate(params)
     User.find_by_email(params[:email]).try(:authenticate, params[:password])
   end

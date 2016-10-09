@@ -29,7 +29,11 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         session[:user_id] = @user.id
-        format.html { redirect_to root_path, notice: 'User was successfully created.' }
+        format.html { if @user.is_seeker
+                        redirect_to job_register_profile_path,notice: "Let's create your profile!"
+                      elsif @user.is_biz
+                        redirect_to business_register_profile_path, notice: "Let's create your business profile!"
+                      end }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
