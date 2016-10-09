@@ -1,6 +1,7 @@
-<h1>Editing Jobseeker</h1>
+<p id="notice"><%= notice %></p>
 
 <%= render 'form', jobseeker: @jobseeker %>
-
-<%= link_to 'Show', @jobseeker %> |
-<%= link_to 'Back', jobseekers_path %>
+<br/>
+<%= link_to 'Show User Profile', profile_path %> |
+<%= link_to 'Show Job Profile', job_profile_path %> |
+<%= link_to 'Edit User Profile', profile_edit_path %>

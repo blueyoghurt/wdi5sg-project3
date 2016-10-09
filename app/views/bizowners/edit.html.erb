@@ -1,6 +1,7 @@
-<h1>Editing Bizowner</h1>
+<p id="notice"><%= notice %></p>
 
 <%= render 'form', bizowner: @bizowner %>
-
-<%= link_to 'Show', @bizowner %> |
-<%= link_to 'Back', bizowners_path %>
+<br/>
+<%= link_to 'Show User Profile', profile_path %> |
+<%= link_to 'Show Business Profile', biz_profile_path %> |
+<%= link_to 'Edit User Profile', profile_edit_path %>

@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Dob:</strong>
+  <strong>Date of Birth:</strong>
   <%= @jobseeker.dob %>
 </p>
 
@@ -11,13 +11,18 @@
 </p>
 
 <p>
-  <strong>Highest qualification:</strong>
+  <strong>Highest Qualification:</strong>
   <%= @jobseeker.highest_qualification %>
 </p>
 
 <p>
-  <strong>Preferred area:</strong>
+  <strong>Preferred Area:</strong>
   <%= @jobseeker.preferred_area %>
+</p>
+
+<p>
+  <strong>Preferred Location:</strong>
+  <%= @jobseeker.preferred_location %>
 </p>
 
 <p>
@@ -40,10 +45,6 @@
   <%= @jobseeker.end_date %>
 </p>
 
-<p>
-  <strong>Availability:</strong>
-  <%= @jobseeker.availability %>
-</p>
-
-<%= link_to 'Edit', edit_jobseeker_path(@jobseeker) %> |
-<%= link_to 'Back', jobseekers_path %>
+<%= link_to 'Show User Profile', profile_path %> |
+<%= link_to 'Edit User Profile', profile_edit_path %> |
+<%= link_to 'Edit Job Profile', job_edit_path %>

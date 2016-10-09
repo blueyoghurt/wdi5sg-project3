@@ -37,7 +37,7 @@ class UsersController < ApplicationController
         end
         session[:user_id] = @user.id
         format.html { if @user.is_seeker
-          redirect_to job_register_profile_path,notice: "Let's create your profile!"
+          redirect_to job_register_profile_path, notice: "Let's create your profile!"
         else
           redirect_to business_register_profile_path, notice: "Let's create your business profile!"
         end }
@@ -52,9 +52,10 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+
     respond_to do |format|
-      if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+      if @user.update(edit_user_params)
+        format.html { redirect_to profile_path, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
@@ -96,4 +97,9 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:first_name, :last_name , :email, :password, :contact, :is_seeker)
   end
+
+  def edit_user_params
+    params.require(:user).permit(:first_name, :last_name , :email, :contact)
+  end
+
 end
