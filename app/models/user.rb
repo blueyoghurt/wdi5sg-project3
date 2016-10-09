@@ -1,4 +1,8 @@
 class User < ApplicationRecord
+  #ASSOCIATIONS
+  has_one :jobseeker, dependent: :destroy
+  has_one :bizowner, dependent: :destroy
+
   # CONSTANTS
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 

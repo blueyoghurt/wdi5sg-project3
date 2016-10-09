@@ -12,13 +12,23 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %>
+    <%= f.label :company_name %>
     <%= f.text_field :name %>
   </div>
 
   <div class="field">
-    <%= f.label :description %>
+    <%= f.label :company_description %>
     <%= f.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :company_address_postal_code %>
+    <%= f.number_field :postal_code %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ACRA_registration_number %>
+    <%= f.text_field :license_number %>
   </div>
 
   <div class="actions">

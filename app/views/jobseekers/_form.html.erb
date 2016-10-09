@@ -32,13 +32,18 @@
   </div>
 
   <div class="field">
+    <%= f.label :preferred_location %>
+    <%= f.text_field :preferred_location %>
+  </div>
+
+  <div class="field">
     <%= f.label :description %>
     <%= f.text_area :description %>
   </div>
 
   <div class="field">
     <%= f.label :wage %>
-    <%= f.text_field :wage %>
+    <%= f.number_field :wage, :step => 0.01 %>
   </div>
 
   <div class="field">
@@ -49,11 +54,6 @@
   <div class="field">
     <%= f.label :end_date %>
     <%= f.date_select :end_date %>
-  </div>
-
-  <div class="field">
-    <%= f.label :availability %>
-    <%= f.check_box :availability %>
   </div>
 
   <div class="actions">

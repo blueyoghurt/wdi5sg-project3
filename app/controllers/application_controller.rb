@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :current_user
-  
+
   # authentication is true, if we have a current_user
   def is_authenticated
     unless current_user
@@ -25,9 +25,11 @@ class ApplicationController < ActionController::Base
       return @current_user
     end
 
+    ## What does this portion do?
     user_id = session[:user_id]
     @current_user = User.find_by_id(user_id)
     return @current_user
+
   end
 
   # Methods defined as helper_methods are available in the views
