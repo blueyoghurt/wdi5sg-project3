@@ -37,14 +37,17 @@
   </div>
 
   <div class="field">
-    <%= f.label :biz_owner %>
-    <%= f.check_box :is_biz %>
+    <%= f.label :type_of_user %>
+    <%= f.radio_button :is_seeker, "true" %>
+    <%= label :is_seeker, "Job Seeker"%>
+    <%= f.radio_button :is_seeker, "false" %>
+    <%= label :is_seeker, "Business Owner"%>
   </div>
 
-  <div class="field">
+  <!-- <div class="field">
     <%= f.label :job_seeker %>
     <%= f.check_box :is_seeker %>
-  </div>
+  </div> -->
 
   <div class="field">
     <%= f.label :admin %>

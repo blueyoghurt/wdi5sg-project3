@@ -28,10 +28,15 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        if @user.is_seeker
+          @user.update(is_biz: false)
+        elsif !@user.is_seeker
+          @user.update(is_biz: true)
+        end
         session[:user_id] = @user.id
         format.html { if @user.is_seeker
                         redirect_to job_register_profile_path,notice: "Let's create your profile!"
-                      elsif @user.is_biz
+                      else
                         redirect_to business_register_profile_path, notice: "Let's create your business profile!"
                       end }
         format.json { render :show, status: :created, location: @user }
@@ -74,6 +79,9 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:first_name, :last_name , :email, :password, :contact, :is_biz, :is_seeker, :is_admin)
+      params.require(:user).permit(:first_name, :last_name , :email, :password, :contact, :is_seeker, :is_admin)
+      # if !:is_seeker
+      #   :is_biz
+      # end
     end
 end
