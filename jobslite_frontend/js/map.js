@@ -3,6 +3,8 @@
 // failed.", it means you probably did not give permission for the browser to
 // locate you.
 
+var infoWindow = null;
+
 function initMap() {
   var map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: -34.397, lng: 150.644},
@@ -18,8 +20,30 @@ function initMap() {
         lng: position.coords.longitude
       };
 
-      infoWindow.setPosition(pos);
-      infoWindow.setContent('Your Current Location.');
+      // infoWindow.setPosition(pos);
+      // infoWindow.setContent('Your Current Location.');
+
+      //The content of the marker's infoWindow
+      var contentString = "Your Current Location.";
+      var infowindow = new google.maps.InfoWindow({
+        content: contentString
+      });
+
+      //Placing the marker
+      var marker = new google.maps.Marker({
+        position: pos,
+        title:"Hello World!"
+      });
+      marker.addListener('click', function() {
+        infowindow.open(map, marker);
+      });
+
+      //Enabled the infowindow to autoload without clicking on marker
+      infowindow.open(map,marker);
+      // To add the marker to the map, call setMap();
+      marker.setMap(map);
+
+
       map.setCenter(pos);
     }, function() {
       handleLocationError(true, infoWindow, map.getCenter());
