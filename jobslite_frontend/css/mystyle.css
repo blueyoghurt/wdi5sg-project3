@@ -5,6 +5,20 @@
   margin-top: 50px;
 }
 
+.companieslist {
+  height: 80px;
+  margin-top: 50px;
+}
+
+#companies-title {
+text-align: center;
+}
+
+#companiesletters {
+text-align: center;
+}
+
+
 .modal-footer{
     text-align: left;
 }
