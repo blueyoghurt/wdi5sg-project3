@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get "listings/bizowner" => "listings#bizowner"
+  
+
+
   resources :jobseekers_reviews
   resources :bizowners_reviews
   resources :applications
@@ -9,6 +13,8 @@ Rails.application.routes.draw do
   post "applications/:id" => "applications#create"
 
   root 'listings#index'
+
+
 
   # AUTHENTICATION
   get "login" => "sessions#new"

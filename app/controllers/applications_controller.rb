@@ -13,13 +13,6 @@ class ApplicationsController < ApplicationController
   end
 
   # GET /applications/new
-  def new
-    @application = Application.new
-  end
-
-  # GET /applications/1/edit
-  def edit
-  end
 
   # POST /applications
   # POST /applications.json

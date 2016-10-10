@@ -1,4 +1,4 @@
 class Application < ApplicationRecord
-    has_many :listings
-    has_many :jobseekers
+    belongs_to :listing
+    belongs_to :jobseeker
 end
