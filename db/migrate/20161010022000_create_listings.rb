@@ -1,7 +1,7 @@
 class CreateListings < ActiveRecord::Migration[5.0]
   def change
     create_table :listings do |t|
-      t.integer :bizowner_id
+      t.belongs_to :bizowner, index: true, unique: true, foreign_key: true
       t.string :job_title
       t.text :job_description
       t.string :industry
