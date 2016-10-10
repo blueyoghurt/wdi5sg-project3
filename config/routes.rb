@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :bizowners
   resources :jobseekers
 
+  post "applications/:id" => "applications#create"
+
   root 'listings#index'
 
   # AUTHENTICATION
