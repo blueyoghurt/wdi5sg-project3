@@ -25,6 +25,8 @@ class ListingsController < ApplicationController
   # POST /listings.json
   def create
     @listing = Listing.new(listing_params)
+    @listing.update(bizowner_id: current_user.id)
+    @listing.update(status: true)
     respond_to do |format|
       if @listing.save
         format.html { redirect_to @listing, notice: 'Listing was successfully created.' }
@@ -68,6 +70,6 @@ class ListingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def listing_params
-      params.require(:listing).permit(:job_title, :job_description, :industry, :vacancy, :work_location_postal_code, :main_work_location, :work_location, :wage_per_hour, :job_start_date, :job_end_date, :status)
+      params.require(:listing).permit(:job_title, :job_description, :industry, :vacancy, :work_location_postal_code, :main_work_location, :work_location, :wage_per_hour, :job_start_date, :job_end_date)
     end
 end

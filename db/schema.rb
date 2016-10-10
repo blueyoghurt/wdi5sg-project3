@@ -90,6 +90,7 @@ ActiveRecord::Schema.define(version: 20161010064500) do
     t.boolean  "status"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+    t.index ["bizowner_id"], name: "index_listings_on_bizowner_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -107,4 +108,5 @@ ActiveRecord::Schema.define(version: 20161010064500) do
 
   add_foreign_key "bizowners", "users"
   add_foreign_key "jobseekers", "users"
+  add_foreign_key "listings", "bizowners"
 end

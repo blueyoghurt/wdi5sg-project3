@@ -48,22 +48,17 @@
 
   <div class="field">
     <%= f.label :wage_per_hour %>
-    <%= f.text_field :wage_per_hour %>
+    <%= f.text_field :wage_per_hour, :step => 0.01 %>
   </div>
 
   <div class="field">
     <%= f.label :job_start_date %>
-    <%= f.date_select :job_start_date %>
+    <%= f.date_select :job_start_date, :start_year => 2016, :end_year => 2017 %>
   </div>
 
   <div class="field">
     <%= f.label :job_end_date %>
-    <%= f.date_select :job_end_date %>
-  </div>
-
-  <div class="field">
-    <%= f.label :status %>
-    <%= f.check_box :status %>
+    <%= f.date_select :job_end_date, :start_year => 2016, :end_year => 2017 %>
   </div>
 
   <div class="actions">

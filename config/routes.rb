@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
   resources :jobseekers_reviews
   resources :bizowners_reviews
   resources :applications
