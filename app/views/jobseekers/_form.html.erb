@@ -13,7 +13,7 @@
 
 <div class="field">
   <%= f.label :dob %>
-  <%= f.date_select :dob, :start_year => 1975, :end_year => 2001 %>
+  <%= f.date_select :dob %>
 </div>
 
 <div class="field">
@@ -48,12 +48,12 @@
 
 <div class="field">
   <%= f.label :start_date %>
-  <%= f.date_select :start_date, :start_year => 2016, :end_year => 2017 %>
+  <%= f.date_field :start_date, :start_year => 2016, :end_year => 2017 %>
 </div>
 
 <div class="field">
   <%= f.label :end_date %>
-  <%= f.date_select :end_date, :start_year => 2016, :end_year => 2017 %>
+  <%= f.date_field :end_date, :start_year => 2016, :end_year => 2017 %>
 </div>
 
 <div class="actions">

@@ -24,7 +24,11 @@ class ApplicationsController < ApplicationController
   # POST /applications
   # POST /applications.json
   def create
-    @application = Application.new(application_params)
+    @application = Application.new({ application: {
+      listing_id: params[:id],
+      jobseeker_id: Bizowner.find_by(user_id: current_user.id).id),
+      }
+    })
 
     respond_to do |format|
       if @application.save
