@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161010023326) do
+ActiveRecord::Schema.define(version: 20161010064500) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,13 +26,24 @@ ActiveRecord::Schema.define(version: 20161010023326) do
   create_table "bizowners", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "name"
-    t.string   "address"
-    t.string   "postal_code"
     t.text     "description"
     t.string   "license_number"
+    t.string   "postal_code"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.index ["user_id"], name: "index_bizowners_on_user_id", using: :btree
+  end
+
+  create_table "bizowners_reviews", force: :cascade do |t|
+    t.integer  "bizowner_id"
+    t.integer  "jobseeker_id"
+    t.integer  "bizowner_review_star"
+    t.text     "business_review_description"
+    t.date     "job_end_date"
+    t.boolean  "status"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.integer  "listing_id"
   end
 
   create_table "jobseekers", force: :cascade do |t|
@@ -52,6 +63,18 @@ ActiveRecord::Schema.define(version: 20161010023326) do
     t.index ["user_id"], name: "index_jobseekers_on_user_id", using: :btree
   end
 
+  create_table "jobseekers_reviews", force: :cascade do |t|
+    t.integer  "jobseeker_id"
+    t.integer  "bizowner_id"
+    t.integer  "jobseeker_review_star"
+    t.text     "jobseeker_review_description"
+    t.date     "job_end_date"
+    t.boolean  "status"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.integer  "listing_id"
+  end
+
   create_table "listings", force: :cascade do |t|
     t.integer  "bizowner_id"
     t.string   "job_title"
@@ -67,7 +90,6 @@ ActiveRecord::Schema.define(version: 20161010023326) do
     t.boolean  "status"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
-    t.index ["bizowner_id"], name: "index_listings_on_bizowner_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -85,5 +107,4 @@ ActiveRecord::Schema.define(version: 20161010023326) do
 
   add_foreign_key "bizowners", "users"
   add_foreign_key "jobseekers", "users"
-  add_foreign_key "listings", "bizowners"
 end

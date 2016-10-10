@@ -25,7 +25,7 @@ class ApplicationsController < ApplicationController
   # POST /applications.json
   def create
     @application = Application.new(application_params)
-    @application.update(jobseeker_id: current_user.id)
+    @application.update(jobseeker_id: Jobseeker.find_by(user_id: current_user.id).id)
 
     respond_to do |format|
       if @application.save

@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
   root 'listings#index'
 
+  resources :jobseekers_reviews
+  resources :bizowners_reviews
   resources :applications
   resources :listings
+  resources :bizowners
   resources :jobseekers
+  root 'listings#index'
 
   # AUTHENTICATION
   get "login" => "sessions#new"
@@ -37,12 +41,7 @@ Rails.application.routes.draw do
   get "business/edit" => "bizowners#edit"
   put "business/profile" => "bizowners#update"
   patch "business/profile" => "bizowners#update"
-
-  resources :listings
-  resources :applications
-  resources :bizowners
-  resources :jobseekers
-  # resources :users
+  post "business/profile" => "bizowners#update"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

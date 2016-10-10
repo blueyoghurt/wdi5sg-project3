@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Bizowner:</strong>
+  <%= @bizowners_review.bizowner_id %>
+</p>
+
+<p>
+  <strong>Jobseeker:</strong>
+  <%= @bizowners_review.jobseeker_id %>
+</p>
+
+<p>
+  <strong>Bizowner review star:</strong>
+  <%= @bizowners_review.bizowner_review_star %>
+</p>
+
+<p>
+  <strong>Business review description:</strong>
+  <%= @bizowners_review.business_review_description %>
+</p>
+
+<p>
+  <strong>Job end date:</strong>
+  <%= @bizowners_review.job_end_date %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @bizowners_review.status %>
+</p>
+
+<%= link_to 'Edit', edit_bizowners_review_path(@bizowners_review) %> |
+<%= link_to 'Back', bizowners_reviews_path %>

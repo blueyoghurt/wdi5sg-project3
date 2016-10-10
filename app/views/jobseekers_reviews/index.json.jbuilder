@@ -1,0 +1,1 @@
+json.array! @jobseekers_reviews, partial: 'jobseekers_reviews/jobseekers_review', as: :jobseekers_review

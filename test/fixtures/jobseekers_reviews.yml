@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  jobseeker_id: 1
+  bizowner_id: 1
+  jobseeker_review_star: 1
+  jobseeker_review_description: MyText
+  job_end_date: 2016-10-10
+  status: false
+
+two:
+  jobseeker_id: 1
+  bizowner_id: 1
+  jobseeker_review_star: 1
+  jobseeker_review_description: MyText
+  job_end_date: 2016-10-10
+  status: false

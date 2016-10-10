@@ -1,0 +1,1 @@
+json.array! @bizowners_reviews, partial: 'bizowners_reviews/bizowners_review', as: :bizowners_review

@@ -1,0 +1,2 @@
+json.extract! jobseekers_review, :id, :jobseeker_id, :bizowner_id, :jobseeker_review_star, :jobseeker_review_description, :job_end_date, :status, :created_at, :updated_at
+json.url jobseekers_review_url(jobseekers_review, format: :json)
