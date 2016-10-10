@@ -36,17 +36,19 @@ class UsersController < ApplicationController
           @user.update(is_biz: true)
         end
         session[:user_id] = @user.id
-        format.html { if @user.is_seeker
-          redirect_to job_register_profile_path, notice: "Let's create your profile!"
-        else
-          redirect_to business_register_profile_path, notice: "Let's create your business profile!"
-        end }
+        format.html {
+          if @user.is_seeker
+            redirect_to job_register_profile_path, notice: "Let's create your profile!"
+          else
+            redirect_to business_register_profile_path, notice: "Let's create your business profile!"
+          end }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
+  end
 
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
@@ -84,7 +86,7 @@ class UsersController < ApplicationController
       redirect_to users_url, notice: "Error setting admin status: #{@user.errors.full_messages.first}"
     end
   end
-end
+
 
   private
   # Use callbacks to share common setup or constraints between actions.
