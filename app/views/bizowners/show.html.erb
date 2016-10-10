@@ -10,6 +10,22 @@
   <%= @bizowner.description %>
 </p>
 
+<p>
+  <strong>Business Address:</strong>
+  <%= @bizowner.address %>
+</p>
+
+<p>
+  <strong>Postal Code</strong>
+  <%= @bizowner.postal_code %>
+</p>
+
+<p>
+  <strong>License:</strong>
+  <%= @bizowner.license_number %>
+</p>
+
+
 <%= link_to 'Show User Profile', profile_path %> |
 <%= link_to 'Edit User Profile', profile_edit_path %> |
 <%= link_to 'Edit Business Profile', business_edit_path %>

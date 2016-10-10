@@ -29,13 +29,8 @@ class UsersController < ApplicationController
         end
         session[:user_id] = @user.id
         format.html {
-           if @user.is_seeker
-          redirect_to job_register_profile_path, notice: "Let's create your profile!"
-        else
-          redirect_to business_register_profile_path, notice: "Let's create your business profile!"
-        end }
           if @user.is_seeker
-            redirect_to job_register_profile_path, notice: "Let's create your profile!"
+            redirect_to job_register_profile_path, notice: "Let's create your job profile!"
           else
             redirect_to business_register_profile_path, notice: "Let's create your business profile!"
           end }
@@ -47,12 +42,9 @@ class UsersController < ApplicationController
     end
   end
 
-
-
       # PATCH/PUT /users/1
       # PATCH/PUT /users/1.json
       def update
-
         respond_to do |format|
           if @user.update(edit_user_params)
             format.html { render :show, notice: 'User was successfully updated.' }
@@ -67,7 +59,6 @@ class UsersController < ApplicationController
       # DELETE /users/1
       # DELETE /users/1.json
       def destroy
-
         @user.destroy
         respond_to do |format|
           format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
@@ -77,7 +68,6 @@ class UsersController < ApplicationController
 
       # PATCH/PUT  /users/1/admin
       def toggle_admin
-
         @user.is_admin = !@user.is_admin
         if @user.save
           redirect_to users_url, notice: "User #{@user.name} Admin status is: #{@user.is_admin?}"
@@ -118,7 +108,6 @@ class UsersController < ApplicationController
         redirect_to users_url, notice: "Error setting admin status: #{@user.errors.full_messages.first}"
       end
     end
-
 
   private
   # Use callbacks to share common setup or constraints between actions.

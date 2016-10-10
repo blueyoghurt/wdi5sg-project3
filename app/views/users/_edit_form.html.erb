@@ -12,25 +12,36 @@
 <% end %>
 
 <div class="field">
-  <%= f.label :first_name %>
+  <%= f.label :first_name %>:
   <%= f.text_field :first_name %>
 </div>
 
 <div class="field">
-  <%= f.label :last_name %>
+  <%= f.label :last_name %>:
   <%= f.text_field :last_name %>
 </div>
 
 <div class="field">
-  <%= f.label :email %>
+  <%= f.label :email %>:
   <%= f.text_field :email %>
 </div>
 
 <div class="field">
-  <%= f.label :contact %>
+  <%= f.label :contact %>:
   <%= f.number_field :contact %>
 </div>
 
+<div class="field">
+  User Type:
+  <% if @user.is_admin %>
+    <%= "Admin"%>
+    <% elsif @user.is_seeker %>
+    <%= "Job Seeker" %>
+    <% else %>
+    <%= "Business Owner" %>
+    <% end %>
+</div>
+<br/>
 <div class="actions">
   <%= f.submit %>
 </div>

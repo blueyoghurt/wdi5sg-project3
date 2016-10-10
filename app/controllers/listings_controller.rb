@@ -25,7 +25,7 @@ class ListingsController < ApplicationController
   # POST /listings.json
   def create
     @listing = Listing.new(listing_params)
-    @listing.update(bizowner_id: current_user.id)
+    @listing.update(bizowner_id: Bizowner.find_by(user_id: current_user.id).id)
     @listing.update(status: true)
     respond_to do |format|
       if @listing.save

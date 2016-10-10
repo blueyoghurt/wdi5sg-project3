@@ -3,10 +3,8 @@ Rails.application.routes.draw do
   resources :bizowners_reviews
   resources :applications
   resources :listings
-  resources :users
-  resources :jobseekers
   resources :bizowners
-  resources :bizowners_reviews
+  resources :jobseekers
 
   root 'listings#index'
 
@@ -43,7 +41,6 @@ Rails.application.routes.draw do
   put "business/profile" => "bizowners#update"
   patch "business/profile" => "bizowners#update"
   post "business/profile" => "bizowners#update"
-
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
