@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :jobseekers_reviews
+  resources :bizowners_reviews
   resources :applications
   resources :listings
   root 'public#index'

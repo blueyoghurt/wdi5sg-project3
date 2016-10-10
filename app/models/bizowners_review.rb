@@ -1,0 +1,2 @@
+class BizownersReview < ApplicationRecord
+end
