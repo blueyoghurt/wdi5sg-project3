@@ -40,7 +40,7 @@ Rails.application.routes.draw do
   patch "business/profile" => "bizowners#update"
   post "business/profile" => "bizowners#update"
 
-
+  resources :jobseekers
   resources :bizowners
   resources :listings
   resources :applications
