@@ -85,6 +85,7 @@ class UsersController < ApplicationController
       redirect_to users_url, notice: "Error setting admin status: #{@user.errors.full_messages.first}"
     end
   end
+end
 
   private
   # Use callbacks to share common setup or constraints between actions.

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :applications
+  resources :listings
   root 'public#index'
 
   # AUTHENTICATION

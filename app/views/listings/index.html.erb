@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Business owner</th>
+      <th>Job title</th>
+      <th>Job description</th>
+      <th>Industry</th>
+      <th>Vacancy</th>
+      <th>Work location postal code</th>
+      <th>Main work location</th>
+      <th>Work location</th>
+      <th>Wage per hour</th>
+      <th>Job start date</th>
+      <th>Job end date</th>
+      <th>Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @listings.each do |listing| %>
+      <tr>
+        <td><%= listing.business_owner_id %></td>
+        <td><%= listing.job_title %></td>
+        <td><%= listing.job_description %></td>
+        <td><%= listing.industry %></td>
+        <td><%= listing.vacancy %></td>
+        <td><%= listing.work_location_postal_code %></td>
+        <td><%= listing.main_work_location %></td>
+        <td><%= listing.work_location %></td>
+        <td><%= listing.wage_per_hour %></td>
+        <td><%= listing.job_start_date %></td>
+        <td><%= listing.job_end_date %></td>
+        <td><%= listing.status %></td>
+        <td><%= link_to 'Show', listing %></td>
+        <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
+        <td><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Listing', new_listing_path %>

@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  business_owner_id: 1
+  job_title: MyString
+  job_description: MyText
+  industry: MyString
+  vacancy: 1
+  work_location_postal_code: MyString
+  main_work_location: MyString
+  work_location: MyString
+  wage_per_hour: 1.5
+  job_start_date: 2016-10-10
+  job_end_date: 2016-10-10
+  status: false
+
+two:
+  business_owner_id: 1
+  job_title: MyString
+  job_description: MyText
+  industry: MyString
+  vacancy: 1
+  work_location_postal_code: MyString
+  main_work_location: MyString
+  work_location: MyString
+  wage_per_hour: 1.5
+  job_start_date: 2016-10-10
+  job_end_date: 2016-10-10
+  status: false
