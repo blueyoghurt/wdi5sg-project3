@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :listings
   resources :bizowners
   resources :jobseekers
+
   root 'listings#index'
 
   # AUTHENTICATION

@@ -25,7 +25,9 @@ class JobseekersReviewsController < ApplicationController
   # POST /jobseekers_reviews.json
   def create
     @jobseekers_review = JobseekersReview.new(jobseekers_review_params)
-
+    @jobseekers_review.update(listing_id: current_user.id)
+    @jobseekers_review.update(bizowner_id: current_user.id)
+    @jobseekers_review.update(status: true)
     respond_to do |format|
       if @jobseekers_review.save
         format.html { redirect_to @jobseekers_review, notice: 'Jobseekers review was successfully created.' }
