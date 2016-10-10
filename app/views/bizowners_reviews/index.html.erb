@@ -17,21 +17,23 @@
 
   <tbody>
     <% @bizowners_reviews.each do |bizowners_review| %>
-      <tr>
-        <td><%= bizowners_review.bizowner_id %></td>
-        <td><%= bizowners_review.jobseeker_id %></td>
-        <td><%= bizowners_review.bizowner_review_star %></td>
-        <td><%= bizowners_review.business_review_description %></td>
-        <td><%= bizowners_review.job_end_date %></td>
-        <td><%= bizowners_review.status %></td>
-        <td><%= link_to 'Show', bizowners_review %></td>
-        <td><%= link_to 'Edit', edit_bizowners_review_path(bizowners_review) %></td>
-        <td><%= link_to 'Destroy', bizowners_review, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <tr>
+      <td><%= bizowners_review.bizowner_id %></td>
+      <td><%= bizowners_review.jobseeker_id %></td>
+      <td><%= bizowners_review.bizowner_review_star %></td>
+      <td><%= bizowners_review.business_review_description %></td>
+      <td><%= bizowners_review.job_end_date %></td>
+      <td><%= bizowners_review.status %></td>
+      <td><%= link_to 'Show', bizowners_review %></td>
+      <td><%= link_to 'Edit', edit_bizowners_review_path(bizowners_review) %></td>
+      <td><%= link_to 'Destroy', bizowners_review, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
 
+<% if current_user.is_seeker? %>
 <%= link_to 'New Bizowners Review', new_bizowners_review_path %>
+<% end %>

@@ -37,6 +37,10 @@ class BizownersController < ApplicationController
     @bizowner = Bizowner.find_by(user_id: current_user.id)
   end
 
+  def show
+    @bizowner = Bizowner.find_by(user_id: current_user.id)
+  end
+
   def update
     @bizowner = Bizowner.find_by(user_id: current_user.id)
     respond_to do |format|

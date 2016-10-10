@@ -1,7 +1,7 @@
 class CreateListings < ActiveRecord::Migration[5.0]
   def change
     create_table :listings do |t|
-      t.integer :business_owner_id
+      t.integer :bizowner_id
       t.string :job_title
       t.text :job_description
       t.string :industry

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :bizowners_reviews
   resources :applications
   resources :listings
+  resources :users
   root 'public#index'
 
   # AUTHENTICATION
@@ -32,14 +33,17 @@ Rails.application.routes.draw do
 
   # Bizowners - custom routes for biz owners
   get "business/register-profile" => "bizowners#new"
-  post "business" => "bizowners#create"
+  post "bizowners" => "bizowners#create"
   get "business/profile" => "bizowners#show"
   get "business/edit" => "bizowners#edit"
   put "business/profile" => "bizowners#update"
   patch "business/profile" => "bizowners#update"
+  post "business/profile" => "bizowners#update"
+
 
   resources :bizowners
   resources :listings
   resources :applications
+  resources :bizowners_reviews
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
