@@ -19,9 +19,7 @@
     <% @jobseekers_reviews.each do |jobseekers_review| %>
     <tr>
       <td><%= current_user.name %></td>
-
       <td><%= jobseekers_review.jobseeker.user.first_name unless jobseekers_review.jobseeker.blank? %></td>
-
       <td><%= jobseekers_review.jobseeker_review_star %></td>
       <td><%= jobseekers_review.jobseeker_review_description %></td>
       <td><%= jobseekers_review.job_end_date %></td>
