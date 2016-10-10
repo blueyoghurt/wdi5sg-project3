@@ -29,13 +29,8 @@ class UsersController < ApplicationController
         end
         session[:user_id] = @user.id
         format.html {
-           if @user.is_seeker
-          redirect_to job_register_profile_path, notice: "Let's create your profile!"
-        else
-          redirect_to business_register_profile_path, notice: "Let's create your business profile!"
-        end }
           if @user.is_seeker
-            redirect_to job_register_profile_path, notice: "Let's create your profile!"
+            redirect_to job_register_profile_path, notice: "Let's create your job profile!"
           else
             redirect_to business_register_profile_path, notice: "Let's create your business profile!"
           end }
@@ -118,8 +113,6 @@ class UsersController < ApplicationController
         redirect_to users_url, notice: "Error setting admin status: #{@user.errors.full_messages.first}"
       end
     end
-
-
 
   private
   # Use callbacks to share common setup or constraints between actions.

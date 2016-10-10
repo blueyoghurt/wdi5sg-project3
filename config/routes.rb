@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
   resources :jobseekers_reviews
   resources :bizowners_reviews
   resources :applications
   resources :listings
-  resources :users
+  resources :bizowners
+  resources :jobseekers
   root 'public#index'
 
   # AUTHENTICATION
@@ -41,10 +41,5 @@ Rails.application.routes.draw do
   patch "business/profile" => "bizowners#update"
   post "business/profile" => "bizowners#update"
 
-  resources :jobseekers
-  resources :bizowners
-  resources :listings
-  resources :applications
-  resources :bizowners_reviews
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -26,9 +26,10 @@ ActiveRecord::Schema.define(version: 20161010064500) do
   create_table "bizowners", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "name"
+    t.string   "address"
+    t.string   "postal_code"
     t.text     "description"
     t.string   "license_number"
-    t.string   "postal_code"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.index ["user_id"], name: "index_bizowners_on_user_id", using: :btree
