@@ -15,7 +15,7 @@
   <tbody>
     <% @applications.each do |application| %>
       <tr>
-        <td><%= application.listing_id %></td>
+        <td><%= application.listing.job_title %></td>
         <td><%= application.jobseeker_id %></td>
         <td><%= application.status %></td>
         <td><%= link_to 'Show', application %></td>
