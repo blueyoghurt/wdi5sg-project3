@@ -75,6 +75,7 @@ class UsersController < ApplicationController
     end
   end
 
+<<<<<<< HEAD
   # PATCH/PUT  /users/1/admin
   def toggle_admin
     @user = User.find(params[:id])
@@ -83,7 +84,6 @@ class UsersController < ApplicationController
       redirect_to users_url, notice: "User #{@user.name} Admin status is: #{@user.is_admin?}"
     else
       redirect_to users_url, notice: "Error setting admin status: #{@user.errors.full_messages.first}"
-    end
   end
 
   private
