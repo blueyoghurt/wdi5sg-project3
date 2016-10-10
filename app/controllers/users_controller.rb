@@ -84,6 +84,7 @@ class UsersController < ApplicationController
     else
       redirect_to users_url, notice: "Error setting admin status: #{@user.errors.full_messages.first}"
   end
+end
 
 end
 
