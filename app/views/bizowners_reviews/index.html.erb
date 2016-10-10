@@ -5,8 +5,8 @@
 <table>
   <thead>
     <tr>
-      <th>Bizowner</th>
-      <th>Jobseeker</th>
+      <th>Bizowner Name</th>
+      <th>Jobseeker Name</th>
       <th>Bizowner review star</th>
       <th>Business review description</th>
       <th>Job end date</th>
@@ -18,8 +18,8 @@
   <tbody>
     <% @bizowners_reviews.each do |bizowners_review| %>
     <tr>
-      <td><%= bizowners_review.bizowner_id %></td>
-      <td><%= bizowners_review.jobseeker_id %></td>
+      <td><%= current_user.name%></td>
+      <td><%= bizowners_review.bizowner.user.first_name unless bizowners_review.bizowner.blank? %></td>
       <td><%= bizowners_review.bizowner_review_star %></td>
       <td><%= bizowners_review.business_review_description %></td>
       <td><%= bizowners_review.job_end_date %></td>

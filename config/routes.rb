@@ -5,9 +5,10 @@ Rails.application.routes.draw do
   resources :bizowners_reviews
   resources :applications
   resources :listings
-  resources :bizowners
+  resources :users
   resources :jobseekers
-  root 'listings#index'
+  resources :bizowners
+
 
   # AUTHENTICATION
   get "login" => "sessions#new"

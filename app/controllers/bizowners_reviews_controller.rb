@@ -25,6 +25,8 @@ class BizownersReviewsController < ApplicationController
   # POST /bizowners_reviews.json
   def create
     @bizowners_review = BizownersReview.new(bizowners_review_params)
+    @bizowners_review.update(jobseeker_id: current_user.id)
+    @bizowners_review.update(status: true)
 
     respond_to do |format|
       if @bizowners_review.save
@@ -62,13 +64,13 @@ class BizownersReviewsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_bizowners_review
-      @bizowners_review = BizownersReview.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_bizowners_review
+    @bizowners_review = BizownersReview.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def bizowners_review_params
-      params.require(:bizowners_review).permit(:bizowner_id, :jobseeker_id, :bizowner_review_star, :business_review_description, :job_end_date, :status)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def bizowners_review_params
+    params.require(:bizowners_review).permit(:bizowner_id, :jobseeker_id, :bizowner_review_star, :business_review_description, :job_end_date, :status)
+  end
 end
