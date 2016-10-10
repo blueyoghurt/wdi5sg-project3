@@ -45,7 +45,7 @@ class BizownersController < ApplicationController
     @bizowner = Bizowner.find_by(user_id: current_user.id)
     respond_to do |format|
       if @bizowner.update(biz_params)
-        format.html { redirect_to job_profile_path, notice: 'Business Profile was successfully updated.' }
+        format.html { redirect_to business_profile_path, notice: 'Business Profile was successfully updated.' }
         format.json { render :show, status: :ok, location: @bizowner }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class BizownersController < ApplicationController
   private
   # Never trust parameters from the scary internet, only allow the white list through.
   def biz_params
-    params.require(:bizowner).permit(:name, :description , :license_number, :postal_code)
+    params.require(:bizowner).permit(:name, :description , :license_number, :postal_code, :address)
   end
 
 end
