@@ -31,7 +31,7 @@
         <td><%= jobseeker.end_date %></td>
         <td><%= jobseeker.availability %></td>
         <td><%= link_to 'Show', jobseeker %></td>
-        <td><%= link_to 'Edit', edit_jobseeker_path(jobseeker) %></td>
+        <td><%= link_to 'Edit', edit_jobseekers_path(jobseeker) %></td>
         <td><%= link_to 'Destroy', jobseeker, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
@@ -39,5 +39,3 @@
 </table>
 
 <br>
-
-<%= link_to 'New Jobseeker', new_jobseeker_path %>
