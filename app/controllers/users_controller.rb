@@ -75,7 +75,6 @@ class UsersController < ApplicationController
     end
   end
 
-<<<<<<< HEAD
   # PATCH/PUT  /users/1/admin
   def toggle_admin
     @user = User.find(params[:id])
@@ -85,6 +84,7 @@ class UsersController < ApplicationController
     else
       redirect_to users_url, notice: "Error setting admin status: #{@user.errors.full_messages.first}"
   end
+end
 
   private
   # Use callbacks to share common setup or constraints between actions.
