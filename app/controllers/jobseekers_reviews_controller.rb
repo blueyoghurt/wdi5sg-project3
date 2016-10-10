@@ -25,7 +25,7 @@ class JobseekersReviewsController < ApplicationController
   # POST /jobseekers_reviews.json
   def create
     @jobseekers_review = JobseekersReview.new(jobseekers_review_params)
-    @jobseekers_review.update(bizowner_id: current_user.id)
+    @jobseekers_review.update(bizowner_id: Bizowner.find_by(user_id: current_user.id).id)
     @jobseekers_review.update(status: true)
     respond_to do |format|
       if @jobseekers_review.save

@@ -54,6 +54,10 @@ class BizownersController < ApplicationController
     end
   end
 
+  def address
+
+  end
+
   private
   # Never trust parameters from the scary internet, only allow the white list through.
   def biz_params
