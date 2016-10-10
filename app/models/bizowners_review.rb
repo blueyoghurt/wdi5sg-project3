@@ -1,2 +1,3 @@
 class BizownersReview < ApplicationRecord
+
 end

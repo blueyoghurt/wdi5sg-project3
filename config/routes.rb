@@ -39,6 +39,7 @@ Rails.application.routes.draw do
   patch "business/profile" => "bizowners#update"
 
   resources :bizowners
-
+  resources :listings
+  resources :applications
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
