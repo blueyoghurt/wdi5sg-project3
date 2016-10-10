@@ -26,6 +26,7 @@
       <tr>
         <td><%= listing.bizowner.name %></td>
         <td><%= link_to listing.job_title,listing_path(listing) %></td>
+          <!-- <%= listing.job_title %></td> -->
         <td><%= listing.job_description %></td>
         <td><%= listing.industry %></td>
         <td><%= listing.vacancy %></td>
@@ -51,6 +52,6 @@
 <br>
 
 <% if current_user.is_biz %>
-<%= link_to 'See My Listings', listings_bizowner_path %> |
+<%= link_to 'See All Listings', listings_path %> |
 <% end %>
 <%= link_to 'New Listing', new_listing_path %>
