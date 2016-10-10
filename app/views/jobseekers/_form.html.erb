@@ -1,62 +1,62 @@
 <%= form_for(jobseeker) do |f| %>
-  <% if jobseeker.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(jobseeker.errors.count, "error") %> prohibited this jobseeker from being saved:</h2>
+<% if jobseeker.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(jobseeker.errors.count, "error") %> prohibited this jobseeker from being saved:</h2>
 
-      <ul>
-      <% jobseeker.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <ul>
+    <% jobseeker.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 
-  <div class="field">
-    <%= f.label :dob %>
-    <%= f.date_select :dob %>
-  </div>
+<div class="field">
+  <%= f.label :dob %>
+  <%= f.date_select :dob, :start_year => 1975, :end_year => 2001 %>
+</div>
 
-  <div class="field">
-    <%= f.label :postal_code %>
-    <%= f.text_field :postal_code %>
-  </div>
+<div class="field">
+  <%= f.label :postal_code %>
+  <%= f.text_field :postal_code %>
+</div>
 
-  <div class="field">
-    <%= f.label :highest_qualification %>
-    <%= f.text_field :highest_qualification %>
-  </div>
+<div class="field">
+  <%= f.label :highest_qualification %>
+  <%= f.text_field :highest_qualification %>
+</div>
 
-  <div class="field">
-    <%= f.label :preferred_area %>
-    <%= f.text_field :preferred_area %>
-  </div>
+<div class="field">
+  <%= f.label :preferred_area %>
+  <%= f.text_field :preferred_area %>
+</div>
 
-  <div class="field">
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-  </div>
+<div class="field">
+  <%= f.label :preferred_location %>
+  <%= f.text_field :preferred_location %>
+</div>
 
-  <div class="field">
-    <%= f.label :wage %>
-    <%= f.text_field :wage %>
-  </div>
+<div class="field">
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+</div>
 
-  <div class="field">
-    <%= f.label :start_date %>
-    <%= f.date_select :start_date %>
-  </div>
+<div class="field">
+  <%= f.label :wage %>
+  <%= f.number_field :wage, :step => 0.01 %>
+</div>
 
-  <div class="field">
-    <%= f.label :end_date %>
-    <%= f.date_select :end_date %>
-  </div>
+<div class="field">
+  <%= f.label :start_date %>
+  <%= f.date_select :start_date, :start_year => 2016, :end_year => 2017 %>
+</div>
 
-  <div class="field">
-    <%= f.label :availability %>
-    <%= f.check_box :availability %>
-  </div>
+<div class="field">
+  <%= f.label :end_date %>
+  <%= f.date_select :end_date, :start_year => 2016, :end_year => 2017 %>
+</div>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<div class="actions">
+  <%= f.submit %>
+</div>
 <% end %>
