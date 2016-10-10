@@ -28,7 +28,7 @@ Rails.application.routes.draw do
 
   # Bizowners - custom routes for biz owners
   get "business/register-profile" => "bizowners#new"
-  post "business" => "bizowners#create"
+  post "bizowners" => "bizowners#create"
   get "business/profile" => "bizowners#show"
   get "business/edit" => "bizowners#edit"
   put "business/profile" => "bizowners#update"
