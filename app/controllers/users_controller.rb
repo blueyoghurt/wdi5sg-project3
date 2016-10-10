@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :toggle_admin]
   before_action :is_authenticated, except: [:new, :create]
   before_action :is_authenticated_admin, only: [:index, :destroy, :toggle_admin]
 
@@ -67,7 +67,7 @@ class UsersController < ApplicationController
       # DELETE /users/1
       # DELETE /users/1.json
       def destroy
-        @user = User.find(params[:id])
+
         @user.destroy
         respond_to do |format|
           format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
@@ -77,7 +77,7 @@ class UsersController < ApplicationController
 
       # PATCH/PUT  /users/1/admin
       def toggle_admin
-        @user = User.find(params[:id])
+
         @user.is_admin = !@user.is_admin
         if @user.save
           redirect_to users_url, notice: "User #{@user.name} Admin status is: #{@user.is_admin?}"
@@ -118,7 +118,6 @@ class UsersController < ApplicationController
         redirect_to users_url, notice: "Error setting admin status: #{@user.errors.full_messages.first}"
       end
     end
-
 
 
   private
