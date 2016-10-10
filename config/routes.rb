@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :jobseekers
   resources :bizowners
 
+  post "applications/:id" => "applications#create"
 
   # AUTHENTICATION
   get "login" => "sessions#new"

@@ -25,7 +25,7 @@
     <% @listings.each do |listing| %>
       <tr>
         <td><%= listing.bizowner.name %></td>
-        <td><%= listing.job_title %></td>
+        <td><%= link_to listing.job_title,listing_path(listing) %></td>
         <td><%= listing.job_description %></td>
         <td><%= listing.industry %></td>
         <td><%= listing.vacancy %></td>
@@ -36,9 +36,13 @@
         <td><%= listing.job_start_date %></td>
         <td><%= listing.job_end_date %></td>
         <td><%= listing.status %></td>
-        <td><%= link_to 'Show', listing %></td>
-        <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
-        <td><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if current_user %>
+          <% if current_user.is_admin %>
+            <td><%= link_to 'Show', listing %></td>
+            <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
+            <td><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

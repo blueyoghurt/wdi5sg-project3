@@ -1,6 +1,6 @@
 class ListingsController < ApplicationController
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
-
+  before_action :is_authenticated, except: [:index]
   # GET /listings
   # GET /listings.json
   def index
@@ -63,13 +63,13 @@ class ListingsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_listing
-      @listing = Listing.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_listing
+    @listing = Listing.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def listing_params
-      params.require(:listing).permit(:job_title, :job_description, :industry, :vacancy, :work_location_postal_code, :main_work_location, :work_location, :wage_per_hour, :job_start_date, :job_end_date)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def listing_params
+    params.require(:listing).permit(:job_title, :job_description, :industry, :vacancy, :work_location_postal_code, :main_work_location, :work_location, :wage_per_hour, :job_start_date, :job_end_date)
+  end
 end
