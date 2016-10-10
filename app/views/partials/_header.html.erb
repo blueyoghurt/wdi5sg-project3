@@ -15,6 +15,11 @@
       <%= link_to "Manage Users", users_path, class: "nav-link" %>
     </li>
     <% end %>
+    <% if current_user.is_biz? %>
+    <li class="nav-item">
+      <%= link_to "Post A Job", new_listing_path, class: "nav-link" %>
+    </li>
+    <% end %>
     <li class="nav-item">
       <%= link_to 'Logout', logout_path, class: "nav-link", method: :delete %>
     </li>

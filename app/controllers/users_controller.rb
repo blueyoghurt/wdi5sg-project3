@@ -47,7 +47,6 @@ class UsersController < ApplicationController
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
-  end
 
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
@@ -83,6 +82,7 @@ class UsersController < ApplicationController
       redirect_to users_url, notice: "User #{@user.name} Admin status is: #{@user.is_admin?}"
     else
       redirect_to users_url, notice: "Error setting admin status: #{@user.errors.full_messages.first}"
+    end
   end
 end
 
