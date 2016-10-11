@@ -5,11 +5,9 @@ class ApplicationsController < ApplicationController
   # GET /applications.json
   def index
     @applications = Application.all
+    # find(:all, :conditions => {:user_id => current_user.id})
   end
 
-  def bizowner
-    @applications = Application.where(bizowner_id: Bizowner.find_by(user_id: current_user.id).id)
-  end
 
   # GET /applications/1
   # GET /applications/1.json
@@ -64,6 +62,7 @@ class ApplicationsController < ApplicationController
   def set_application
     @application = Application.find(params[:id])
   end
+
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def application_params
