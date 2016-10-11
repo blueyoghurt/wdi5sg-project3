@@ -1,5 +1,6 @@
 class ApplicationsController < ApplicationController
   before_action :set_application, only: [:show, :edit, :update, :destroy]
+  before_action :is_authenticated_admin, only: [:index]
 
   # GET /applications
   # GET /applications.json
@@ -25,7 +26,7 @@ class ApplicationsController < ApplicationController
         format.html { redirect_to @application, notice: 'Application was successfully created.' }
         format.json { render :show, status: :created, location: @application }
       else
-        format.html { render :new }
+        format.html { redirect_to root_path, notice: 'You have already applied for this listing' }
         format.json { render json: @application.errors, status: :unprocessable_entity }
       end
     end
