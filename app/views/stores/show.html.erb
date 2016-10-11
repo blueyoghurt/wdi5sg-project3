@@ -1,0 +1,29 @@
+<div class="page-header">
+  <%= link_to stores_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_store_path(@store), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show store</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Latitude:</dt>
+  <dd><%= @store.latitude %></dd>
+
+  <dt>Longitude:</dt>
+  <dd><%= @store.longitude %></dd>
+
+  <dt>Name:</dt>
+  <dd><%= @store.name %></dd>
+
+  <dt>address:</dt>
+  <dd><%= @store.address %></dd>
+
+  <dt>Title:</dt>
+  <dd><%= @store.title %></dd>
+
+</dl>
