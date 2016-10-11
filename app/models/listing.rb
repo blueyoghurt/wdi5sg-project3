@@ -1,4 +1,4 @@
 class Listing < ApplicationRecord
   belongs_to :bizowner
-  has_many :applications
+  has_many :applications, dependent: :destroy
 end

@@ -9,7 +9,7 @@
 User.find_or_create_by!(email: ENV["seed_email"]) do |user|
   user.first_name = 'dexter'
   user.last_name = 'wei ying'
-  user.is_seeker = true
+  user.is_seeker = false
   user.is_biz = true
   user.is_admin = true
   user.password = ENV["seed_password"]
