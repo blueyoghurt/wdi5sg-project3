@@ -1,6 +1,6 @@
 class ApplicationsController < ApplicationController
   before_action :set_application, only: [:show, :edit, :update, :destroy]
-  before_action :is_authenticated, only: [:show]
+  before_action :is_authenticated, only: [:index, :show, :new, :edit]
 
   # GET /applications
   # GET /applications.json
