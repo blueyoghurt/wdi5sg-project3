@@ -1,2 +1,0 @@
-class Arealocation < ApplicationRecord
-end
