@@ -5,13 +5,15 @@ class StoresController < ApplicationController
   # GET /stores
   # GET /stores.json
   def index
+    params.permit!
+    #Hack way to resolve permit problem.
     @stores = Store.all
-    # @stores = Store.search(params[:search],params[:fieldtype]).order(sort_column + " " + sort_direction).paginate(:per_page => 5, :page => params[:page])
-    # @map_hash = Gmaps4rails.build_markers(@stores) do |store, marker|
-    #   marker.lat store.latitude
-    #   marker.lng store.longitude
-    #   marker.infowindow store.title
-    # end
+    @stores = Store.search(params[:search],params[:fieldtype]).order(sort_column + " " + sort_direction).paginate(:per_page => 5, :page => params[:page])
+    @map_hash = Gmaps4rails.build_markers(@stores) do |store, marker|
+      marker.lat store.latitude
+      marker.lng store.longitude
+      marker.infowindow store.title
+    end
   end
 
   # GET /stores/1
