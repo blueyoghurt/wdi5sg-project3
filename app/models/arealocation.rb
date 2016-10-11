@@ -1,0 +1,2 @@
+class Arealocation < ApplicationRecord
+end
