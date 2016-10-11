@@ -5,11 +5,11 @@ class ApplicationsController < ApplicationController
   # GET /applications.json
   def index
     if current_user.is_admin
-      applications = Application.all
+      @applications = Application.all
       elsif current_user.is_seeker
-      applications = Application.where(jobseeker_id: Jobseeker.find_by(user_id: current_user.id).id)
+      @applications = Application.where(jobseeker_id: Jobseeker.find_by(user_id: current_user.id).id)
       else
-      applications = Application.where(listing_id: Bizowner.find_by(user_id: current_user.id).id)
+      @applications = Application.where(listing_id: Bizowner.find_by(user_id: current_user.id).id)
     end
   end
 
