@@ -7,10 +7,12 @@ class ApplicationsController < ApplicationController
     @applications = Application.all
   end
 
+  def bizowner
+    @applications = Application.where(bizowner_id: Bizowner.find_by(user_id: current_user.id).id)
+  end
+
   # GET /applications/1
   # GET /applications/1.json
-  def show
-  end
 
   # GET /applications/new
 
@@ -27,6 +29,10 @@ class ApplicationsController < ApplicationController
         format.json { render json: @application.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def edit
+    @bizowner = Bizowner.find_by(user_id: current_user.id)
   end
 
   # PATCH/PUT /applications/1

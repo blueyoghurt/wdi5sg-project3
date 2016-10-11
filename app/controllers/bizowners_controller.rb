@@ -21,7 +21,7 @@ class BizownersController < ApplicationController
   end
 
   def show
-    @jobseeker = Jobseeker.find_by(user_id: current_user.id)
+    @bizowner = Bizowner.find_by(user_id: current_user.id)
   end
 
 
