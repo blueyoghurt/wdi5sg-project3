@@ -1,15 +1,16 @@
 class ApplicationsController < ApplicationController
   before_action :set_application, only: [:show, :edit, :update, :destroy]
-  before_action :is_authenticated_admin, only: [:index]
 
   # GET /applications
   # GET /applications.json
   def index
-    @applications = Application.all
-  end
-
-  def bizowner
-    @applications = Application.where(bizowner_id: Bizowner.find_by(user_id: current_user.id).id)
+    if @current_user.is_admin
+      @applications = Application.all
+      elsif current_user.is_seeker
+      @applications = Application.where(jobseeker_id: Jobseeker.find_by(user_id: current_user.id).id)
+      else
+      @applications = Application.where(listing_id: Bizowner.find_by(user_id: current_user.id).id)
+    end
   end
 
   # GET /applications/1
@@ -65,6 +66,7 @@ class ApplicationsController < ApplicationController
   def set_application
     @application = Application.find(params[:id])
   end
+
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def application_params
