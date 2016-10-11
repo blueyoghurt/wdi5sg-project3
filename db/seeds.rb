@@ -15,3 +15,5 @@ User.find_or_create_by!(email: ENV["seed_email"]) do |user|
   user.password = ENV["seed_password"]
   user.contact = 12345678
 end
+
+arealocations = Arealocation.create([{id: 1, area: "North", location:"Ang Mo Kio"},{id: 2, area: "North", location: "Bishan"}])
