@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   post "applications/:id" => "applications#create"
   get "listings/bizowner" => "listings#bizowner"
 
+  get "applications/bizowner" => "applications#bizowner"
+  get "applications/jobseeker" => "applications#jobseeker"
+
 
   # AUTHENTICATION
   get "login" => "sessions#new"
