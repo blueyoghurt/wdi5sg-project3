@@ -1,5 +1,70 @@
 <p id="notice"><%= notice %></p>
 
+
+<div id="contact" class="map">
+
+  <div id="map"></div>
+
+</div>
+
+<!-- <script src="/javascripts/map.js">
+</script> -->
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZzwCvTDriQgX_bFx2nC6Lbphm2iToO4k&callback=initMap">
+</script>
+<!-- <script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script> -->
+<script type='text/javascript'></script> <!-- only if you need custom infoboxes -->
+<script src="map.js"></script>
+
+
+
+
+
+<!-- Search Bar -->
+<div class="container">
+  <legend>Search Bar</legend>
+  <!-- users will be able to search by the job that is nearest to them or pay the highest wages. -->
+  <!-- Limit by 5. Top 5 Nearest or top 5 highest Wages. -->
+  <form class="form-inline">
+
+    <div class="form-group">
+      <label for="exampleInputName2">Location</label>
+      <input type="text" class="form-control" id="exampleInputName2" placeholder="Your Postal Code">
+    </div>
+
+    <div class="form-group">
+      <label for="exampleInputEmail2">Search Radius</label>
+      <select id="radius" name="radius" class="form-control">
+        <option value="1">5 km</option>
+        <option value="2">10 km</option>
+        <option value="3">15 km</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="exampleInputEmail2">Job Type</label>
+      <select id="property_type" name="property_type" class="form-control">
+        <option value="1">F&B</option>
+        <option value="2">Hospitality</option>
+        <option value="3">Events</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+
+      <label for="exampleInputEmail2">Wages per Hour</label>
+      <select id="price_min" name="price_min" class="form-control">
+        <option value="1">$8.00</option>
+        <option value="2">$9.00</option>
+        <option value="2">$10.00</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Search</button>
+  </form>
+</div>
+<!-- End of Search Bar -->
+
 <h1>Listings</h1>
 
 <table>
@@ -23,28 +88,28 @@
 
   <tbody>
     <% @listings.each do |listing| %>
-      <tr>
-        <td><%= listing.bizowner.name %></td>
-        <td><%= link_to listing.job_title,listing_path(listing) %></td>
-          <!-- <%= listing.job_title %></td> -->
-        <td><%= listing.job_description %></td>
-        <td><%= listing.industry %></td>
-        <td><%= listing.vacancy %></td>
-        <td><%= listing.work_location_postal_code %></td>
-        <td><%= listing.main_work_location %></td>
-        <td><%= listing.work_location %></td>
-        <td><%= listing.wage_per_hour %></td>
-        <td><%= listing.job_start_date %></td>
-        <td><%= listing.job_end_date %></td>
-        <td><%= listing.status %></td>
-        <% if current_user %>
-          <% if current_user.is_admin %>
-            <td><%= link_to 'Show', listing %></td>
-            <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
-            <td><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          <% end %>
-        <% end %>
-      </tr>
+    <tr>
+      <td><%= listing.bizowner.name %></td>
+      <td><%= link_to listing.job_title,listing_path(listing) %></td>
+      <!-- <%= listing.job_title %></td> -->
+      <td><%= listing.job_description %></td>
+      <td><%= listing.industry %></td>
+      <td><%= listing.vacancy %></td>
+      <td><%= listing.work_location_postal_code %></td>
+      <td><%= listing.main_work_location %></td>
+      <td><%= listing.work_location %></td>
+      <td><%= listing.wage_per_hour %></td>
+      <td><%= listing.job_start_date %></td>
+      <td><%= listing.job_end_date %></td>
+      <td><%= listing.status %></td>
+      <% if current_user %>
+      <% if current_user.is_admin %>
+      <td><%= link_to 'Show', listing %></td>
+      <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
+      <td><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+      <% end %>
+    </tr>
     <% end %>
   </tbody>
 </table>
