@@ -1,20 +1,25 @@
 class ApplicationsController < ApplicationController
   before_action :set_application, only: [:show, :edit, :update, :destroy]
-  before_action :is_authenticated_admin, only: [:index]
+  # before_action :is_authenticated_admin, only: [:index]
+  before_action :is_authenticated, only: [:index]
 
 
   # GET /applications
   # GET /applications.json
   def index
-    @applications = Application.all
+    if @current_user.is_admin
+      @applications = Application.all
+      elsif current_user.is_seeker
+      @applications = Application.where(jobseeker_id: Jobseeker.find_by(user_id: current_user.id).id)
+      else
+      @applications = Application.where(listing_id: Bizowner.find_by(user_id: current_user.id).id)
+    end
   end
 
   def bizowner
-    @applications = Application.where(listing_id: Bizowner.find_by(user_id: current_user.id).id)
   end
 
   def jobseeker
-    @applications = Application.where(jobseeker_id: Jobseeker.find_by(user_id: current_user.id).id)
   end
 
 
@@ -26,7 +31,7 @@ class ApplicationsController < ApplicationController
   # POST /applications
   # POST /applications.json
   def create
-    @application = Application.new(listing_id: params[:id], jobseeker_id: Jobseeker.find_by(user_id: current_user.id).id)
+    @application = Application.new(listing_id: params[:id], jobseeker_id: Jobseeker.find_by(user_id: current_user.id).id, status: "Pending")
     respond_to do |format|
       if @application.save
         format.html { redirect_to @application, notice: 'Application was successfully created.' }

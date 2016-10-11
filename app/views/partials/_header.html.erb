@@ -15,18 +15,20 @@
       <%= link_to "Manage Users", users_path, class: "nav-link" %>
     </li>
     <% end %>
-
+    <% if current_user.is_seeker %>
     <li class="nav-item">
-      <%= link_to "Jobseekers Reviews", jobseekers_reviews_path, class: "nav-link" %>
+      <%= link_to "See My Applications", applications_path, class: "nav-link" %>
     </li>
     <li class="nav-item">
-      <%= link_to 'Business Owners Reviews', bizowners_reviews_path, class: "nav-link" %>
+      <%= link_to "Post Review", jobseekers_reviews_path, class: "nav-link" %>
     </li>
-
-
+    <% end %>
     <% if current_user.is_biz %>
     <li class="nav-item">
       <%= link_to "Post A Job", new_listing_path, class: "nav-link" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to 'Post Review', bizowners_reviews_path, class: "nav-link" %>
     </li>
     <% end %>
     <li class="nav-item">
