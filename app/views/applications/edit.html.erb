@@ -1,7 +1,6 @@
 <h1>Editing Application</h1>
 
 <% if current_user.is_seeker %>
-<%= link_to 'View Applications', application_path %> |
 <% elsif current_user.is_biz %>
 <%= form_for(@application) do |f| %>
 

@@ -20,9 +20,11 @@
         <td><%= application.listing.job_description %></td>
         <td><%= link_to application.jobseeker.user.name, jobseeker_path(application) %></td>
         <td><%= application.status %></td>
-        <td><%= link_to 'Show', application %></td>
+        <td><%= link_to 'View', application %></td>
+        <% if current_user.is_biz %>
         <td><%= link_to 'Edit', edit_application_path(application) %></td>
-        <td><%= link_to 'Destroy', application, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+        <td><%= link_to 'Delete', application, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
