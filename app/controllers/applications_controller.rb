@@ -19,7 +19,7 @@ class ApplicationsController < ApplicationController
   # POST /applications
   # POST /applications.json
   def create
-    @application = Application.new(listing_id: params[:id], jobseeker_id: Jobseeker.find_by(user_id: current_user.id).id)
+    @application = Application.new(listing_id: params[:id], jobseeker_id: Jobseeker.find_by(user_id: current_user.id).id, status: "Pending")
     respond_to do |format|
       if @application.save
         format.html { redirect_to @application, notice: 'Application was successfully created.' }
