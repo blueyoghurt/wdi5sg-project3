@@ -6,7 +6,7 @@ class CreateJobs < ActiveRecord::Migration[5.0]
       t.float :longitude
       t.string :name
       t.string :address
-      t.string :title
+      t.string :company_name
       t.string :job_title
       t.text :job_description
       t.string :industry

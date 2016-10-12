@@ -1,4 +1,4 @@
-<%= form_for(jobseeker) do |f| %>
+<%= form_for(@jobseeker, html: { class: "form-horizontal", role: "form" }) do |f| %>
 <% if jobseeker.errors.any? %>
 <div id="error_explanation">
   <h2><%= pluralize(jobseeker.errors.count, "error") %> prohibited this jobseeker from being saved:</h2>
@@ -11,52 +11,73 @@
 </div>
 <% end %>
 
-<div class="field">
-  <%= f.label :dob %>
-  <%= f.date_select :dob, :start_year => 1965, :end_year => 2001 %>
+
+<div class="form-group">
+  <%= f.label :postal_code, class: "col-md-2 control-label" %>
+  <div class="col-md-10">
+  <%= f.text_field :postal_code, class: "form-control" %>
+</div>
 </div>
 
-<div class="field">
-  <%= f.label :postal_code %>
-  <%= f.text_field :postal_code %>
+<div class="form-group">
+  <%= f.label :highest_qualification, class: "col-md-2 control-label" %>
+  <div class="col-md-10">
+  <%= f.text_field :highest_qualification, class: "form-control" %>
+</div>
 </div>
 
-<div class="field">
-  <%= f.label :highest_qualification %>
-  <%= f.text_field :highest_qualification %>
+<div class="form-group">
+  <%= f.label :preferred_area, class: "col-md-2 control-label" %>
+  <div class="col-md-10">
+  <%= f.text_field :preferred_area, class: "form-control" %>
+</div>
 </div>
 
-<div class="field">
-  <%= f.label :preferred_area %>
-  <%= f.text_field :preferred_area %>
+<div class="form-group">
+  <%= f.label :preferred_location, class: "col-md-2 control-label" %>
+  <div class="col-md-10">
+  <%= f.text_field :preferred_location, class: "form-control" %>
+</div>
 </div>
 
-<div class="field">
-  <%= f.label :preferred_location %>
-  <%= f.text_field :preferred_location %>
+<div class="form-group">
+  <%= f.label :description, class: "col-md-2 control-label" %>
+  <div class="col-md-10">
+  <%= f.text_area :description, class: "form-control" %>
+</div>
 </div>
 
-<div class="field">
-  <%= f.label :description %>
-  <%= f.text_area :description %>
+<div class="form-group">
+  <%= f.label :wage, class: "col-md-2 control-label" %>
+  <div class="col-md-10">
+  <%= f.number_field :wage, :step => 0.01, class: "form-control" %>
+</div>
 </div>
 
-<div class="field">
-  <%= f.label :wage %>
-  <%= f.number_field :wage, :step => 0.01 %>
+<div class="form-group">
+  <%= f.label :start_date, class: "col-md-2 control-label" %>
+  <div class="col-md-10">
+  <%= f.date_field :start_date, :start_year => 2016, :end_year => 2017, class: "form-control" %>
+</div>
 </div>
 
-<div class="field">
-  <%= f.label :start_date %>
-  <%= f.date_field :start_date, :start_year => 2016, :end_year => 2017 %>
+<div class="form-group">
+  <%= f.label :end_date, class: "col-md-2 control-label" %>
+  <div class="col-md-10">
+  <%= f.date_field :end_date, :start_year => 2016, :end_year => 2017, class: "form-control" %>
+</div>
 </div>
 
-<div class="field">
-  <%= f.label :end_date %>
-  <%= f.date_field :end_date, :start_year => 2016, :end_year => 2017 %>
+<div class="form-group">
+  <%= f.label :dob, class: "col-md-2 control-label" %>
+  <div class="col-md-10">
+  <%= f.date_select :dob, :start_year => 1965, :end_year => 2001, class: "form-control" %>
+</div>
 </div>
 
-<div class="actions">
-  <%= f.submit %>
+<div class="form-group">
+  <div class="col-sm-offset-2 col-md-10">
+  <%= f.submit class: "btn btn-primary" %>
+</div>
 </div>
 <% end %>

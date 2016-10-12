@@ -11,6 +11,13 @@
   </ul>
 </div>
 <% end %>
+<<<<<<< HEAD
+
+<div class="form-group">
+  <%= f.label :job_title, class: "col-md-2 control-label" %>
+  <div class="col-md-10">
+    <%= f.text_field :job_title, class: "form-control" %>
+=======
 <!-- Hide Lat and long when render -->
 <!-- <div class="form-group">
 <%= f.label :latitude, class: "col-sm-2 control-label" %>
@@ -36,6 +43,7 @@
     <%= f.text_field :address, class: "form-control" %>
   </div>
 </div>
+
 <div class="form-group">
   <%= f.label :"company_name", class: "col-sm-2 control-label" %>
   <div class="col-sm-10">
@@ -44,58 +52,56 @@
 </div>
 
 <div class="form-group">
-  <%= f.label :job_title, class: "col-sm-2 control-label" %>
-  <div class="col-sm-10">
-    <%= f.text_field :job_title, class: "form-control" %>
+  <%= f.label :job_description, class: "col-md-2 control-label" %>
+  <div class="col-md-10">
+    <%= f.text_area :job_description, class: "form-control" %>
   </div>
 </div>
 
 <div class="form-group">
-  <%= f.label :job_description, class: "col-sm-2 control-label" %>
-  <div class="col-sm-10">
-    <%= f.text_field :job_description, class: "form-control" %>
+  <%= f.label :"Location of Work", class: "col-md-2 control-label" %>
+  <div class="col-md-10">
+    <%= f.text_field :address, class: "form-control" %>
   </div>
 </div>
 
 <div class="form-group">
-  <%= f.label :industry, class: "col-sm-2 control-label" %>
-  <div class="col-sm-10">
+  <%= f.label :industry, class: "col-md-2 control-label" %>
+  <div class="col-md-10">
     <%= f.text_field :industry, class: "form-control" %>
   </div>
 </div>
 
 <div class="form-group">
-  <%= f.label :vacancy, class: "col-sm-2 control-label" %>
-  <div class="col-sm-10">
-    <%= f.number_field :vacancy %>
+  <%= f.label :vacancy, class: "col-md-2 control-label" %>
+  <div class="col-md-10">
+    <%= f.number_field :vacancy, class: "form-control" %>
   </div>
 </div>
 
 <div class="form-group">
-  <%= f.label :wage_per_hour, class: "col-sm-2 control-label" %>
-  <div class="col-sm-10">
-    <%= f.text_field :wage_per_hour, :step => 0.01 %>
+  <%= f.label :hourly_wage, class: "col-md-2 control-label" %>
+  <div class="col-md-10">
+    <%= f.number_field :wage_per_hour, :step =>0.1 , class: "form-control" %>
   </div>
 </div>
 
 <div class="form-group">
-  <%= f.label :job_start_date, class: "col-sm-2 control-label" %>
-  <div class="col-sm-10">
-    <%= f.date_select :job_start_date, :start_year => 2016, :end_year => 2017 %>
+  <%= f.label :start_date, class: "col-md-2 control-label" %>
+  <div class="col-md-10">
+    <%= f.date_field :job_start_date, class: "form-control" %>
   </div>
 </div>
 
 <div class="form-group">
-  <%= f.label :job_end_date, class: "col-sm-2 control-label" %>
-  <div class="col-sm-10">
-    <%= f.date_select :job_end_date, :start_year => 2016, :end_year => 2017 %>
+  <%= f.label :end_date, class: "col-md-2 control-label" %>
+  <div class="col-md-10">
+    <%= f.date_field :job_end_date, class: "form-control" %>
   </div>
 </div>
 
-
-
 <div class="form-group">
-  <div class="col-sm-offset-2 col-sm-10">
+  <div class="col-sm-offset-2 col-md-10">
     <%= f.submit class: "btn btn-primary" %>
   </div>
 </div>
