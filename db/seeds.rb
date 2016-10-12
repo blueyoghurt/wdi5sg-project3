@@ -7,18 +7,18 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.find_or_create_by!(email: ENV["seed_email"]) do |user|
-  user.first_name = 'dexter'
+  user.first_name = 'Admin'
   user.last_name = 'wei ying'
   user.is_seeker = false
   user.is_biz = false
-  user.is_admin = false
+  user.is_admin = true
   user.password = ENV["seed_password"]
   user.contact = 12345678
 end
 
 User.find_or_create_by!(email: ENV["biz_email"]) do |user|
   user.first_name = 'Bizowner'
-  user.last_name = 'One'
+  user.last_name = 'Yi Hui'
   user.is_seeker = false
   user.is_biz = true
   user.is_admin = true
@@ -28,32 +28,106 @@ end
 
 User.find_or_create_by!(email: ENV["job_email"]) do |user|
   user.first_name = 'JobSeeker'
-  user.last_name = 'One'
+  user.last_name = 'Kuan Yu'
   user.is_seeker = true
   user.is_biz = false
-  user.is_admin = true
+  user.is_admin = false
+  user.password = ENV["seed_password"]
+  user.contact = 12345678
+end
+
+User.find_or_create_by!(email: ENV["biz2_email"]) do |user|
+  user.first_name = 'Bizowner'
+  user.last_name = 'Victor'
+  user.is_seeker = false
+  user.is_biz = true
+  user.is_admin = false
+  user.password = ENV["seed_password"]
+  user.contact = 12345678
+end
+
+User.find_or_create_by!(email: ENV["job2_email"]) do |user|
+  user.first_name = 'JobSeeker'
+  user.last_name = 'Two'
+  user.is_seeker = true
+  user.is_biz = false
+  user.is_admin = false
   user.password = ENV["seed_password"]
   user.contact = 12345678
 end
 
 Bizowner.find_or_create_by!(user_id: User.find_by(email: ENV["biz_email"]).id) do |biz|
   biz.user_id = User.find_by(email: ENV["biz_email"]).id
-  biz.name = 'ABC Limited'
+  biz.name = 'Hush Cosmetics'
   biz.address = '123 Main Street'
   biz.postal_code = "643282"
-  biz.description = 'Sells ABC beer'
-  biz.license_number = 'JSFA324789'
+  biz.description = 'Sells Korean beauty products'
+  biz.license_number = '201426278W'
 end
 
 Jobseeker.find_or_create_by!(user_id: User.find_by(email: ENV["job_email"]).id) do |job|
   job.user_id = User.find_by(email: ENV["job_email"]).id
   job.dob = '1990-10-31'
   job.postal_code = "643282"
-  job.highest_qualification = 'Sells ABC beer'
+  job.highest_qualification = 'A Levels'
   job.preferred_area = 'North'
   job.preferred_location = 'Ang Mo Kio'
-  job.description = 'Hardworker'
+  job.description = 'Hard worker'
   job.wage = 7
   job.start_date = '2016-10-01'
   job_end_date = '2016-10-31'
 end
+
+Bizowner.find_or_create_by!(user_id: User.find_by(email: ENV["biz2_email"]).id) do |biz|
+  biz.user_id = User.find_by(email: ENV["biz2_email"]).id
+  biz.name = 'Victor and the Chocolate Factory'
+  biz.address = '321 Side Street'
+  biz.postal_code = "543673"
+  biz.description = 'Sells zebra meat'
+  biz.license_number = '203243243W'
+end
+
+Jobseeker.find_or_create_by!(user_id: User.find_by(email: ENV["job2_email"]).id) do |job|
+  job.user_id = User.find_by(email: ENV["job2_email"]).id
+  job.dob = '1987-10-01'
+  job.postal_code = "786382"
+  job.highest_qualification = 'O Levels'
+  job.preferred_area = 'North'
+  job.preferred_location = 'Woodlands'
+  job.description = 'Very slack'
+  job.wage = 5
+  job.start_date = '2016-07-01'
+  job_end_date = '2016-10-31'
+end
+
+Listing.create(bizowner_id: Bizowner.find_by(user_id: User.find_by(email: ENV["biz_email"]).id).id,
+job_title: "Boss's minion",
+job_description: 'Work your ass off',
+industry: 'Slavery',
+vacancy: 4,
+work_location_postal_code: '352672',
+work_area: 'North',
+work_location: 'Woodlands',
+wage_per_hour: 2,
+job_start_date: '2016-10-01',
+job_end_date: '2016-10-07',
+status: true)
+
+Listing.create(bizowner_id: Bizowner.find_by(user_id: User.find_by(email: ENV["biz2_email"]).id).id,
+job_title: "Chocolate Tester",
+job_description: 'Eat chocolate all day',
+industry: 'Slavery',
+vacancy: 2,
+work_location_postal_code: '432534',
+work_area: 'North',
+work_location: 'Tagore',
+wage_per_hour: 3,
+job_start_date: '2016-10-07',
+job_end_date: '2016-10-14',
+status: true)
+
+Application.create(
+listing_id: 1,
+jobseeker_id: 1,
+status: "pending"
+)
