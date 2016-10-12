@@ -34,7 +34,7 @@ gem 'figaro'
 gem "rails-erd"
 
 gem 'sqlite3'
-gem 'bootstrap-generators'
+# gem 'bootstrap-generators'
 gem 'geocoder'
 gem 'gmaps4rails'
 gem 'underscore-rails'
