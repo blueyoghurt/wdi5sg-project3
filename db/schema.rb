@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 20161012054923) do
     t.float    "longitude"
     t.string   "name"
     t.string   "address"
-    t.string   "title"
+    t.string   "company_name"
     t.string   "job_title"
     t.text     "job_description"
     t.string   "industry"

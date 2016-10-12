@@ -15,10 +15,7 @@
   <%= form_tag jobs_path, :method => 'get', :id => "jobs_search" do %>
   <p>
     <%= text_field_tag :search, params[:search] %>
-
     <%= select_tag "fieldtype", options_for_select([ "name", "address", "title" ], "name") %>
-
-
   </p>
 
   <% end %>

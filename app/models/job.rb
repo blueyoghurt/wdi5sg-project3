@@ -8,8 +8,8 @@ def self.search(search,type)
   if search
 
     case type
-    when "name"
-      where('name LIKE ?', "%#{search}%")
+    when "company"
+      where('company_name LIKE ?', "%#{search}%")
     when "address"
       where('address LIKE ?', "%#{search}%")
     when "title"
