@@ -3,4 +3,6 @@
   <h1>Post New Job</h1>
 </div>
 
+<% if current_user.is_biz %>
 <%= render 'form' %>
+<% end %>
