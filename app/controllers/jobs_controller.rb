@@ -18,8 +18,8 @@ class JobsController < ApplicationController
   end
 
   def bizowner
-    @jobs = Job.where(bizowner_id: Bizowner.find_by(user_id: current_user.id).id)
     params.permit!
+    @jobs = Job.where(bizowner_id: Bizowner.find_by(user_id: current_user.id).id)
   end
 
   # GET /jobs/1
