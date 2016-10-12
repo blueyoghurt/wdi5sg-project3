@@ -15,7 +15,7 @@
     <span class="glyphicon glyphicon-plus"></span>
     New Job
     <% end %>
-    <h1>Listing jobs</h1>
+    <h1>Showing All Jobs Near Your Place! :) </h1>
   </div>
 
   <%= form_tag jobs_path, :method => 'get', :id => "jobs_search" do %>
@@ -40,10 +40,14 @@
           <!-- Hide Lat and long when render -->
           <!-- <th>Latitude</th> -->
           <!-- <th>Longitude</th> -->
-          <th><%= sortable "name" %></th>
-          <th><%= sortable "address"%></th>
-          <th><%= sortable "title"%></th>
-
+          <th><%= sortable "Recruiter's Name" %></th>
+          <th><%= sortable "Location of Work"%></th>
+          <th><%= sortable "Company"%></th>
+          <th><%= sortable "Job Title"%></th>
+          <th><%= sortable "Industry"%></th>
+          <th><%= sortable "Wages Per Hour"%></th>
+          <th><%= sortable "Start Date"%></th>
+          <th><%= sortable "End Date"%></th>
           <th></th>
           <th></th>
           <th></th>
@@ -58,6 +62,11 @@
         <td><%= job.name %></td>
         <td><%= job.address %></td>
         <td><%= job.title %></td>
+        <td><%= job.job_title %></td>
+        <td><%= job.industry %></td>
+        <td><%= job.wage_per_hour %></td>
+        <td><%= job.job_start_date %></td>
+        <td><%= job.job_end_date %></td>
 
         <td><%= link_to 'Show', job %></td>
         <td><%= link_to 'Edit', edit_job_path(job) %></td>
