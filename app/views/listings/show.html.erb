@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Business owner:</strong>
+  <strong>Company:</strong>
   <%= @listing.bizowner.name %>
 </p>
 
@@ -21,13 +21,8 @@
 </p>
 
 <p>
-  <strong>Vacancy:</strong>
+  <strong>Vacancy(s):</strong>
   <%= @listing.vacancy %>
-</p>
-
-<p>
-  <strong>Work location postal code:</strong>
-  <%= @listing.work_location_postal_code %>
 </p>
 
 <p>
@@ -41,23 +36,32 @@
 </p>
 
 <p>
-  <strong>Wage per hour:</strong>
+  <strong>Work location postal code:</strong>
+  <%= @listing.work_location_postal_code %>
+</p>
+
+<p>
+  <strong>Hourly Wage:</strong>
   <%= @listing.wage_per_hour %>
 </p>
 
 <p>
-  <strong>Job start date:</strong>
+  <strong>Start Date:</strong>
   <%= @listing.job_start_date %>
 </p>
 
 <p>
-  <strong>Job end date:</strong>
+  <strong>End Date:</strong>
   <%= @listing.job_end_date %>
 </p>
 
 <p>
   <strong>Status:</strong>
-  <%= @listing.status %>
+  <% if @listing.status == true %>
+  <%= "Open "%>
+  <% else %>
+  <%= "Close "%>
+  <% end %>
 </p>
 
 <% if current_user.is_biz %>

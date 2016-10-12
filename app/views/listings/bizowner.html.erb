@@ -5,13 +5,11 @@
 <table>
   <thead>
     <tr>
-      <th>Company</th>
       <th>Job title</th>
-      <th>Industry</th>
-      <th>Work location</th>
-      <th>Wage per hour</th>
-      <th>Job start date</th>
-      <th>Job end date</th>
+      <th>Location</th>
+      <th>Hourly Wage</th>
+      <th>Start</th>
+      <th>End</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -19,9 +17,7 @@
   <tbody>
     <% @listings.each do |listing| %>
     <tr>
-      <td><%= listing.bizowner.name %></td>
       <td><%= link_to listing.job_title,listing_path(listing) %></td>
-      <td><%= listing.industry %></td>
       <td><%= listing.work_location %></td>
       <td><%= listing.wage_per_hour %></td>
       <td><%= listing.job_start_date %></td>

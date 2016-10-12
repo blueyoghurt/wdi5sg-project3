@@ -21,7 +21,7 @@ User.find_or_create_by!(email: ENV["biz_email"]) do |user|
   user.last_name = 'Yi Hui'
   user.is_seeker = false
   user.is_biz = true
-  user.is_admin = true
+  user.is_admin = false
   user.password = ENV["seed_password"]
   user.contact = 12345678
 end
@@ -75,12 +75,13 @@ Jobseeker.find_or_create_by!(user_id: User.find_by(email: ENV["job_email"]).id) 
   job.description = 'Hard worker'
   job.wage = 7
   job.start_date = '2016-10-01'
-  job_end_date = '2016-10-31'
+  job_end_date = '2016-31-10'
+  job.availability = true
 end
 
 Bizowner.find_or_create_by!(user_id: User.find_by(email: ENV["biz2_email"]).id) do |biz|
   biz.user_id = User.find_by(email: ENV["biz2_email"]).id
-  biz.name = 'Victor and the Chocolate Factory'
+  biz.name = "Victor'sChocolate Factory"
   biz.address = '321 Side Street'
   biz.postal_code = "543673"
   biz.description = 'Sells zebra meat'
@@ -97,7 +98,8 @@ Jobseeker.find_or_create_by!(user_id: User.find_by(email: ENV["job2_email"]).id)
   job.description = 'Very slack'
   job.wage = 5
   job.start_date = '2016-07-01'
-  job_end_date = '2016-10-31'
+  job_end_date = '2016-31-10'
+  job.availability = true
 end
 
 Listing.create(bizowner_id: Bizowner.find_by(user_id: User.find_by(email: ENV["biz_email"]).id).id,
@@ -123,11 +125,11 @@ work_area: 'North',
 work_location: 'Tagore',
 wage_per_hour: 3,
 job_start_date: '2016-10-07',
-job_end_date: '2016-10-14',
+job_end_date: '2016-14-10',
 status: true)
 
 Application.create(
 listing_id: 1,
 jobseeker_id: 1,
-status: "pending"
+status: "Pending"
 )

@@ -25,14 +25,85 @@
     <%= "Business Owner" %>
     <% end %>
   </td>
-
 </p>
 
 <% if @user.is_seeker %>
-<%= link_to 'Show Job Profile', job_profile_path %> |
-<%= link_to 'Edit Job Profile', job_edit_path %> |
+<p>
+  <strong>Date of Birth:</strong>
+  <%= @jobseeker.dob %>
+</p>
+
+<p>
+  <strong>Postal code:</strong>
+  <%= @jobseeker.postal_code %>
+</p>
+
+<p>
+  <strong>Highest Qualification:</strong>
+  <%= @jobseeker.highest_qualification %>
+</p>
+
+<p>
+  <strong>Preferred Area:</strong>
+  <%= @jobseeker.preferred_area %>
+</p>
+
+<p>
+  <strong>Preferred Location:</strong>
+  <%= @jobseeker.preferred_location %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @jobseeker.description %>
+</p>
+
+<p>
+  <strong>Wage:</strong>
+  <%= @jobseeker.wage %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @jobseeker.start_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @jobseeker.end_date %>
+</p>
+
 <% elsif @user.is_biz %>
-<%= link_to 'Show Business Profile', business_profile_path %> |
-<%= link_to 'Edit Business Profile', business_edit_path %> |
+<p>
+  <strong>Company:</strong>
+  <%= @bizowner.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @bizowner.description %>
+</p>
+
+<p>
+  <strong>Business Address:</strong>
+  <%= @bizowner.address %>
+</p>
+
+<p>
+  <strong>Postal Code</strong>
+  <%= @bizowner.postal_code %>
+</p>
+
+<p>
+  <strong>License:</strong>
+  <%= @bizowner.license_number %>
+</p>
+
 <% end %>
-<%= link_to 'Edit User Profile', profile_edit_path %>
+
+<%= link_to 'Edit User Profile', profile_edit_path %> |
+<% if @user.is_seeker %>
+<%= link_to 'Edit Job Profile', job_edit_path %>
+<% elsif @user.is_biz %>
+<%= link_to 'Edit Business Profile', business_edit_path %>
+<% end %>
