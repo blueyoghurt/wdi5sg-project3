@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161012034128) do
+ActiveRecord::Schema.define(version: 20161012054923) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -107,6 +107,9 @@ ActiveRecord::Schema.define(version: 20161012034128) do
     t.float    "wage_per_hour"
     t.date     "job_start_date"
     t.date     "job_end_date"
+    t.integer  "bizowner_id"
+    t.boolean  "status"
+    t.index ["bizowner_id"], name: "index_stores_on_bizowner_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -125,4 +128,5 @@ ActiveRecord::Schema.define(version: 20161012034128) do
   add_foreign_key "bizowners", "users"
   add_foreign_key "jobseekers", "users"
   add_foreign_key "listings", "bizowners"
+  add_foreign_key "stores", "bizowners"
 end

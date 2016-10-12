@@ -1,6 +1,8 @@
 class Store < ApplicationRecord
   geocoded_by :address
 after_validation :geocode
+belongs_to :bizowner
+has_many :applications, dependent: :destroy
 
 def self.search(search,type)
   if search
