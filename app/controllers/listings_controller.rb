@@ -1,5 +1,5 @@
 class ListingsController < ApplicationController
-  before_action :set_listing, only: [:show, :edit, :update, :destroy]
+  before_action :set_listing, only: [:show, :update, :destroy]
   before_action :is_authenticated, except: [:index]
   # GET /listings
   # GET /listings.json
@@ -23,6 +23,12 @@ class ListingsController < ApplicationController
 
   # GET /listings/1/edit
   def edit
+    @listing = Listing.find params[:id]
+    unless @current_user.is_admin || Bizowner.find_by(user_id: session[:user_id]).id == @listing.bizowner_id
+      flash[:notice] = "You do not have permission to edit listings that do not belong to you!"
+      redirect_to root_path
+      return
+    end
   end
 
   # POST /listings
@@ -74,6 +80,6 @@ class ListingsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def listing_params
-    params.require(:listing).permit(:job_title, :job_description, :industry, :vacancy, :work_location_postal_code, :main_work_location, :work_location, :wage_per_hour, :job_start_date, :job_end_date)
+    params.require(:listing).permit(:job_title, :job_description, :industry, :vacancy, :work_location_postal_code, :work_area, :work_location, :wage_per_hour, :job_start_date, :job_end_date)
   end
 end

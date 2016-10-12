@@ -46,7 +46,7 @@ class User < ApplicationRecord
 
   def atleast_one_admin
     if is_admin == false && User.where(:is_admin => true).count < 2
-      errors.add(:base, "must have at least 1 admin user")
+      errors.add(:base, "There must be at least 1 admin user")
     end
   end
 

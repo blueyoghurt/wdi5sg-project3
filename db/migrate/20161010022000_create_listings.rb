@@ -7,7 +7,7 @@ class CreateListings < ActiveRecord::Migration[5.0]
       t.string :industry
       t.integer :vacancy
       t.string :work_location_postal_code
-      t.string :main_work_location
+      t.string :work_area
       t.string :work_location
       t.float :wage_per_hour
       t.date :job_start_date

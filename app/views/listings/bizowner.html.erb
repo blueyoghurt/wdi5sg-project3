@@ -5,53 +5,39 @@
 <table>
   <thead>
     <tr>
-      <th>Business owner</th>
       <th>Job title</th>
-      <th>Job description</th>
-      <th>Industry</th>
-      <th>Vacancy</th>
-      <th>Work location postal code</th>
-      <th>Main work location</th>
-      <th>Work location</th>
-      <th>Wage per hour</th>
-      <th>Job start date</th>
-      <th>Job end date</th>
-      <th>Status</th>
+      <th>Location</th>
+      <th>Hourly Wage</th>
+      <th>Start</th>
+      <th>End</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @listings.each do |listing| %>
-      <tr>
-        <td><%= listing.bizowner.name %></td>
-        <td><%= link_to listing.job_title,listing_path(listing) %></td>
-          <!-- <%= listing.job_title %></td> -->
-        <td><%= listing.job_description %></td>
-        <td><%= listing.industry %></td>
-        <td><%= listing.vacancy %></td>
-        <td><%= listing.work_location_postal_code %></td>
-        <td><%= listing.main_work_location %></td>
-        <td><%= listing.work_location %></td>
-        <td><%= listing.wage_per_hour %></td>
-        <td><%= listing.job_start_date %></td>
-        <td><%= listing.job_end_date %></td>
-        <td><%= listing.status %></td>
-        <% if current_user %>
-          <% if current_user.is_admin %>
-            <td><%= link_to 'Show', listing %></td>
-            <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
-            <td><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          <% end %>
-        <% end %>
-      </tr>
+    <tr>
+      <td><%= link_to listing.job_title,listing_path(listing) %></td>
+      <td><%= listing.work_location %></td>
+      <td><%= listing.wage_per_hour %></td>
+      <td><%= listing.job_start_date %></td>
+      <td><%= listing.job_end_date %></td>
+      <% if current_user %>
+      <% if current_user.is_admin %>
+      <td><%= link_to 'Show', listing %></td>
+      <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
+      <td><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+      <% end %>
+    </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
+<% if current_user %>
 <% if current_user.is_biz %>
-<%= link_to 'See All Listings', listings_path %> |
-<% end %>
+<%= link_to 'See My Listings', listings_bizowner_path %> |
 <%= link_to 'New Listing', new_listing_path %>
+<% end %>
+<% end %>
