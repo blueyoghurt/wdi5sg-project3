@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161012061925) do
+ActiveRecord::Schema.define(version: 20161012054923) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,8 +48,6 @@ ActiveRecord::Schema.define(version: 20161012061925) do
     t.index ["bizowner_id"], name: "index_bizowners_reviews_on_bizowner_id", using: :btree
     t.index ["jobseeker_id"], name: "index_bizowners_reviews_on_jobseeker_id", using: :btree
     t.index ["listing_id"], name: "index_bizowners_reviews_on_listing_id", using: :btree
-<<<<<<< HEAD
-=======
   end
 
   create_table "jobs", force: :cascade do |t|
@@ -70,7 +68,6 @@ ActiveRecord::Schema.define(version: 20161012061925) do
     t.integer  "bizowner_id"
     t.boolean  "status"
     t.index ["bizowner_id"], name: "index_jobs_on_bizowner_id", using: :btree
->>>>>>> 72600ebe814b4ef9892d7a9efb04fa8abc0cac62
   end
 
   create_table "jobseekers", force: :cascade do |t|
