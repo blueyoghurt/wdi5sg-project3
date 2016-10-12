@@ -65,5 +65,5 @@
 <% end %>
 <%= link_to 'Back', listings_path %>
 <% if current_user.is_seeker %>
-| <%= link_to 'Apply', application_path, method: :post, data: { confirm: 'Are you sure?' } %>
+<%= button_to 'Apply', application_path, method: :post, data: { confirm: 'Are you sure?' } %>
 <% end %>
