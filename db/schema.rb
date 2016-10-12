@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161011150045) do
+ActiveRecord::Schema.define(version: 20161012054923) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,13 +21,6 @@ ActiveRecord::Schema.define(version: 20161011150045) do
     t.string   "status"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-  end
-
-  create_table "arealocations", force: :cascade do |t|
-    t.string   "area"
-    t.string   "location"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "bizowners", force: :cascade do |t|
@@ -55,6 +48,26 @@ ActiveRecord::Schema.define(version: 20161011150045) do
     t.index ["bizowner_id"], name: "index_bizowners_reviews_on_bizowner_id", using: :btree
     t.index ["jobseeker_id"], name: "index_bizowners_reviews_on_jobseeker_id", using: :btree
     t.index ["listing_id"], name: "index_bizowners_reviews_on_listing_id", using: :btree
+  end
+
+  create_table "jobs", force: :cascade do |t|
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "name"
+    t.string   "address"
+    t.string   "title"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "job_title"
+    t.text     "job_description"
+    t.string   "industry"
+    t.integer  "vacancy"
+    t.float    "wage_per_hour"
+    t.date     "job_start_date"
+    t.date     "job_end_date"
+    t.integer  "bizowner_id"
+    t.boolean  "status"
+    t.index ["bizowner_id"], name: "index_jobs_on_bizowner_id", using: :btree
   end
 
   create_table "jobseekers", force: :cascade do |t|
@@ -107,16 +120,6 @@ ActiveRecord::Schema.define(version: 20161011150045) do
     t.index ["bizowner_id"], name: "index_listings_on_bizowner_id", using: :btree
   end
 
-  create_table "stores", force: :cascade do |t|
-    t.float    "latitude"
-    t.float    "longitude"
-    t.string   "name"
-    t.string   "address"
-    t.string   "title"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -134,6 +137,7 @@ ActiveRecord::Schema.define(version: 20161011150045) do
   add_foreign_key "bizowners_reviews", "bizowners"
   add_foreign_key "bizowners_reviews", "jobseekers"
   add_foreign_key "bizowners_reviews", "listings"
+  add_foreign_key "jobs", "bizowners"
   add_foreign_key "jobseekers", "users"
   add_foreign_key "jobseekers_reviews", "bizowners"
   add_foreign_key "jobseekers_reviews", "jobseekers"

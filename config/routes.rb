@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  root 'listings#index'
+  root 'jobs#index'
 
   post "applications/:id" => "applications#create"
   get "listings/bizowner" => "listings#bizowner"
+  get "jobs/bizowner" => "jobs#bizowner"
 
   # AUTHENTICATION
   get "login" => "sessions#new"
@@ -47,7 +48,7 @@ Rails.application.routes.draw do
   resources :users
   resources :jobseekers
   resources :bizowners
-  resources :stores
+  resources :jobs
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

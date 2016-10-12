@@ -114,3 +114,8 @@
   </script>
 
 </div>
+
+<% if current_user.is_biz %>
+<%= link_to 'See All Jobs', jobs_path %> |
+<% end %>
+<%= link_to 'New Job', new_job_path %>
