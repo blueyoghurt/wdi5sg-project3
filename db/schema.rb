@@ -57,8 +57,6 @@ ActiveRecord::Schema.define(version: 20161012054923) do
     t.string   "name"
     t.string   "address"
     t.string   "title"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
     t.string   "job_title"
     t.text     "job_description"
     t.string   "industry"
@@ -67,6 +65,8 @@ ActiveRecord::Schema.define(version: 20161012054923) do
     t.date     "job_start_date"
     t.date     "job_end_date"
     t.boolean  "status"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.index ["bizowner_id"], name: "index_jobs_on_bizowner_id", using: :btree
   end
 
