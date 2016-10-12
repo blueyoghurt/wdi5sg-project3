@@ -11,8 +11,23 @@
 * It is generally better to create a new file per style scope.
 *
 */
-th, td {
-  padding: 10px;
-}
+
+
 
  @import "bootstrap";
+
+ body {
+   background-color: #DDE2E3;
+   color: #60412B;
+   font-family: 'Alegreya Sans', sans-serif;
+   font-size: 17px;
+ }
+
+ .navbar {
+   background-color: #9AACB8;
+   border-color: #9AACB8;
+ }
+
+ th, td {
+   padding: 10px;
+ }
