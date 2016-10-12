@@ -11,8 +11,31 @@
 * It is generally better to create a new file per style scope.
 *
 */
-th, td {
-  padding: 10px;
-}
+
+
 
  @import "bootstrap";
+
+ body {
+   background: linear-gradient(135deg, rgba(60, 69, 92, 0.6), rgba(179, 124, 87, 0.6)) no-repeat center center fixed;
+   background-size: cover;
+   color: #60412B;
+   font-family: 'Alegreya Sans', sans-serif;
+   font-size: 17px;
+ }
+
+
+ .table {
+   background-color: #DDE2E3;
+   border-radius: 1em;
+ }
+
+ .navbar {
+   background-color: #9AACB8;
+   border-color: #9AACB8;
+ }
+
+
+ th, td {
+   padding: 10px;
+ }
