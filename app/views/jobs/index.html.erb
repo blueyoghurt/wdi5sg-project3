@@ -18,7 +18,6 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
   //        google.maps.event.trigger(marker.getServiceObject(), 'click');
   //      });
 
-
   handler.fitMapToBounds();
 
   if(navigator.geolocation)
@@ -37,7 +36,8 @@ function displayOnMap(position){
     infowindow: "Your Current Location!"
   });
   handler.map.centerOn(marker);
-
+// marker.infowindow.open(Gmaps.map.map, marker
+// Cant get infowindow to open byitself
 };
 </script>
 
@@ -59,7 +59,7 @@ function displayOnMap(position){
       </div>
 
     <div class="page-header">
-      <h3 id ="show_all_jobs">Showing all Jobs </h3>
+      <h3 id ="show_all_jobs">Showing all Jobs</h3>
     </div>
 
 
