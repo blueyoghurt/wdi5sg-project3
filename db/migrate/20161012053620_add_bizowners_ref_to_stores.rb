@@ -1,6 +1,6 @@
-class AddBizownersRefToStores < ActiveRecord::Migration[5.0]
+class AddBizownersRefToJobs < ActiveRecord::Migration[5.0]
   def change
-      add_reference :stores, :bizowner, index: true, foreign_key: true
+      add_reference :jobs, :bizowner, index: true, foreign_key: true
     end
 end
 

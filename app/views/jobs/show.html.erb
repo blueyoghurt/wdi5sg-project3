@@ -1,44 +1,44 @@
 <div class="page-header">
-  <%= link_to stores_path, class: 'btn btn-default' do %>
+  <%= link_to jobs_path, class: 'btn btn-default' do %>
   <span class="glyphicon glyphicon-list-alt"></span>
   Back
   <% end %>
-  <%= link_to edit_store_path(@store), class: 'btn btn-primary' do %>
+  <%= link_to edit_job_path(@job), class: 'btn btn-primary' do %>
   <span class="glyphicon glyphicon-pencil"></span>
   Edit
   <% end %>
-  <h1>Show store</h1>
+  <h1>Show job</h1>
 </div>
 
 <dl class="dl-horizontal">
   <!-- Hide Lat and long when render -->
   <!-- <dt>Latitude:</dt>
-  <dd><%= @store.latitude %></dd>
+  <dd><%= @job.latitude %></dd>
 
   <dt>Longitude:</dt>
-  <dd><%= @store.longitude %></dd> -->
+  <dd><%= @job.longitude %></dd> -->
 
   <dt>Name:</dt>
-  <dd><%= @store.name %></dd>
+  <dd><%= @job.name %></dd>
 
   <dt>address:</dt>
-  <dd><%= @store.address %></dd>
+  <dd><%= @job.address %></dd>
 
   <dt>Title:</dt>
-  <dd><%= @store.title %></dd>
+  <dd><%= @job.title %></dd>
 
 
   <dt>Job title:</dt>
-  <dd><%= @store.job_title %></dd>
+  <dd><%= @job.job_title %></dd>
 
   
   <dt>Job description:</dt>
-  <dd>  <%= @store.job_description %></dd>
+  <dd>  <%= @job.job_description %></dd>
 
 
 
   <dt>Industry:</dt>
-  <dd>  <%= @store.industry %></dd>
+  <dd>  <%= @job.industry %></dd>
 
 
 

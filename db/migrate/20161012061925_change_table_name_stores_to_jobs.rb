@@ -1,5 +1,5 @@
-class ChangeTableNameStoresToJobs < ActiveRecord::Migration[5.0]
+class ChangeTableNameJobsToJobs < ActiveRecord::Migration[5.0]
   def change
-      rename_table :stores, :jobs
+      rename_table :jobs, :jobs
   end
 end
