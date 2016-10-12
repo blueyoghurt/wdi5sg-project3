@@ -10,7 +10,7 @@ class ApplicationsController < ApplicationController
       elsif current_user.is_seeker
       @applications = Application.where(jobseeker_id: Jobseeker.find_by(user_id: current_user.id).id)
       else
-      @applications = Application.where(listing_id: Bizowner.find_by(user_id: current_user.id).id)
+      @applications = Application.where(job_id: Bizowner.find_by(user_id: current_user.id).id)
     end
   end
 
@@ -22,14 +22,14 @@ class ApplicationsController < ApplicationController
   # POST /applications
   # POST /applications.json
   def create
-    @application = Application.new(listing_id: params[:id], jobseeker_id: Jobseeker.find_by(user_id: current_user.id).id, status: "Pending")
+    @application = Application.new(job_id: params[:id], jobseeker_id: Jobseeker.find_by(user_id: current_user.id).id, status: "Pending")
     respond_to do |format|
       if @application.save
         ApplicationNotificationMailer.notification_email(params[:id]).deliver
         format.html { redirect_to @application, notice: 'Application was successfully created.' }
         format.json { render :show, status: :created, location: @application }
       else
-        format.html { redirect_to root_path, notice: 'You have already applied for this listing' }
+        format.html { redirect_to root_path, notice: 'You have already applied for this job' }
         format.json { render json: @application.errors, status: :unprocessable_entity }
       end
     end
@@ -69,9 +69,4 @@ class ApplicationsController < ApplicationController
     @application = Application.find(params[:id])
   end
 
-
-  # Never trust parameters from the scary internet, only allow the white list through.
-  def application_params
-    params.require(:application).permit(:listing_id, :jobseeker_id, :status)
-  end
 end
