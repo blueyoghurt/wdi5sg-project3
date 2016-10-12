@@ -1,57 +1,45 @@
 <div class="page-header">
-  <%= link_to jobs_path, class: 'btn btn-default' do %>
-  <span class="glyphicon glyphicon-list-alt"></span>
-  Back
-  <% end %>
-  <%= link_to edit_job_path(@job), class: 'btn btn-primary' do %>
-  <span class="glyphicon glyphicon-pencil"></span>
-  Edit
-  <% end %>
-  <h1>Show job</h1>
+  <h1><%= @job.job_title %> @ <%= @job.company_name %></h1>
 </div>
 
-<dl class="dl-horizontal">
-  <!-- Hide Lat and long when render -->
-  <!-- <dt>Latitude:</dt>
-  <dd><%= @job.latitude %></dd>
+<p>
+  <strong>Address:</strong>
+  <%= @job.address %>
+</p>
 
-  <dt>Longitude:</dt>
-  <dd><%= @job.longitude %></dd> -->
+<p>
+  <strong>Company Name:</strong>
+  <%= @job.company_name %>
+</p>
 
-  <!-- <dt>Name:</dt>
-  <dd><%= @job.name %></dd> -->
+<p>
+  <strong>Job title:</strong>
+  <%= @job.job_title %>
+</p>
 
-  <dt>Address:</dt>
-  <dd><%= @job.address %></dd>
+<p>
+  <strong>Job description:</strong>
+  <%= @job.job_description %>
+</p>
 
-  <dt>Company Name:</dt>
-  <dd><%= @job.company_name %></dd>
+<p>
+  <strong>Industry:</strong>
+  <%= @job.industry %>
+</p>
 
-  <dt>Job title:</dt>
-  <dd><%= @job.job_title %></dd>
-
-  <dt>Job description:</dt>
-  <dd>  <%= @job.job_description %></dd>
-
-  <dt>Industry:</dt>
-  <dd>  <%= @job.industry %></dd>
-
-  <dt>
-    <strong>Status:</strong></dt>
-    <dd><% if @job.status == true %>
-    <%= "Open "%>
-    <% else %>
-    <%= "Close "%>
-    <% end %>
-  </dd>
-
-  <% if current_user.is_biz %>
-  <%= link_to 'Edit', edit_job_path(@job) %> |
+<p>
+  <strong>Status:</strong>
+  <% if @job.status == true %>
+  <%= "Open "%>
+  <% else %>
+  <%= "Closed "%>
   <% end %>
-  <%= link_to 'Back', jobs_path %>
-  <% if current_user.is_seeker %>
-  | <%= link_to 'Apply', application_path, method: :post, data: { confirm: 'Are you sure?' } %>
-  <% end %>
+</p>
 
-
-</dl>
+<% if current_user.is_biz %>
+<%= link_to 'Edit', edit_job_path(@job) %> |
+<% end %>
+<%= link_to 'Back', jobs_path %>
+<% if current_user.is_seeker %>
+| <%= link_to 'Apply', application_path, method: :post, data: { confirm: 'Are you sure?' } %>
+<% end %>

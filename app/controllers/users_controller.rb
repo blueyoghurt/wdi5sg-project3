@@ -8,12 +8,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    if current_user.is_seeker
-      @jobseeker = Jobseeker.find_by(user_id: current_user.id)
-    end
-    if current_user.is_biz
-      @bizowner = Bizowner.find_by(user_id: current_user.id)
-    end
   end
 
   def new
@@ -120,6 +114,12 @@ class UsersController < ApplicationController
   # What does set_user do?
   def set_user
     @user = User.find(session[:user_id])
+    if current_user.is_seeker
+      @jobseeker = Jobseeker.find_by(user_id: current_user.id)
+    end
+    if current_user.is_biz
+      @bizowner = Bizowner.find_by(user_id: current_user.id)
+    end
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
