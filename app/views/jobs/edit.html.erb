@@ -10,4 +10,6 @@
   <h1>Editing job</h1>
 </div>
 
+<% if current_user.is_biz %>
 <%= render 'form' %>
+<% end %>

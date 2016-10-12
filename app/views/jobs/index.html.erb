@@ -76,8 +76,6 @@
           <th><%= sortable "Start Date"%></th>
           <th><%= sortable "End Date"%></th>
           <th></th>
-          <th></th>
-          <th></th>
         </tr>
       </thead>
 
@@ -96,8 +94,12 @@
         <td><%= job.job_end_date %></td>
 
         <td><%= link_to 'Show', job %></td>
+        <% if current_user %>
+        <% if current_user.is_admin %>
         <td><%= link_to 'Edit', edit_job_path(job) %></td>
         <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+        <% end %>
         <% end %>
       </tbody>
     </table>
