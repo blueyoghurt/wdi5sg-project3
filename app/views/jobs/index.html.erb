@@ -42,10 +42,6 @@
   <%= hidden_field_tag :sort, params[:sort] %>
 
   <div class="page-header">
-    <%= link_to new_job_path, class: 'btn btn-primary' do %>
-    <span class="glyphicon glyphicon-plus"></span>
-    New Job
-    <% end %>
     <h1>Showing All Jobs Near Your Place! :) </h1>
   </div>
 
@@ -53,7 +49,7 @@
   <p>
     <%= text_field_tag :search, params[:search] %>
 
-    <%= select_tag "fieldtype", options_for_select([ "name", "address", "title" ], "name") %>
+    <%= select_tag "fieldtype", options_for_select([ "Name", "Address", "Title" ], "name") %>
 
 
   </p>
@@ -71,14 +67,14 @@
           <!-- Hide Lat and long when render -->
           <!-- <th>Latitude</th> -->
           <!-- <th>Longitude</th> -->
-          <th><%= sortable "Recruiter's Name" %></th>
-          <th><%= sortable "Location of Work"%></th>
-          <th><%= sortable "Company"%></th>
-          <th><%= sortable "Job Title"%></th>
-          <th><%= sortable "Industry"%></th>
-          <th><%= sortable "Wages Per Hour"%></th>
-          <th><%= sortable "Start Date"%></th>
-          <th><%= sortable "End Date"%></th>
+          <!-- <th><%= sortable "name" %></th> -->
+          <th><%= sortable "address"%></th>
+          <th><%= sortable "company_name"%></th>
+          <th><%= sortable "job_title"%></th>
+          <th><%= sortable "industry"%></th>
+          <th><%= sortable "wage_per_hour"%></th>
+          <th><%= sortable "job_start_date"%></th>
+          <th><%= sortable "job_end_date"%></th>
           <th></th>
           <th></th>
           <th></th>
@@ -90,9 +86,9 @@
         <!-- Hide Lat and long when render -->
         <!-- <td><%= job.latitude %></td>
         <td><%= job.longitude %></td> -->
-        <td><%= job.name %></td>
+        <!-- <td><%= job.name %></td> -->
         <td><%= job.address %></td>
-        <td><%= job.title %></td>
+        <td><%= job.company_name %></td>
         <td><%= job.job_title %></td>
         <td><%= job.industry %></td>
         <td><%= job.wage_per_hour %></td>
@@ -114,8 +110,6 @@
     <% end %>
     <%= link_to 'New Job', new_job_path %>
     <% end %>
-
-
 
   </div>
 

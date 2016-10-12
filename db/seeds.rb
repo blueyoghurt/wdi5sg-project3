@@ -81,7 +81,7 @@ end
 
 Bizowner.find_or_create_by!(user_id: User.find_by(email: ENV["biz2_email"]).id) do |biz|
   biz.user_id = User.find_by(email: ENV["biz2_email"]).id
-  biz.name = "Victor'sChocolate Factory"
+  biz.name = "Victor's Chocolate Factory"
   biz.address = '321 Side Street'
   biz.postal_code = "543673"
   biz.description = 'Sells zebra meat'
@@ -102,34 +102,38 @@ Jobseeker.find_or_create_by!(user_id: User.find_by(email: ENV["job2_email"]).id)
   job.availability = true
 end
 
-Listing.create(bizowner_id: Bizowner.find_by(user_id: User.find_by(email: ENV["biz_email"]).id).id,
+Job.create(bizowner_id: Bizowner.find_by(user_id: User.find_by(email: ENV["biz_email"]).id).id,
+latitude: 1.2789591,
+longitude: 103.8392531,
+name: 'Recruit Express',
+address: '1 Keong Saik Road Singapore',
+title: "McDonald's",
 job_title: "Boss's minion",
 job_description: 'Work your ass off',
 industry: 'Slavery',
 vacancy: 4,
-work_location_postal_code: '352672',
-work_area: 'North',
-work_location: 'Woodlands',
 wage_per_hour: 2,
 job_start_date: '2016-10-01',
 job_end_date: '2016-10-07',
 status: true)
 
-Listing.create(bizowner_id: Bizowner.find_by(user_id: User.find_by(email: ENV["biz2_email"]).id).id,
-job_title: "Chocolate Tester",
-job_description: 'Eat chocolate all day',
+Job.create(bizowner_id: Bizowner.find_by(user_id: User.find_by(email: ENV["biz2_email"]).id).id,
+latitude: 1.3188724,
+longitude: 103.8263123,
+name: 'Chocolate Victor',
+address: '1 Robin Road Singapore',
+title: "Chocolate",
+job_title: "Boss's minion",
+job_description: 'Work your ass off',
 industry: 'Slavery',
-vacancy: 2,
-work_location_postal_code: '432534',
-work_area: 'North',
-work_location: 'Tagore',
-wage_per_hour: 3,
-job_start_date: '2016-10-07',
-job_end_date: '2016-14-10',
+vacancy: 4,
+wage_per_hour: 2,
+job_start_date: '2016-10-01',
+job_end_date: '2016-10-07',
 status: true)
 
 Application.create(
-listing_id: 1,
+job_id: 1,
 jobseeker_id: 1,
 status: "Pending"
 )

@@ -1,5 +1,5 @@
 class Job < ApplicationRecord
-  geocoded_by :address
+geocoded_by :address
 after_validation :geocode
 belongs_to :bizowner
 has_many :applications, dependent: :destroy

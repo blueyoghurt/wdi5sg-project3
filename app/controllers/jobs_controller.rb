@@ -13,13 +13,13 @@ class JobsController < ApplicationController
     @map_hash = Gmaps4rails.build_markers(@jobs) do |job, marker|
       marker.lat job.latitude
       marker.lng job.longitude
-      marker.infowindow job.title
+      marker.infowindow job.company_name
     end
   end
 
   def bizowner
     params.permit!
-    @listings = Job.where(bizowner_id: Bizowner.find_by(user_id: current_user.id).id)
+    @jobs = Job.where(bizowner_id: Bizowner.find_by(user_id: current_user.id).id)
   end
 
   # GET /jobs/1
@@ -95,6 +95,6 @@ class JobsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def job_params
-    params.require(:job).permit(:latitude, :longitude, :name, :address, :title, :job_title, :job_description, :industry, :vacancy, :work_location_postal_code, :main_work_location, :work_location, :wage_per_hour, :job_start_date, :job_end_date)
+    params.require(:job).permit(:latitude, :longitude, :name, :address, :company_name, :job_title, :job_description, :industry, :vacancy, :work_location_postal_code, :main_work_location, :work_location, :wage_per_hour, :job_start_date, :job_end_date)
   end
 end
