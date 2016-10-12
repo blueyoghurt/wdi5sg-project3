@@ -2,6 +2,7 @@
 
 <h1>Listings</h1>
 
+<div class="table">
 <table>
   <thead>
     <tr>
@@ -47,11 +48,12 @@
     <% end %>
   </tbody>
 </table>
+</div>
 
 <br>
 <% if current_user %>
 <% if current_user.is_biz %>
 <%= link_to 'See My Listings', listings_bizowner_path %> |
-<% end %>
 <%= link_to 'New Listing', new_listing_path %>
+<% end %>
 <% end %>
