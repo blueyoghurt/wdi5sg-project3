@@ -1,5 +1,9 @@
 <h1>New Listing</h1>
 
+
+<% if current_user.is_biz %>
 <%= render 'form', listing: @listing %>
+<% end %>
+
 
 <%= link_to 'Back', listings_path %>

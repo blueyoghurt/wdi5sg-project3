@@ -1,5 +1,6 @@
 class BizownersController < ApplicationController
   before_action :is_authenticated
+  before_action :set_bizowner, only: [:edit, :show]
 
   def new
     @bizowner = Bizowner.new
@@ -25,6 +26,11 @@ class BizownersController < ApplicationController
   end
 
 
+  def show_public
+    puts params
+    @bizowner = Bizowner.find_by(id: params[:id])
+  end
+
   def destroy
     @bizowner.destroy
     respond_to do |format|
@@ -34,10 +40,6 @@ class BizownersController < ApplicationController
   end
 
   def edit
-    @bizowner = Bizowner.find_by(user_id: current_user.id)
-  end
-
-  def show
     @bizowner = Bizowner.find_by(user_id: current_user.id)
   end
 
@@ -55,6 +57,11 @@ class BizownersController < ApplicationController
   end
 
   private
+
+  def set_bizowner
+    @bizowner = Bizowner.find_by(user_id: current_user.id)
+  end
+
   # Never trust parameters from the scary internet, only allow the white list through.
   def biz_params
     params.require(:bizowner).permit(:name, :description , :license_number, :postal_code, :address)

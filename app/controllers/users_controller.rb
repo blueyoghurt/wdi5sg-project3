@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy, :toggle_admin]
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :is_authenticated, except: [:new, :create]
   before_action :is_authenticated_admin, only: [:index, :destroy, :toggle_admin]
 
@@ -8,6 +8,12 @@ class UsersController < ApplicationController
   end
 
   def show
+    if current_user.is_seeker
+      @jobseeker = Jobseeker.find_by(user_id: current_user.id)
+    end
+    if current_user.is_biz
+      @bizowner = Bizowner.find_by(user_id: current_user.id)
+    end
   end
 
   def new

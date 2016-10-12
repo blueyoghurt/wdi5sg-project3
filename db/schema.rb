@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161012061925) do
+ActiveRecord::Schema.define(version: 20161012054923) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "applications", force: :cascade do |t|
-    t.integer  "listing_id"
+    t.integer  "job_id"
     t.integer  "jobseeker_id"
     t.string   "status"
     t.datetime "created_at",   null: false
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20161012061925) do
   end
 
   create_table "jobs", force: :cascade do |t|
+    t.integer  "bizowner_id"
     t.float    "latitude"
     t.float    "longitude"
     t.string   "name"
@@ -65,7 +66,6 @@ ActiveRecord::Schema.define(version: 20161012061925) do
     t.float    "wage_per_hour"
     t.date     "job_start_date"
     t.date     "job_end_date"
-    t.integer  "bizowner_id"
     t.boolean  "status"
     t.index ["bizowner_id"], name: "index_jobs_on_bizowner_id", using: :btree
   end
@@ -109,7 +109,7 @@ ActiveRecord::Schema.define(version: 20161012061925) do
     t.string   "industry"
     t.integer  "vacancy"
     t.string   "work_location_postal_code"
-    t.string   "main_work_location"
+    t.string   "work_area"
     t.string   "work_location"
     t.float    "wage_per_hour"
     t.date     "job_start_date"

@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   # Jobseekers - custom routes for job seekers
   get "job/register-profile" => "jobseekers#new"
   post "jobseekers" => "jobseekers#create"
+  get "job/profile/:id" => "jobseekers#show_public", as: "show_seeker"
   get "job/profile" => "jobseekers#show"
   get "job/edit" => "jobseekers#edit"
   put "job/profile" => "jobseekers#update"
@@ -33,6 +34,7 @@ Rails.application.routes.draw do
   # Bizowners - custom routes for biz owners
   get "business/register-profile" => "bizowners#new"
   post "bizowners" => "bizowners#create"
+  get "business/profile/:id" => "bizowners#show_public", as: "show_business"
   get "business/profile" => "bizowners#show"
   get "business/edit" => "bizowners#edit"
   put "business/profile" => "bizowners#update"
@@ -47,7 +49,6 @@ Rails.application.routes.draw do
   resources :jobseekers
   resources :bizowners
   resources :jobs
-# root 'jobs#index'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

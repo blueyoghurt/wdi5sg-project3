@@ -2,10 +2,11 @@
 
 <h1>Applications</h1>
 
+<div class="table">
 <table>
   <thead>
     <tr>
-      <th>Listing</th>
+      <th>Job</th>
       <th>Job Description</th>
       <th>Job Applicant</th>
       <th>Status</th>
@@ -16,9 +17,9 @@
   <tbody>
     <% @applications.each do |application| %>
       <tr>
-        <td><%= application.listing.job_title %></td>
-        <td><%= application.listing.job_description %></td>
-        <td><%= link_to application.jobseeker.user.name, jobseeker_path(application) %></td>
+        <td><%= application.job.job_title %></td>
+        <td><%= application.job.job_description %></td>
+        <td><%= link_to application.jobseeker.user.name, show_seeker_path(application) %></td>
         <td><%= application.status %></td>
         <td><%= link_to 'View', application %></td>
         <% if current_user.is_biz %>
@@ -29,5 +30,5 @@
     <% end %>
   </tbody>
 </table>
-
+</div>
 <br>
