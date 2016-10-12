@@ -21,7 +21,7 @@ User.find_or_create_by!(email: ENV["biz_email"]) do |user|
   user.last_name = 'Yi Hui'
   user.is_seeker = false
   user.is_biz = true
-  user.is_admin = false
+  user.is_admin = true
   user.password = ENV["seed_password"]
   user.contact = 12345678
 end

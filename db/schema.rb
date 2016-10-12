@@ -23,13 +23,6 @@ ActiveRecord::Schema.define(version: 20161011150045) do
     t.datetime "updated_at",   null: false
   end
 
-  create_table "arealocations", force: :cascade do |t|
-    t.string   "area"
-    t.string   "location"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "bizowners", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "name"
