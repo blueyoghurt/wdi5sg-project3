@@ -1,0 +1,45 @@
+<div class="page-header">
+  <%= link_to jobs_path, class: 'btn btn-default' do %>
+  <span class="glyphicon glyphicon-list-alt"></span>
+  Back
+  <% end %>
+  <%= link_to edit_job_path(@job), class: 'btn btn-primary' do %>
+  <span class="glyphicon glyphicon-pencil"></span>
+  Edit
+  <% end %>
+  <h1>Show job</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <!-- Hide Lat and long when render -->
+  <!-- <dt>Latitude:</dt>
+  <dd><%= @job.latitude %></dd>
+
+  <dt>Longitude:</dt>
+  <dd><%= @job.longitude %></dd> -->
+
+  <dt>Name:</dt>
+  <dd><%= @job.name %></dd>
+
+  <dt>address:</dt>
+  <dd><%= @job.address %></dd>
+
+  <dt>Title:</dt>
+  <dd><%= @job.title %></dd>
+
+
+  <dt>Job title:</dt>
+  <dd><%= @job.job_title %></dd>
+
+
+  <dt>Job description:</dt>
+  <dd>  <%= @job.job_description %></dd>
+
+
+
+  <dt>Industry:</dt>
+  <dd>  <%= @job.industry %></dd>
+
+
+
+</dl>

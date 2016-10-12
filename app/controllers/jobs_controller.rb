@@ -18,6 +18,7 @@ class JobsController < ApplicationController
   end
 
   def bizowner
+    params.permit!
     @listings = Job.where(bizowner_id: Bizowner.find_by(user_id: current_user.id).id)
   end
 
