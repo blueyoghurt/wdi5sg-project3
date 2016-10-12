@@ -69,4 +69,7 @@ class ApplicationsController < ApplicationController
     @application = Application.find(params[:id])
   end
 
+  def application_params
+    params.require(:application).permit(:status)
+  end
 end
