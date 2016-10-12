@@ -6,6 +6,7 @@ class ApplicationNotificationMailer < ApplicationMailer
   @url  = '/applications/#{@application.id}/edit'
   # puts "email to send to is",@user.email
   mail(to: @user.email, subject: 'Application for Job Listing')
+
   end
 
 end
