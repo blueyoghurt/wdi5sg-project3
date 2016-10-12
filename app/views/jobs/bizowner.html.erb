@@ -65,8 +65,7 @@
         <% end %>
       </tbody>
     </table>
-    <%= will_paginate @jobs %>
-
+    <%= @jobs = @jobs.paginate(:page => 1, :per_page => 10) %>
     <br>
     <% if current_user %>
     <% if current_user.is_biz %>
