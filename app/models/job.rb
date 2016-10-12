@@ -10,7 +10,6 @@ class Job < ApplicationRecord
 
   def self.search(search,type)
     if search
-
       case type
       when "company"
         where('company_name LIKE ?', "%#{search}%")

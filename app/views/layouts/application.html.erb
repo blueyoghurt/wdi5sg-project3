@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>RubyProject3</title>
-  <%= csrf_meta_tags %>
-
+    <title>RubyProject3 - Jobs Lite</title>
+    <%= csrf_meta_tags %>
   <%= stylesheet_link_tag    'application', 'https://fonts.googleapis.com/css?family=Alegreya+Sans', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
@@ -13,6 +12,7 @@
   <div class="container">
     <div class="alert alert-success" role="alert"><strong><%= notice %></strong></div>
     <%= yield %>
+    <%= render "partials/footer" %>
   </div>
 </body>
 </html>
