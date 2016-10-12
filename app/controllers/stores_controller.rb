@@ -1,5 +1,6 @@
 class StoresController < ApplicationController
   before_action :set_store, only: [:show, :edit, :update, :destroy]
+  before_action :is_authenticated, except: [:index]
   helper_method :sort_column, :sort_direction
 
   # GET /stores
@@ -14,6 +15,10 @@ class StoresController < ApplicationController
       marker.lng store.longitude
       marker.infowindow store.title
     end
+  end
+
+  def bizowner
+    @listings = Store.where(bizowner_id: Bizowner.find_by(user_id: current_user.id).id)
   end
 
   # GET /stores/1
@@ -34,7 +39,8 @@ class StoresController < ApplicationController
   # POST /stores.json
   def create
     @store = Store.new(store_params)
-
+    @store.update(bizowner_id: Bizowner.find_by(user_id: current_user.id).id)
+    @store.update(status: true)
     respond_to do |format|
       if @store.save
         format.html { redirect_to @store, notice: 'Store was successfully created.' }

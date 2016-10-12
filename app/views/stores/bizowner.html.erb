@@ -114,3 +114,8 @@
   </script>
 
 </div>
+
+<% if current_user.is_biz %>
+<%= link_to 'See All Stores', stores_path %> |
+<% end %>
+<%= link_to 'New Store', new_store_path %>
