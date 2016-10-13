@@ -1,16 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Jobseekers Reviews</h1>
+<h1>My  Reviews</h1>
 
-<div class="table">
-<table>
-  <thead>
+<div class="table-responsive">
+<table class= "table-striped">
+  <thead class="thead-inverse">
     <tr>
       <th>Bizowner Name</th>
-      <th>Jobseeker Name</th>
       <th>Jobseeker review star</th>
       <th>Jobseeker review description</th>
-      <th>Job end date</th>
       <th>Status</th>
       <th colspan="3"></th>
     </tr>
@@ -19,13 +17,9 @@
   <tbody>
     <% @jobseekers_reviews.each do |jobseekers_review| %>
     <tr>
-      <td><%= current_user.name %></td>
-      <td><%= jobseekers_review.jobseeker.user.first_name unless jobseekers_review.jobseeker.blank? %></td>
-      <td><%= jobseekers_review.jobseeker_review_star %></td>
-      <td><%= jobseekers_review.jobseeker_review_description %></td>
-      <td><%= jobseekers_review.job_end_date %></td>
+      <td><%= jobseekers_review.job.job_title.capitalize%></td>
+      <td><%= jobseekers_review.job.job_description %></td>
       <td><%= jobseekers_review.status %></td>
-      <td><%= link_to 'Show', jobseekers_review %></td>
       <td><%= link_to 'Edit', edit_jobseekers_review_path(jobseekers_review) %></td>
       <td><%= link_to 'Destroy', jobseekers_review, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>

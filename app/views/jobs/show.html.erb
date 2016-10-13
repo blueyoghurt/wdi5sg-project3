@@ -49,9 +49,11 @@
   <% end %>
 </div>
 
+<div class="col-md-12">
 <% if current_user.is_biz %>
-<%= link_to 'Edit', edit_job_path(@job) %>
+<br/><%= link_to 'Edit', edit_job_path(@job), class: "btn btn-primary" %>
 <% end %>
 <% if current_user.is_seeker %>
-<%= link_to 'Apply', application_path, method: :post, data: { confirm: 'Are you sure?' } %>
+<br/><%= link_to 'Apply', application_path, method: :post, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
 <% end %>
+</div>

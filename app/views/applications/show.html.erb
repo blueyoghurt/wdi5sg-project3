@@ -1,19 +1,22 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Job:</strong>
-  <%= @application.job.job_title %>
-</p>
+<div class="col-md-2">
+  <br/><strong>Job:</strong>
+</div>
+<div class="col-md-10">
+  <br/><%= @application.job.job_title.capitalize %>
+</div>
 
-<p>
-  <strong>Job Applicatant:</strong>
-  <%= @application.jobseeker.user.name %>
-</p>
+<div class="col-md-2">
+  <br/><strong>Job Applicant:</strong>
+</div>
+<div class="col-md-10"></strong>
+  <br/><%= @application.jobseeker.user.name %>
+</div>
 
-<p>
-  <strong>Status:</strong>
-  <%= @application.status %>
-</p>
-
-<%= link_to 'Edit', edit_application_path(@application) %> |
-<%= link_to 'Back', applications_path %>
+<div class="col-md-2">
+  <br/><strong>Status:</strong>
+</div>
+<div class="col-md-10">
+  <br/><%= @application.status %>
+</div>

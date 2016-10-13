@@ -5,6 +5,9 @@ class JobseekersReviewsController < ApplicationController
   # GET /jobseekers_reviews.json
   def index
     @jobseekers_reviews = JobseekersReview.all
+    @jobseeker = Jobseeker.find_by(user_id: current_user.id)
+    @all_my_application= Application.where(jobseeker_id: @jobseeker.id)
+    @jobseekers_review = @all_my_application.where(status: "Approved")
   end
 
   # GET /jobseekers_reviews/1

@@ -222,7 +222,7 @@ job_title: "part time packer",
 job_description: 'be a pack rat',
 industry: 'slavery',
 vacancy: 4,
-wage_per_hour: 1.99,
+wage_per_hour: 1.9,
 job_start_date: '2016-10-01',
 job_end_date: '2016-10-07',
 status: true)

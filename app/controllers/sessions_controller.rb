@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       flash[:success] = "User logged in!!"
       if user.is_seeker && !Jobseeker.find_by(user_id: current_user.id)
-        redirect_to job_register_profile_path, notice: "Let's create your job profile!"
+        redirect_to jobseeker_register_profile_path, notice: "Let's create your job profile!"
       elsif user.is_biz && !Bizowner.find_by(user_id: current_user.id)
         redirect_to business_register_profile_path, notice: "Let's create your business profile!"
       else

@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root 'jobs#index'
 
+  get "reviews" => "public#index"
+
   get "job/:id" => "jobs#show_public", as: "show_job"
 
   post "applications/:id" => "applications#create"
@@ -25,20 +27,20 @@ Rails.application.routes.draw do
   end
 
   # Jobseekers - custom routes for job seekers
-  get "job/register-profile" => "jobseekers#new"
-  post "jobseekers" => "jobseekers#create"
-  get "job/profile/:id" => "jobseekers#show_public", as: "show_seeker"
-  get "job/profile" => "jobseekers#show"
-  get "job/edit" => "jobseekers#edit"
-  put "job/profile" => "jobseekers#update"
-  patch "job/profile" => "jobseekers#update"
+  get "jobseeker/register-profile" => "jobseekers#new"
+  post "jobseeker" => "jobseekers#create"
+  get "jobseeker/profile/edit" => "jobseekers#edit", as: "edit_job_profile"
+  get "jobseeker/profile/:id" => "jobseekers#show_public", as: "show_seeker"
+  get "jobseeker/profile" => "jobseekers#show"
+  put "jobseeker/:id" => "jobseekers#update"
+  patch "jobseeker.:id" => "jobseekers#update"
 
   # Bizowners - custom routes for biz owners
-  get "business/register-profile" => "bizowners#new"
+  get "business/register-profile" => "bizowners#new", as: "bizowner_register"
   post "bizowners" => "bizowners#create"
+  get "business/edit" => "bizowners#edit"
   get "business/profile/:id" => "bizowners#show_public", as: "show_business"
   get "business/profile" => "bizowners#show"
-  get "business/edit" => "bizowners#edit"
   put "business/profile" => "bizowners#update"
   patch "business/profile" => "bizowners#update"
   post "business/profile" => "bizowners#update"
@@ -47,7 +49,7 @@ Rails.application.routes.draw do
   resources :bizowners_reviews
   resources :applications
   resources :users
-  resources :jobseekers
+  # resources :jobseekers
   resources :bizowners
   resources :stores
   resources :jobs

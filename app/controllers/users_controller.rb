@@ -30,9 +30,9 @@ class UsersController < ApplicationController
         session[:user_id] = @user.id
         format.html {
           if @user.is_seeker
-            redirect_to job_register_profile_path, notice: "Let's create your job profile!"
+            redirect_to jobseeker_register_profile_path, notice: "Let's create your job profile!"
           else
-            redirect_to business_register_profile_path, notice: "Let's create your business profile!"
+            redirect_to bizowner_register_path, notice: "Let's create your business profile!"
           end }
         format.json { render :show, status: :created, location: @user }
       else

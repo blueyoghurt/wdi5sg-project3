@@ -33,7 +33,7 @@ class JobseekersController < ApplicationController
   end
 
   def show_public
-    @jobseeker = Jobseeker.find_by(id: Application.find_by(id: params[:id]).jobseeker_id)
+    @jobseeker = Jobseeker.find_by(id: params[:id])
     @age = Date.today.year - @jobseeker.dob.year
     @user = User.find_by(id: @jobseeker.user_id)
   end

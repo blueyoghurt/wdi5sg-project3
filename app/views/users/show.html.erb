@@ -144,7 +144,7 @@
 <div class="col-md-12">
 <br/><%= link_to 'Edit User Profile', profile_edit_path %> |
 <% if @user.is_seeker %>
-<%= link_to 'Edit Job Profile', job_edit_path %>
+<%= link_to 'Edit Job Profile', edit_job_profile_path %>
 <% elsif @user.is_biz %>
 <%= link_to 'Edit Business Profile', business_edit_path %>
 <% end %>

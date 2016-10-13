@@ -59,7 +59,7 @@ function displayOnMap(position){
   </div>
 
   <div class="page-header">
-    <h3 id ="show_all_jobs">Showing all Jobs</h3>
+    <br/><h3 id ="show_all_jobs">Showing all Jobs</h3>
   </div>
 
 
@@ -74,17 +74,13 @@ function displayOnMap(position){
     <table class="table-striped">
       <thead class="thead-inverse">
         <tr>
-          <!-- Hide Lat and long when render -->
-          <!-- <th>Latitude</th> -->
-          <!-- <th>Longitude</th> -->
-          <!-- <th><%= sortable "name" %></th> -->
           <th><%= sortable "job_title"%></th>
           <th><%= sortable "company_name"%></th>
           <th><%= sortable "address"%></th>
           <th><%= sortable "industry"%></th>
-          <th><%= sortable "wage_per_hour"%></th>
-          <th><%= sortable "job_start_date"%></th>
-          <th><%= sortable "job_end_date"%></th>
+          <th><%= sortable "hourly_wage"%></th>
+          <th><%= sortable "start_date"%></th>
+          <th><%= sortable "end_date"%></th>
           <th></th>
           <% if current_user %>
           <% if current_user.is_admin %>
@@ -97,18 +93,18 @@ function displayOnMap(position){
       <tbody>
         <%= content_tag_for(:tr, @jobs) do |job| %>
         <td><%= link_to job.job_title.capitalize, job_path(job) %></td>
-        <td><%= job.company_name.capitalize %></td>
+        <td><%= link_to job.company_name.capitalize, show_business_path(job.bizowner_id) %></td>
         <td><%= job.address.capitalize %></td>
         <td><%= job.industry.capitalize %></td>
         <td>$<%= job.wage_per_hour %>0</td>
         <td><%= job.job_start_date %></td>
         <td><%= job.job_end_date%></td>
 
-        <td><%= link_to 'Show', job %></td>
+        <td><%= link_to 'Apply now!', job, class: "btn btn-info" %></td>
         <% if current_user %>
         <% if current_user.is_admin %>
-        <td><%= link_to 'Edit', edit_job_path(job) %></td>
-        <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_job_path(job), class: "btn btn-warning" %></td>
+        <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } , class: "btn btn-danger"%></td>
         <% end %>
         <% end %>
         <% end %>

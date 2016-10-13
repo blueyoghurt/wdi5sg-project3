@@ -1,6 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <%= render 'form', jobseeker: @jobseeker %>
+<div class="col-md-12">
 <br/>
-<%= link_to 'Show Profile', profile_path %> |
+<%= link_to 'Show Profile', jobseeker_profile_path %> |
 <%= link_to 'Edit User Profile', profile_edit_path %>
+</div>

@@ -1,10 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <%= render 'edit_form', user: @user %>
-<br/>
-<%= link_to 'Show Profile', profile_path %> |
-<% if @user.is_seeker %>
-<%= link_to 'Edit Job Profile', job_edit_path %>
-<% elsif @user.is_biz %>
-<%= link_to 'Edit Business Profile', business_edit_path %>
-<% end %>
+<div class="col-md-12">
+  <br/>
+  <%= link_to 'Show Profile', profile_path %> |
+  <% if @user.is_seeker %>
+  <%= link_to 'Edit Job Profile', edit_job_profile_path %>
+  <% elsif @user.is_biz %>
+  <%= link_to 'Edit Business Profile', business_edit_path %>
+  <% end %>
+</div>

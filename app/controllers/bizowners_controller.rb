@@ -24,9 +24,7 @@ class BizownersController < ApplicationController
     @bizowner = Bizowner.find_by(user_id: current_user.id)
   end
 
-
   def show_public
-    puts params
     @bizowner = Bizowner.find_by(id: params[:id])
   end
 

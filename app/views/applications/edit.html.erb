@@ -43,10 +43,10 @@
 </div>
 <div class="col-md-10">
   <br>
-  <%= f.radio_button :status, "Approve" %>
-  <%= label :status, "Approved"%>
+  <%= f.radio_button :status, "Approved" %>
+  <%= label :status, "Approve"%>
   <br>
-  <%= f.radio_button :status, "Reject" %>
+  <%= f.radio_button :status, "Rejected" %>
   <%= label :status, "Reject"%>
   <br>
   <%= f.radio_button :status, "Pending", :checked => true %>
@@ -55,7 +55,7 @@
 
 
 <div class="actions">
-  <%= f.submit %>
+  <%= f.submit class: "btn btn-primary" %>
 </div>
 <% end %>
 <% end %>
