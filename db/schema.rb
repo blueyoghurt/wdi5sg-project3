@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161012054923) do
+ActiveRecord::Schema.define(version: 20161012103754) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,16 +38,15 @@ ActiveRecord::Schema.define(version: 20161012054923) do
   create_table "bizowners_reviews", force: :cascade do |t|
     t.integer  "jobseeker_id"
     t.integer  "bizowner_id"
-    t.integer  "listing_id"
+    t.integer  "application_id"
     t.integer  "bizowner_review_star"
     t.text     "business_review_description"
-    t.date     "job_end_date"
     t.boolean  "status"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+    t.index ["application_id"], name: "index_bizowners_reviews_on_application_id", using: :btree
     t.index ["bizowner_id"], name: "index_bizowners_reviews_on_bizowner_id", using: :btree
     t.index ["jobseeker_id"], name: "index_bizowners_reviews_on_jobseeker_id", using: :btree
-    t.index ["listing_id"], name: "index_bizowners_reviews_on_listing_id", using: :btree
   end
 
   create_table "jobs", force: :cascade do |t|
@@ -90,16 +89,15 @@ ActiveRecord::Schema.define(version: 20161012054923) do
   create_table "jobseekers_reviews", force: :cascade do |t|
     t.integer  "jobseeker_id"
     t.integer  "bizowner_id"
-    t.integer  "listing_id"
+    t.integer  "application_id"
     t.integer  "jobseeker_review_star"
     t.text     "jobseeker_review_description"
-    t.date     "job_end_date"
     t.boolean  "status"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
+    t.index ["application_id"], name: "index_jobseekers_reviews_on_application_id", using: :btree
     t.index ["bizowner_id"], name: "index_jobseekers_reviews_on_bizowner_id", using: :btree
     t.index ["jobseeker_id"], name: "index_jobseekers_reviews_on_jobseeker_id", using: :btree
-    t.index ["listing_id"], name: "index_jobseekers_reviews_on_listing_id", using: :btree
   end
 
   create_table "listings", force: :cascade do |t|
@@ -134,13 +132,13 @@ ActiveRecord::Schema.define(version: 20161012054923) do
   end
 
   add_foreign_key "bizowners", "users"
+  add_foreign_key "bizowners_reviews", "applications"
   add_foreign_key "bizowners_reviews", "bizowners"
   add_foreign_key "bizowners_reviews", "jobseekers"
-  add_foreign_key "bizowners_reviews", "listings"
   add_foreign_key "jobs", "bizowners"
   add_foreign_key "jobseekers", "users"
+  add_foreign_key "jobseekers_reviews", "applications"
   add_foreign_key "jobseekers_reviews", "bizowners"
   add_foreign_key "jobseekers_reviews", "jobseekers"
-  add_foreign_key "jobseekers_reviews", "listings"
   add_foreign_key "listings", "bizowners"
 end
