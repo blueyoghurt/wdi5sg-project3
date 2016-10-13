@@ -9,7 +9,7 @@ Screenshot:
 ![alt text](/app/assets/images/printscreen.png?raw=true "Preview 1")
 
 
-1. Introduction: Premise & what is the project about
+**Introduction: Premise & what is the project about**
 
 Problem Identified:
 
@@ -34,13 +34,13 @@ Google maps that shows the location of the job and user’s current location.
 Mailer function. Employers get notified via email with every job application. In addition, the email will be attached with a contract to legalise the employment period and the monetary   payout for the employees, making the recruitment process more efficient for job-seekers and employers.
 
 
-2. Application Demo & Showcasing of the code
+**Application Demo & Showcasing of the code**
 
 Live demo with seed data
 Google maps code show case
 Action Mailer code show case
 
-3. Monetisation Strategy
+**Monetisation Strategy**
 
 For every job match, we charge the employer a 5% service fee on top of remuneration sum that they need to pay the employee for the employment period.
 
@@ -51,7 +51,7 @@ Acquire McDonalds as our first client. Once a big player is in, the rest are mor
 Others potential choices: KFC & Pico’s Event Company.
 
 
-4. Workflow
+**Workflow**
 
 Show To Do List
 Feature branch git flow
