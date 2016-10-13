@@ -2,9 +2,8 @@
 
 <%= render 'edit_form', user: @user %>
 <br/>
-<%= link_to 'Show User Profile', profile_path %> |
+<%= link_to 'Show Profile', profile_path %> |
 <% if @user.is_seeker %>
-<%= link_to 'Show Job Profile', job_profile_path %> |
 <%= link_to 'Edit Job Profile', job_edit_path %>
 <% elsif @user.is_biz %>
 <%= link_to 'Edit Business Profile', business_edit_path %>
