@@ -26,7 +26,7 @@ class ApplicationsController < ApplicationController
     @application = Application.new(job_id: params[:id], jobseeker_id: Jobseeker.find_by(user_id: current_user.id).id, status: "Pending")
     respond_to do |format|
       if @application.save
-        # ApplicationNotificationMailer.notification_email(params[:id]).deliver
+        ApplicationNotificationMailer.notification_email(params[:id]).deliver
         format.html { redirect_to @application, notice: 'Application was successfully created.' }
         format.json { render :show, status: :created, location: @application }
       else
