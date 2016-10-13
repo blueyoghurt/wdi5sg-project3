@@ -1,40 +1,47 @@
 <div class="page-header">
-  <h1><%= @job.job_title %> @ <%= @job.company_name %></h1>
+  <h1><%= @job.job_title.capitalize %> @ <%= @job.company_name.capitalize %></h1>
 </div>
 
 <div class="col-md-2">
-  <br/><strong>Address:</strong>
+  <br/><strong>Job Title:</strong>
 </div>
 <div class="col-md-10">
-  <br/><%= @job.address %>
+  <br/><%= @job.job_title.capitalize %>
 </div>
 
 <div class="col-md-2">
   <br/><strong>Company Name:</strong>
 </div>
 <div class="col-md-10">
-  <br/><%= @job.company_name %>
+  <br/><%= @job.company_name.capitalize %>
 </div>
 
 <div class="col-md-2">
-  <br/><strong>Job title:</strong>
+  <br/><strong>Job Description:</strong>
 </div>
 <div class="col-md-10">
-  <br/><%= @job.job_title %>
+  <br/><%= @job.job_description.capitalize %>
 </div>
 
 <div class="col-md-2">
-  <br/><strong>Job description:</strong>
+  <br/><strong>Address:</strong>
 </div>
 <div class="col-md-10">
-  <br/><%= @job.job_description %>
+  <br/><%= @job.address.capitalize %>
 </div>
 
 <div class="col-md-2">
   <br/><strong>Industry:</strong>
 </div>
 <div class="col-md-10">
-  <br/><%= @job.industry %>
+  <br/><%= @job.industry.capitalize %>
+</div>
+
+<div class="col-md-2">
+  <br/><strong>Hourly Wage:</strong>
+</div>
+<div class="col-md-10">
+  <br/>$<%= @job.wage_per_hour %>0
 </div>
 
 <div class="col-md-2">
