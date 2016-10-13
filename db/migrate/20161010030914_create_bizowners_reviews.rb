@@ -6,7 +6,6 @@ class CreateBizownersReviews < ActiveRecord::Migration[5.0]
       t.belongs_to :application, index: true, foreign_key: true
       t.integer :bizowner_review_star
       t.text :business_review_description
-      t.boolean :status
 
       t.timestamps
     end

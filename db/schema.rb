@@ -41,7 +41,6 @@ ActiveRecord::Schema.define(version: 20161012103754) do
     t.integer  "application_id"
     t.integer  "bizowner_review_star"
     t.text     "business_review_description"
-    t.boolean  "status"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.index ["application_id"], name: "index_bizowners_reviews_on_application_id", using: :btree
@@ -92,7 +91,6 @@ ActiveRecord::Schema.define(version: 20161012103754) do
     t.integer  "application_id"
     t.integer  "jobseeker_review_star"
     t.text     "jobseeker_review_description"
-    t.boolean  "status"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
     t.index ["application_id"], name: "index_jobseekers_reviews_on_application_id", using: :btree
