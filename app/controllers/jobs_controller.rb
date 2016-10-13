@@ -25,7 +25,12 @@ class JobsController < ApplicationController
 
   def bizowner
     params.permit!
+    @bizowner = current_user.bizowner
     @jobs = current_user.bizowner.jobs.paginate(:page => params[:page], :per_page => 5)
+  end
+
+  def show_public
+    @job = Job.find_by(id: Application.find_by(id: params[:id]).job_id)
   end
 
   # GET /jobs/1

@@ -96,10 +96,6 @@ function displayOnMap(position){
 
       <tbody>
         <%= content_tag_for(:tr, @jobs) do |job| %>
-        <!-- Hide Lat and long when render -->
-        <!-- <td><%= job.latitude %></td>
-        <td><%= job.longitude %></td> -->
-        <!-- <td><%= job.name %></td> -->
         <td><%= link_to job.job_title, job_path(job) %></td>
         <td><%= job.company_name %></td>
         <td><%= job.address %></td>
@@ -120,6 +116,7 @@ function displayOnMap(position){
     </table>
     <%= will_paginate @jobs %>
 
+  </div>
     <br>
     <% if current_user %>
     <% if current_user.is_biz %>
@@ -128,6 +125,5 @@ function displayOnMap(position){
     <%= link_to 'New Job', new_job_path %>
     <% end %>
 
-  </div>
 
 </div>
