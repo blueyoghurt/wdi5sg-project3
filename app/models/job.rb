@@ -8,18 +8,30 @@ class Job < ApplicationRecord
   validates :bizowner_id,
   presence: true
 
+  before_save :downcase_fields
+
+  def downcase_fields
+    self.company_name.downcase!
+    self.job_title.downcase!
+    self.job_description.downcase!
+    self.address.downcase!
+    self.industry.downcase!
+  end
+
   def self.search(search,type)
     if search
       case type
-      when "company"
-        where('company_name LIKE ?', "%#{search}%")
       when "address"
         where('address LIKE ?', "%#{search}%")
-      when "title"
-        where('title LIKE ?', "%#{search}%")
+      when "company_name"
+        where('company_name LIKE ?', "%#{search}%")
+      when "job_title"
+        where('job_title LIKE ?', "%#{search}%")
       else
-        all
+        scoped
       end
+    else
+      all
     end
   end
 end
