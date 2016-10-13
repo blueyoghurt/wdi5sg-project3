@@ -43,6 +43,8 @@ gem 'will_paginate', '~> 3.1.1'
 
 gem 'record_tag_helper', '~> 1.0'
 
+gem 'rails_12factor', group: :production
+
 # gem 'will_paginate', github: 'jonatack/will_paginate'
 # gem "ransack", github:"activerecord-hackery/ransack", branch:"master"
 

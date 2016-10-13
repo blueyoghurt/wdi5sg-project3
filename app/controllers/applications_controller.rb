@@ -31,7 +31,7 @@ class ApplicationsController < ApplicationController
     end
     @application = Application.new(job_id: params[:id], jobseeker_id: Jobseeker.find_by(user_id: current_user.id).id, status: "Pending")
       if @application.save
-        # ApplicationNotificationMailer.notification_email(params[:id]).deliver
+        ApplicationNotificationMailer.notification_email(params[:id]).deliver
         redirect_to @application, notice: 'You application has been sent. Good luck!'
       else
         redirect_to root_path, notice: 'You have already applied for this job'
