@@ -2,147 +2,147 @@
 
 
 <div class="col-md-2">
-  <strong>Name:</strong>
+  <br/><strong>Name:</strong>
 </div>
 <div class="col-md-10">
-  <%= @user.name %>
+  <br/><%= @user.name %>
 </div>
 
 <div class="col-md-2">
-  <strong>Contact:</strong>
+  <br/><strong>Contact:</strong>
 </div>
 <div class="col-md-10">
-  <%= @user.contact %>
+  <br/><%= @user.contact %>
 </div>
 
 
 <div class="col-md-2">
-  <strong>Email:</strong>
+  <br/><strong>Email:</strong>
 </div>
 <div class="col-md-10">
-  <%= @user.email %>
+  <br/><%= @user.email %>
 </div>
 
 <% if @user.is_seeker %>
 
 <div class="col-md-2">
-  <strong>Date of Birth:</strong>
+  <br/><strong>Date of Birth:</strong>
 </div>
 <div class="col-md-10">
-  <%= @jobseeker.dob %>
+  <br/><%= @jobseeker.dob %>
 </div>
 
 <div class="col-md-2">
-  <strong>Postal code:</strong>
+  <br/><strong>Postal code:</strong>
 </div>
 <div class="col-md-10">
-  <%= @jobseeker.postal_code %>
-</div>
-
-
-<div class="col-md-2">
-  <strong>Highest Qualification:</strong>
-</div>
-<div class="col-md-10">
-  <%= @jobseeker.highest_qualification %>
+  <br/><%= @jobseeker.postal_code %>
 </div>
 
 
 <div class="col-md-2">
-  <strong>Preferred Area:</strong>
+  <br/><strong>Highest Qualification:</strong>
 </div>
 <div class="col-md-10">
-  <%= @jobseeker.preferred_area %>
+  <br/><%= @jobseeker.highest_qualification %>
+</div>
+
+
+<div class="col-md-2">
+  <br/><strong>Preferred Area:</strong>
+</div>
+<div class="col-md-10">
+  <br/><%= @jobseeker.preferred_area %>
 </div>
 
 <div class="col-md-2">
-  <strong>Preferred Location:</strong>
+  <br/><strong>Preferred Location:</strong>
 </div>
 <div class="col-md-10">
-  <%= @jobseeker.preferred_location %>
+  <br/><%= @jobseeker.preferred_location %>
 </div>
 
 <div class="col-md-2">
-  <strong>Description:</strong>
+  <br/><strong>Description:</strong>
 </div>
 <div class="col-md-10">
-  <%= @jobseeker.description %>
+  <br/><%= @jobseeker.description %>
 </div>
 
 <div class="col-md-2">
-  <strong>Wage:</strong>
+  <br/><strong>Wage:</strong>
 </div>
 <div class="col-md-10">
-  <%= @jobseeker.wage %>
+  <br/><%= @jobseeker.wage %>
 </div>
 
 <div class="col-md-2">
-  <strong>Start date:</strong>
+  <br/><strong>Start date:</strong>
 </div>
 <div class="col-md-10">
-  <%= @jobseeker.start_date %>
+  <br/><%= @jobseeker.start_date %>
 </div>
 
 <div class="col-md-2">
-  <strong>End date:</strong>
+  <br/><strong>End date:</strong>
 </div>
 <div class="col-md-10">
-  <%= @jobseeker.end_date %>
+  <br/><%= @jobseeker.end_date %>
 </div>
 
 <% elsif @user.is_biz %>
 <div class="col-md-2">
-  <strong>Company:</strong>
+  <br/><strong>Company:</strong>
 </div>
 <div class="col-md-10">
-  <%= @bizowner.name %>
+  <br/><%= @bizowner.name %>
 </div>
 
 <div class="col-md-2">
-  <strong>Description:</strong>
+  <br/><strong>Description:</strong>
 </div>
 <div class="col-md-10">
-  <%= @bizowner.description %>
+  <br/><%= @bizowner.description %>
 </div>
 
 <div class="col-md-2">
-  <strong>Business Address:</strong>
+  <br/><strong>Business Address:</strong>
 </div>
 <div class="col-md-10">
-  <%= @bizowner.address %>
+  <br/><%= @bizowner.address %>
 </div>
 
 <div class="col-md-2">
-  <strong>Postal Code</strong>
+  <br/><strong>Postal Code</strong>
 </div>
 <div class="col-md-10">
-  <%= @bizowner.postal_code %>
+  <br/><%= @bizowner.postal_code %>
 </div>
 
 <div class="col-md-2">
-  <strong>License:</strong>
+  <br/><strong>License:</strong>
 </div>
 <div class="col-md-10">
-  <%= @bizowner.license_number %>
+  <br/><%= @bizowner.license_number %>
 </div>
 
 <% end %>
 
 <div class="col-md-2">
-  <strong>User Type:</strong>
+  <br/><strong>User Type:</strong>
 </div>
 <div class="col-md-10">
   <% if @user.is_admin %>
-  <%= "Admin" %>
+  <br/><%= "Admin" %>
   <% elsif @user.is_seeker %>
-  <%= "Job Seeker" %>
+  <br/><%= "Job Seeker" %>
   <% else %>
-  <%= "Business Owner" %>
+  <br/><%= "Business Owner" %>
   <% end %>
 </div>
 
 <div class="col-md-12">
-<%= link_to 'Edit User Profile', profile_edit_path %> |
+<br/><%= link_to 'Edit User Profile', profile_edit_path %> |
 <% if @user.is_seeker %>
 <%= link_to 'Edit Job Profile', job_edit_path %>
 <% elsif @user.is_biz %>
