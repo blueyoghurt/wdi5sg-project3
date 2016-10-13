@@ -14,49 +14,53 @@
 <div class="form-group">
   <%= f.label :first_name, class: "col-md-2 control-label" %>
   <div class="col-md-10">
-  <%= f.text_field :first_name, class: "form-control" %>
-    </div>
+    <%= f.text_field :first_name, class: "form-control" %><br>
+  </div>
 </div>
 
 <div class="form-group">
   <%= f.label :last_name, class: "col-md-2 control-label" %>
   <div class="col-md-10">
-  <%= f.text_field :last_name, class: "form-control" %>
-    </div>
+    <%= f.text_field :last_name, class: "form-control" %><br>
+  </div>
 </div>
 
 <div class="form-group">
   <%= f.label :email, class: "col-md-2 control-label" %>
   <div class="col-md-10">
-  <%= f.text_field :email, class: "form-control" %>
-    </div>
+    <%= f.text_field :email, class: "form-control" %><br>
+  </div>
 </div>
 
 <div class="form-group">
   <%= f.label :password, class: "col-md-2 control-label" %>
   <div class="col-md-10">
-  <%= f.password_field :password, class: "form-control" %>
-    </div>
+    <%= f.password_field :password, class: "form-control" %><br>
+  </div>
 </div>
 
 <div class="form-group">
   <%= f.label :contact, class: "col-md-2 control-label" %>
   <div class="col-md-10">
-  <%= f.number_field :contact, class: "form-control" %>
-    </div>
+    <%= f.number_field :contact, class: "form-control" %><br>
+  </div>
 </div>
 
 <div class="form-group">
   <%= f.label :type, class: "col-md-2 control-label" %>
-  <%= f.radio_button :is_seeker, "true" %>
-  <%= label :is_seeker, "Job Seeker"%>
-  <%= f.radio_button :is_seeker, "false" %>
-  <%= label :is_seeker, "Business Owner"%>
+  <div class="col-md-2">
+    <%= f.radio_button :is_seeker, "true"%>
+    <%= label :is_seeker, "Job Seeker"%>
+  </div>
+  <div class="col-md-2">
+    <%= f.radio_button :is_seeker, "false"%>
+    <%= label :is_seeker, "Business Owner"%>
+  </div>
 </div>
 
 <div class="form-group">
   <div class="col-sm-offset-2 col-md-10">
-  <%= f.submit class: "btn btn-primary"%>
-</div>
+    <br><%= f.submit class: "btn btn-primary"%>
+  </div>
 </div>
 <% end %>
