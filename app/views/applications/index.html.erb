@@ -1,34 +1,43 @@
 <p id="notice"><%= notice %></p>
 
+<% if current_user.is_admin || current_user.is_biz %>
+<h1>Applicants</h1>
+<% end %>
+<% if current_user.is_seeker %>
 <h1>Applications</h1>
+<% end %>
 
-<div class="table">
-<table>
-  <thead>
-    <tr>
-      <th>Job</th>
-      <th>Job Description</th>
-      <th>Job Applicant</th>
-      <th>Status</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @applications.each do |application| %>
+
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Job</th>
+        <th>Job Description</th>
+        <th>Job Applicant</th>
+        <th>Status</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @applications.each do |application| %>
       <tr>
         <td><%= application.job.job_title %></td>
         <td><%= application.job.job_description %></td>
         <td><%= link_to application.jobseeker.user.name, show_seeker_path(application) %></td>
         <td><%= application.status %></td>
         <td><%= link_to 'View', application %></td>
-        <% if current_user.is_biz || current_user.is_admin%>
+        <% if current_user.is_admin || current_user.is_biz %>
+        <% if current_user.is_admin %>
+        <td><%= link_to 'Delete', application, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
         <td><%= link_to 'Edit', edit_application_path(application) %></td>
         <% end %>
-        <td><%= link_to 'Delete', application, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+      <% end %>
+    </tbody>
+  </table>
 </div>
 <br>

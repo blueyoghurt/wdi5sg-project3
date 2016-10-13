@@ -75,7 +75,7 @@ Jobseeker.find_or_create_by!(user_id: User.find_by(email: ENV["job_email"]).id) 
   job.description = 'Hard worker'
   job.wage = 7
   job.start_date = '2016-10-01'
-  job_end_date = '2016-31-10'
+  job_end_date = '2016-10-31'
   job.availability = true
 end
 
@@ -98,7 +98,7 @@ Jobseeker.find_or_create_by!(user_id: User.find_by(email: ENV["job2_email"]).id)
   job.description = 'Very slack'
   job.wage = 5
   job.start_date = '2016-07-01'
-  job_end_date = '2016-31-10'
+  job_end_date = '2016-10-31'
   job.availability = true
 end
 
