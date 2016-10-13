@@ -12,7 +12,7 @@ class JobseekersController < ApplicationController
     @jobseeker.update(availability: true)
     respond_to do |format|
       if @jobseeker.save
-        format.html { redirect_to job_profile_path,notice: "Job Profile has been successfully created!" }
+        format.html { redirect_to profile_path,notice: "Job Profile has been successfully created!" }
         format.json { render :show, status: :created, location: @jobseeker }
       else
         format.html { render :new }
@@ -44,7 +44,7 @@ class JobseekersController < ApplicationController
     @jobseeker = Jobseeker.find_by(user_id: current_user.id)
     respond_to do |format|
       if @jobseeker.update(job_params)
-        format.html { redirect_to job_profile_path, notice: 'Job Profile was successfully updated.' }
+        format.html { redirect_to profile_path, notice: 'Job Profile was successfully updated.' }
         format.json { render :show, status: :ok, location: @jobseeker }
       else
         format.html { render :edit }
