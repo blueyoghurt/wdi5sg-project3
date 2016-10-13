@@ -1,109 +1,151 @@
 <p id="notice"><%= notice %></p>
 
-<p>
+
+<div class="col-md-2">
   <strong>Name:</strong>
+</div>
+<div class="col-md-10">
   <%= @user.name %>
-</p>
+</div>
 
-<p>
+<div class="col-md-2">
   <strong>Contact:</strong>
+</div>
+<div class="col-md-10">
   <%= @user.contact %>
-</p>
+</div>
 
-<p>
+
+<div class="col-md-2">
   <strong>Email:</strong>
+</div>
+<div class="col-md-10">
   <%= @user.email %>
-</p>
-
-<p>
-  <strong>User Type:</strong>
-  <td><% if @user.is_admin %>
-    <%= "Admin"%>
-    <% elsif @user.is_seeker %>
-    <%= "Job Seeker" %>
-    <% else %>
-    <%= "Business Owner" %>
-    <% end %>
-  </td>
-</p>
+</div>
 
 <% if @user.is_seeker %>
-<p>
+
+<div class="col-md-2">
   <strong>Date of Birth:</strong>
+</div>
+<div class="col-md-10">
   <%= @jobseeker.dob %>
-</p>
+</div>
 
-<p>
+<div class="col-md-2">
   <strong>Postal code:</strong>
+</div>
+<div class="col-md-10">
   <%= @jobseeker.postal_code %>
-</p>
+</div>
 
-<p>
+
+<div class="col-md-2">
   <strong>Highest Qualification:</strong>
+</div>
+<div class="col-md-10">
   <%= @jobseeker.highest_qualification %>
-</p>
+</div>
 
-<p>
+
+<div class="col-md-2">
   <strong>Preferred Area:</strong>
+</div>
+<div class="col-md-10">
   <%= @jobseeker.preferred_area %>
-</p>
+</div>
 
-<p>
+<div class="col-md-2">
   <strong>Preferred Location:</strong>
+</div>
+<div class="col-md-10">
   <%= @jobseeker.preferred_location %>
-</p>
+</div>
 
-<p>
+<div class="col-md-2">
   <strong>Description:</strong>
+</div>
+<div class="col-md-10">
   <%= @jobseeker.description %>
-</p>
+</div>
 
-<p>
+<div class="col-md-2">
   <strong>Wage:</strong>
+</div>
+<div class="col-md-10">
   <%= @jobseeker.wage %>
-</p>
+</div>
 
-<p>
+<div class="col-md-2">
   <strong>Start date:</strong>
+</div>
+<div class="col-md-10">
   <%= @jobseeker.start_date %>
-</p>
+</div>
 
-<p>
+<div class="col-md-2">
   <strong>End date:</strong>
+</div>
+<div class="col-md-10">
   <%= @jobseeker.end_date %>
-</p>
+</div>
 
 <% elsif @user.is_biz %>
-<p>
+<div class="col-md-2">
   <strong>Company:</strong>
+</div>
+<div class="col-md-10">
   <%= @bizowner.name %>
-</p>
+</div>
 
-<p>
+<div class="col-md-2">
   <strong>Description:</strong>
+</div>
+<div class="col-md-10">
   <%= @bizowner.description %>
-</p>
+</div>
 
-<p>
+<div class="col-md-2">
   <strong>Business Address:</strong>
+</div>
+<div class="col-md-10">
   <%= @bizowner.address %>
-</p>
+</div>
 
-<p>
+<div class="col-md-2">
   <strong>Postal Code</strong>
+</div>
+<div class="col-md-10">
   <%= @bizowner.postal_code %>
-</p>
+</div>
 
-<p>
+<div class="col-md-2">
   <strong>License:</strong>
+</div>
+<div class="col-md-10">
   <%= @bizowner.license_number %>
-</p>
+</div>
 
 <% end %>
 
+<div class="col-md-2">
+  <strong>User Type:</strong>
+</div>
+<div class="col-md-10">
+  <% if @user.is_admin %>
+  <%= "Admin" %>
+  <% elsif @user.is_seeker %>
+  <%= "Job Seeker" %>
+  <% else %>
+  <%= "Business Owner" %>
+  <% end %>
+</div>
+
+<div class="col-md-12">
 <%= link_to 'Edit User Profile', profile_edit_path %> |
 <% if @user.is_seeker %>
 <%= link_to 'Edit Job Profile', job_edit_path %>
 <% elsif @user.is_biz %>
 <%= link_to 'Edit Business Profile', business_edit_path %>
 <% end %>
+</div>

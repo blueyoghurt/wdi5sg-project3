@@ -9,10 +9,9 @@ class BizownersController < ApplicationController
   def create
     @bizowner = Bizowner.new(biz_params)
     @bizowner.update(user_id: current_user.id)
-
     respond_to do |format|
       if @bizowner.save
-        format.html { redirect_to business_profile_path,notice: "Business Profile has been successfully created!" }
+        format.html { redirect_to profile_path,notice: "Business Profile has been successfully created!" }
         format.json { render :show, status: :created, location: @bizowner }
       else
         format.html { render :new }
@@ -47,7 +46,7 @@ class BizownersController < ApplicationController
     @bizowner = Bizowner.find_by(user_id: current_user.id)
     respond_to do |format|
       if @bizowner.update(biz_params)
-        format.html { redirect_to business_profile_path, notice: 'Business Profile was successfully updated.' }
+        format.html { redirect_to profile_path, notice: 'Business Profile was successfully updated.' }
         format.json { render :show, status: :ok, location: @bizowner }
       else
         format.html { render :edit }
