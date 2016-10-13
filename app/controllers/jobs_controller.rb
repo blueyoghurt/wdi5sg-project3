@@ -9,7 +9,8 @@ class JobsController < ApplicationController
     params.permit!
     #Hack way to resolve permit problem.
     @jobs = Job.all
-    @jobs = Job.search(params[:search],params[:fieldtype]).order(sort_column + " " + sort_direction).paginate(:per_page => 5, :page => params[:page])
+    # @jobs = Job.search(params[:search],params[:fieldtype]).order(sort_column + " " + sort_direction).paginate(:per_page => 5, :page => params[:page])
+    @jobs = Job.paginate(:page => params[:page], :per_page => 1)
     @map_hash = Gmaps4rails.build_markers(@jobs) do |job, marker|
       marker.lat job.latitude
       marker.lng job.longitude
