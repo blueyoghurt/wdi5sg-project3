@@ -86,6 +86,11 @@ function displayOnMap(position){
           <th><%= sortable "job_start_date"%></th>
           <th><%= sortable "job_end_date"%></th>
           <th></th>
+          <% if current_user %>
+          <% if current_user.is_admin %>
+          <th colspan="2"></th>
+          <% end %>
+          <% end %>
         </tr>
       </thead>
 

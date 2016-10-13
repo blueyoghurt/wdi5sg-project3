@@ -25,8 +25,7 @@ class JobsController < ApplicationController
 
   def bizowner
     params.permit!
-    @jobs = Job.where(bizowner_id: Bizowner.find_by(user_id: current_user.id).id)
-    @jobs = Job.paginate(:page => params[:page], :per_page => 1)
+    @jobs = current_user.bizowner.jobs.paginate(:page => params[:page], :per_page => 5)
   end
 
   # GET /jobs/1

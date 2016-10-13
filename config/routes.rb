@@ -3,7 +3,6 @@ Rails.application.routes.draw do
 
   post "applications/:id" => "applications#create"
   get "application/edit/:id" => "applications#edit", as: "application_approval"
-  get "listings/bizowner" => "listings#bizowner"
   get "jobs/bizowner" => "jobs#bizowner"
 
   # AUTHENTICATION
@@ -45,14 +44,11 @@ Rails.application.routes.draw do
   resources :jobseekers_reviews
   resources :bizowners_reviews
   resources :applications
-  resources :listings
   resources :users
   resources :jobseekers
   resources :bizowners
   resources :stores
   resources :jobs
-
-
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
