@@ -6,7 +6,6 @@ class CreateJobseekersReviews < ActiveRecord::Migration[5.0]
       t.belongs_to :application, index: true, foreign_key: true
       t.integer :jobseeker_review_star
       t.text :jobseeker_review_description
-      t.boolean :status
 
       t.timestamps
     end
