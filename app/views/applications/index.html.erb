@@ -22,7 +22,7 @@
         <td><%= link_to application.jobseeker.user.name, show_seeker_path(application) %></td>
         <td><%= application.status %></td>
         <td><%= link_to 'View', application %></td>
-        <% if current_user.is_biz %>
+        <% if current_user.is_biz || current_user.is_admin%>
         <td><%= link_to 'Edit', edit_application_path(application) %></td>
         <% end %>
         <td><%= link_to 'Delete', application, method: :delete, data: { confirm: 'Are you sure?' } %></td>
