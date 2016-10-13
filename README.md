@@ -9,7 +9,7 @@ Screenshot:
 ![alt text](/app/assets/images/printscreen.png?raw=true "Preview 1")
 
 
-**Introduction: Premise & what is the project about**
+**Introduction: Premise & What is the project about**
 
 Problem Identified:
 
@@ -19,7 +19,7 @@ Jobs Lite aims to fix that by making it easy to search for a job and to apply in
 
 Solution:
 
-Basic Features
+Basic Features.
 Mobile First Designed Website.
 Fast and easy way for both job-seeker and employer, specifically for young job-seekers to find part-time employment in the F&B industry.
 
@@ -28,10 +28,11 @@ Job seekers do not need to fill out long tedious forms repeatedly when they are 
 Login to enable quick sign-up and login for job seekers.
 
 
-Additional Features
+Additional Features.
 Google maps that shows the location of the job and user’s current location.
 
-Mailer function. Employers get notified via email with every job application. In addition, the email will be attached with a contract to legalise the employment period and the monetary   payout for the employees, making the recruitment process more efficient for job-seekers and employers.
+Mailer function.
+Employers get notified via email with every job application. In addition, the email will be attached with a contract to legalise the employment period and the monetary payout for the employees, making the recruitment process more efficient for job-seekers and employers.
 
 
 **Application Demo & Showcasing of the code**
@@ -49,7 +50,6 @@ Market Strategy:
 Acquire McDonalds as our first client. Once a big player is in, the rest are more inclined to follow and list their jobs on our platforms.
 
 Others potential choices: KFC & Pico’s Event Company.
-
 
 **Workflow**
 
