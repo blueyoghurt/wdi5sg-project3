@@ -15,11 +15,6 @@ class ApplicationsController < ApplicationController
     end
   end
 
-  # GET /applications/1
-  # GET /applications/1.json
-
-  # GET /applications/new
-
   # POST /applications
   # POST /applications.json
   def create
@@ -44,7 +39,7 @@ class ApplicationsController < ApplicationController
   end
 
   def edit
-    unless @current_user.is_admin || Bizowner.find_by(user_id: current_user.id).id == Job.find_by(id: params[:id]).bizowner_id
+    unless @current_user.is_admin || Bizowner.find_by(user_id: current_user.id).id == Bizowner.find_by(id: Job.find_by(id: Application.find_by(id: params[:id]).job_id).bizowner_id).id
       flash[:notice] = "You do not have permission to approve/reject applications for jobs that do not belong to you!"
       redirect_to root_path
       return
@@ -84,10 +79,6 @@ class ApplicationsController < ApplicationController
     @age = Date.today.year - @jobseeker.dob.year
     @applicant = User.find_by(id: @jobseeker.user_id)
   end
-
-# def age(date)
-#   Date.today.year - date.year
-# end
 
   def application_params
     params.require(:application).permit(:status)
