@@ -75,7 +75,7 @@ Jobseeker.find_or_create_by!(user_id: User.find_by(email: ENV["job_email"]).id) 
   job.description = 'Hard worker'
   job.wage = 7
   job.start_date = '2016-10-01'
-  job_end_date = '2016-10-31'
+  job.end_date = '2016-10-28'
   job.availability = true
 end
 
@@ -98,7 +98,7 @@ Jobseeker.find_or_create_by!(user_id: User.find_by(email: ENV["job2_email"]).id)
   job.description = 'Very slack'
   job.wage = 5
   job.start_date = '2016-07-01'
-  job_end_date = '2016-10-31'
+  job.end_date = '2016-10-01'
   job.availability = true
 end
 
@@ -142,8 +142,53 @@ company_name: "victor's chocolate factory",
 job_title: "experiment test subject",
 job_description: 'get experimented on',
 industry: 'slavery',
+vacancy: 2,
+wage_per_hour: 7,
+job_start_date: '2016-10-01',
+job_end_date: '2016-10-07',
+status: true)
+
+Job.create(bizowner_id: Bizowner.find_by(user_id: User.find_by(email: ENV["biz2_email"]).id).id,
+latitude: 1.2789597,
+longitude: 103.8491142,
+name: 'chocolate victor',
+address: '8 Marina View singapore',
+company_name: "victor's chocolate factory",
+job_title: "guinea pig",
+job_description: 'eat chocolates all day',
+industry: 'slavery',
 vacancy: 4,
 wage_per_hour: 7,
+job_start_date: '2016-11-01',
+job_end_date: '2016-11-09',
+status: true)
+
+Job.create(bizowner_id: Bizowner.find_by(user_id: User.find_by(email: ENV["biz2_email"]).id).id,
+latitude: 1.2789597,
+longitude: 103.8491142,
+name: 'chocolate victor',
+address: '8 Marina View singapore',
+company_name: "victor's chocolate factory",
+job_title: "waiter",
+job_description: 'serve chocolates',
+industry: 'F & B',
+vacancy: 4,
+wage_per_hour: 7,
+job_start_date: '2016-10-01',
+job_end_date: '2016-10-07',
+status: true)
+
+Job.create(bizowner_id: Bizowner.find_by(user_id: User.find_by(email: ENV["biz_email"]).id).id,
+latitude: 1.2789591,
+longitude: 103.8392531,
+name: 'recruit express',
+address: '1 keong saik road singapore',
+company_name: "hush.sg",
+job_title: "part time packer",
+job_description: 'be a pack rat',
+industry: 'slavery',
+vacancy: 4,
+wage_per_hour: 1.99,
 job_start_date: '2016-10-01',
 job_end_date: '2016-10-07',
 status: true)
