@@ -206,6 +206,12 @@ status: "Pending"
 )
 
 Application.create(
+job_id: 2,
+jobseeker_id: 2,
+status: "Pending"
+)
+
+Application.create(
 job_id: 3,
 jobseeker_id: 2,
 status: "Pending"
