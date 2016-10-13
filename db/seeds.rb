@@ -56,6 +56,16 @@ User.find_or_create_by!(email: ENV["job2_email"]) do |user|
   user.contact = 12345678
 end
 
+User.find_or_create_by!(email: ENV["biz3_email"]) do |user|
+  user.first_name = 'Bizowner'
+  user.last_name = 'Ronald'
+  user.is_seeker = false
+  user.is_biz = true
+  user.is_admin = false
+  user.password = ENV["seed_password"]
+  user.contact = 12345678
+end
+
 Bizowner.find_or_create_by!(user_id: User.find_by(email: ENV["biz_email"]).id) do |biz|
   biz.user_id = User.find_by(email: ENV["biz_email"]).id
   biz.name = 'Hush Cosmetics'
@@ -86,6 +96,15 @@ Bizowner.find_or_create_by!(user_id: User.find_by(email: ENV["biz2_email"]).id) 
   biz.postal_code = "543673"
   biz.description = 'Sells zebra meat'
   biz.license_number = '203243243W'
+end
+
+Bizowner.find_or_create_by!(user_id: User.find_by(email: ENV["biz3_email"]).id) do |biz|
+  biz.user_id = User.find_by(email: ENV["biz3_email"]).id
+  biz.name = "McDonalds"
+  biz.address = '8 Sentosa Gateway'
+  biz.postal_code = "098138"
+  biz.description = 'Sells Burgers'
+  biz.license_number = '203212343W'
 end
 
 Jobseeker.find_or_create_by!(user_id: User.find_by(email: ENV["job2_email"]).id) do |job|
@@ -164,10 +183,10 @@ job_end_date: '2016-11-09',
 status: true)
 
 Job.create(bizowner_id: Bizowner.find_by(user_id: User.find_by(email: ENV["biz2_email"]).id).id,
-latitude: 1.2789597,
-longitude: 103.8491142,
+latitude: 1.3485959,
+longitude: 103.7158263,
 name: 'chocolate victor',
-address: '8 Marina View singapore',
+address: '8 Jurong West Street 52 singapore 649296',
 company_name: "victor's chocolate factory",
 job_title: "waiter",
 job_description: 'serve chocolates',
@@ -176,6 +195,21 @@ vacancy: 4,
 wage_per_hour: 7,
 job_start_date: '2016-10-01',
 job_end_date: '2016-10-07',
+status: true)
+
+Job.create(bizowner_id: Bizowner.find_by(user_id: User.find_by(email: ENV["biz3_email"]).id).id,
+latitude: 1.332516,
+longitude: 103.8463433,
+name: 'McDonalds',
+address: '490, Lorong 6 Toa Payoh #01-11 Singapore 310490',
+company_name: "McDonalds",
+job_title: "waiter",
+job_description: 'serve burgers',
+industry: 'F & B',
+vacancy: 4,
+wage_per_hour: 10,
+job_start_date: '2016-10-01',
+job_end_date: '2016-10-31',
 status: true)
 
 Job.create(bizowner_id: Bizowner.find_by(user_id: User.find_by(email: ENV["biz_email"]).id).id,
