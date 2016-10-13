@@ -24,9 +24,9 @@
     <tbody>
       <% @applications.each do |application| %>
       <tr>
-        <td><%= link_to application.job.job_title, show_job_path(application) %></td>
-        <td><%= application.job.job_description %></td>
-        <td><%= link_to application.jobseeker.user.name, show_seeker_path(application) %></td>
+        <td><%= link_to application.job.job_title.capitalize, show_job_path(application) %></td>
+        <td><%= application.job.job_description.capitalize %></td>
+        <td><%= link_to application.jobseeker.user.name.capitalize, show_seeker_path(application) %></td>
         <td><%= application.status %></td>
         <% if current_user.is_admin || current_user.is_biz %>
         <% if current_user.is_admin %>

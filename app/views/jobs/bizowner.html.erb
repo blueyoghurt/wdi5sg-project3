@@ -27,11 +27,11 @@
 
       <tbody>
         <%= content_tag_for(:tr, @jobs) do |job| %>
-        <td><%= link_to job.job_title, job_path(job) %></td>
-        <td><%= job.company_name %></td>
-        <td><%= job.address %></td>
-        <td><%= job.industry %></td>
-        <td><%= job.wage_per_hour %></td>
+        <td><%= link_to job.job_title.capitalize, job_path(job) %></td>
+        <td><%= job.company_name.capitalize %></td>
+        <td><%= job.address.capitalize %></td>
+        <td><%= job.industry.capitalize %></td>
+        <td>$<%= job.wage_per_hour %>0</td>
         <td><%= job.job_start_date %></td>
         <td><%= job.job_end_date %></td>
 
