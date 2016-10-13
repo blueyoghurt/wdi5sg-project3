@@ -1,16 +1,17 @@
 class ApplicationsController < ApplicationController
   before_action :set_application, only: [:show, :edit, :update, :destroy]
-  before_action :is_authenticated, only: [:index, :show, :new, :edit]
+  before_action :is_authenticated
 
   # GET /applications
   # GET /applications.json
   def index
     if current_user.is_admin
       @applications = Application.all
-      elsif current_user.is_seeker
+      puts @applications
+    elsif current_user.is_seeker
       @applications = Application.where(jobseeker_id: Jobseeker.find_by(user_id: current_user.id).id)
-      else
-      @applications = Application.where(job_id: Bizowner.find_by(user_id: current_user.id).id)
+    elsif current_user.is_biz
+      @applications = Application.where(job_id: Job.where(bizowner_id: Bizowner.find_by(user_id: current_user.id).id))
     end
   end
 
