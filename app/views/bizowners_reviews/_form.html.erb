@@ -11,18 +11,26 @@
     </div>
   <% end %>
 
-
-<div class="container">
 <div class ="review-title form-review">
   Your first-hand experiences really help other Jobseekers. Thanks!
+  <br>
+  <br>
 </div>
-<div class="form-group form-review">
-    <%= f.label :business_review_description, class: "col-md-2 control-label" %>
-          <div class="col-md-10">
-    <%= f.text_area :business_review_description, placeholder: 'Your review here...' %>
-          </div>
+
+  <div class="form-group">
+    <%= f.label :how_will_you_rate_it, class: "col-md-2 control-label" %>
+<div class="col-md-10">
+    <%= f.number_field :bizowner_review_star, :step => 0.1, class: "form-control" %><br/>
   </div>
 </div>
+
+  <div class="form-group">
+    <%= f.label :tell_us_more_about_it, class: "col-md-2 control-label" %>
+<div class="col-md-10">
+    <%= f.text_area :business_review_description, class: "form-control" %><br/>
+  </div>
+</div>
+
 
 
   <div class="form-group form-review">
