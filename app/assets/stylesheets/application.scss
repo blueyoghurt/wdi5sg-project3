@@ -60,14 +60,24 @@ th, td {
   width: 200px;
 }
 
-#nav-link-login{
+.ourbrand {
+  background: -webkit-linear-gradient(#eee, #333);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding-right: 2px;
+}
 
-  border: 2px;
-  border-style: solid;
-  border-color: #ffffff;
-  // padding:5px
-  padding-left: 8px;
-  padding-right: 8px;
+.navbar-toggler {
+  color: white;
+}
+
+#nav-link-login{
+border: 2px;
+border-style: solid;
+border-color: #ffffff;
+// padding:5px
+padding-left: 8px;
+padding-right: 8px;
 }
 
 .footer-distributed{
