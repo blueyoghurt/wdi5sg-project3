@@ -5,6 +5,6 @@ class Application < ApplicationRecord
     has_one :jobseekers_review
 
     #VALIDATIONS
-    validates :job_id,
-    uniqueness: {scope: :jobseeker_id}
+    # validates :job_id,
+    # uniqueness: {scope: :jobseeker_id}
 end

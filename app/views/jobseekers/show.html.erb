@@ -1,28 +1,18 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Date of Birth:</strong>
-  <%= @jobseeker.dob %>
+  <strong>Name:</strong>
+  <%= @user.name %>
 </p>
 
 <p>
-  <strong>Postal code:</strong>
-  <%= @jobseeker.postal_code %>
+  <strong>Age:</strong>
+  To be confirmed
 </p>
 
 <p>
   <strong>Highest Qualification:</strong>
   <%= @jobseeker.highest_qualification %>
-</p>
-
-<p>
-  <strong>Preferred Area:</strong>
-  <%= @jobseeker.preferred_area %>
-</p>
-
-<p>
-  <strong>Preferred Location:</strong>
-  <%= @jobseeker.preferred_location %>
 </p>
 
 <p>
@@ -44,7 +34,3 @@
   <strong>End date:</strong>
   <%= @jobseeker.end_date %>
 </p>
-
-<%= link_to 'Show User Profile', profile_path %> |
-<%= link_to 'Edit User Profile', profile_edit_path %> |
-<%= link_to 'Edit Job Profile', job_edit_path %>

@@ -23,21 +23,32 @@ class ApplicationsController < ApplicationController
   # POST /applications
   # POST /applications.json
   def create
+    @job_start_date = Job.find_by(id: params[:id]).job_start_date.to_date
+    @job_end_date = Job.find_by(id: params[:id]).job_end_date.to_date
+    @seeker_start_date = Jobseeker.find_by(user_id: current_user.id).start_date.to_date
+    @seeker_end_date = Jobseeker.find_by(user_id: current_user.id).end_date.to_date
+    if @job_start_date < @seeker_start_date
+      redirect_to root_path, notice: 'Unable to apply. Job starts before your available period'
+      return
+    elsif @job_end_date > @seeker_end_date
+      redirect_to root_path, notice: 'Unable to apply. Job ends after your availabilty period'
+      return
+    end
     @application = Application.new(job_id: params[:id], jobseeker_id: Jobseeker.find_by(user_id: current_user.id).id, status: "Pending")
-    respond_to do |format|
       if @application.save
         # ApplicationNotificationMailer.notification_email(params[:id]).deliver
-        format.html { redirect_to @application, notice: 'Application was successfully created.' }
-        format.json { render :show, status: :created, location: @application }
+        redirect_to @application, notice: 'You application has been sent. Good luck!'
       else
-        format.html { redirect_to root_path, notice: 'You have already applied for this job' }
-        format.json { render json: @application.errors, status: :unprocessable_entity }
+        redirect_to root_path, notice: 'You have already applied for this job'
       end
-    end
   end
 
   def edit
-    @bizowner = Bizowner.find_by(user_id: current_user.id)
+    unless @current_user.is_admin || Bizowner.find_by(user_id: current_user.id).id == Job.find_by(id: params[:id]).bizowner_id
+      flash[:notice] = "You do not have permission to edit listings that do not belong to you!"
+      redirect_to root_path
+      return
+    end
   end
 
   # PATCH/PUT /applications/1
