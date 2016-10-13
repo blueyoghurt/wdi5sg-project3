@@ -45,7 +45,7 @@ class ApplicationsController < ApplicationController
 
   def edit
     unless @current_user.is_admin || Bizowner.find_by(user_id: current_user.id).id == Job.find_by(id: params[:id]).bizowner_id
-      flash[:notice] = "You do not have permission to edit listings that do not belong to you!"
+      flash[:notice] = "You do not have permission to approve/reject applications for jobs that do not belong to you!"
       redirect_to root_path
       return
     end
@@ -79,7 +79,15 @@ class ApplicationsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_application
     @application = Application.find(params[:id])
+    @job = Job.find_by(id: @application.job_id)
+    @jobseeker = Jobseeker.find_by(id: @application.jobseeker_id)
+    @age = Date.today.year - @jobseeker.dob.year
+    @applicant = User.find_by(id: @jobseeker.user_id)
   end
+
+# def age(date)
+#   Date.today.year - date.year
+# end
 
   def application_params
     params.require(:application).permit(:status)

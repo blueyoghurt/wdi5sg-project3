@@ -1,25 +1,61 @@
 <h1>Editing Application</h1>
 
-<% if current_user.is_seeker %>
-<% elsif current_user.is_biz %>
+<% if current_user.is_biz %>
 <%= form_for(@application) do |f| %>
 
-  <div class="field">
-    <%= f.label :status %>
-    <br>
-    <%= f.radio_button :status, "approve" %>
-    <%= label :status, "Approve"%>
-        <br>
-    <%= f.radio_button :status, "reject" %>
-    <%= label :status, "Reject"%>
-        <br>
-    <%= f.radio_button :status, "pending", :checked => true %>
-    <%= label :status, "Pending"%>
-  </div>
+<div class="col-md-2">
+  <br><strong>Role:</strong>
+</div>
+<div class="col-md-10">
+  <br><%= @job.job_title %>
+</div>
+
+<div class="col-md-2">
+  <br><strong>Applicant Name:</strong>
+</div>
+<div class="col-md-10">
+  <br><%= @applicant.name %><br>
+</div>
+
+<div class="col-md-2">
+  <br><strong>Age:</strong>
+</div>
+<div class="col-md-10">
+  <br><%= @age %><br>
+</div>
+
+<div class="col-md-2">
+  <br><strong>Hourly wage:</strong>
+</div>
+<div class="col-md-10">
+  <br><%= @job.wage_per_hour %>
+</div>
+
+<div class="col-md-2">
+  <br><strong>Applicant's Availability:</strong>
+</div>
+<div class="col-md-10">
+  <br><%= @jobseeker.start_date %> to <%= @jobseeker.end_date %>
+</div>
+
+<div class="col-md-2">
+  <br><%= f.label :status %>
+</div>
+<div class="col-md-10">
+  <br>
+  <%= f.radio_button :status, "approve" %>
+  <%= label :status, "Approve"%>
+  <br>
+  <%= f.radio_button :status, "reject" %>
+  <%= label :status, "Reject"%>
+  <br>
+  <%= f.radio_button :status, "pending", :checked => true %>
+  <%= label :status, "Pending"%>
+</div>
 
 
-  <div class="actions">
-    <%= f.submit %>
-    </div>
+<div class="actions">
+  <%= f.submit %>
+</div>
 <% end %>
 <% end %>

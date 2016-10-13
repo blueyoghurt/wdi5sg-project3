@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root 'jobs#index'
 
   post "applications/:id" => "applications#create"
+  get "application/edit/:id" => "applications#edit", as: "application_approval"
   get "listings/bizowner" => "listings#bizowner"
   get "jobs/bizowner" => "jobs#bizowner"
 

@@ -53,6 +53,10 @@ class JobseekersController < ApplicationController
     end
   end
 
+  def age
+    Date.today.year - @jobseeker.dob.year
+  end
+
   private
 
   def set_jobseeker
