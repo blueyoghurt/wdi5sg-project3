@@ -33,7 +33,9 @@
         <% if current_user.is_admin %>
         <td><%= link_to 'Delete', application, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
+        <% if application.status == "Pending"%>
         <td><%= link_to 'Edit', edit_application_path(application) %></td>
+        <% end %>
         <% end %>
       </tr>
       <% end %>
