@@ -11,17 +11,21 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :jobseeker_review_star %>
-    <%= f.number_field :jobseeker_review_star %>
+  <div class="form-group">
+    <%= f.label :how_will_you_rate_it, class: "col-md-2 control-label" %>
+<div class="col-md-10">
+    <%= f.number_field :jobseeker_review_star, :step => 0.1, class: "form-control" %><br/>
   </div>
+</div>
 
-  <div class="field">
-    <%= f.label :jobseeker_review_description %>
-    <%= f.text_area :jobseeker_review_description %>
+  <div class="form-group">
+    <%= f.label :tell_us_more_about_it, class: "col-md-2 control-label" %>
+<div class="col-md-10">
+    <%= f.text_area :jobseeker_review_description, class: "form-control" %><br/>
   </div>
+</div>
 
   <div class="actions">
-    <%= f.submit %>
+    <br/><%= f.submit class:"btn btn-primary"%>
   </div>
 <% end %>

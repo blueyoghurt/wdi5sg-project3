@@ -1,21 +1,16 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+User Story:
 
-Things you may want to cover:
+Stack and configurations used for this project
 
-* Ruby version
+* Ruby version  - 2.3.1
 
-* System dependencies
+* Rails version  - Rails 5
 
-* Configuration
+* Postgres Database
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
+* ERB
 
 * Services (job queues, cache servers, search engines, etc.)
 

@@ -1,36 +1,36 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+<div class="col-md-2">
+  <br/><strong>Name:</strong>
+</div>
+<div class="col-md-10">
+  <br/><%= @user.name %>
+</div>
 
-<p>
-  <strong>Age:</strong>
-  To be confirmed
-</p>
+<div class="col-md-2">
+  <br/><strong>Age:</strong>
+</div>
+<div class="col-md-10">
+  <br/>To be confirmed
+</div>
 
-<p>
-  <strong>Highest Qualification:</strong>
-  <%= @jobseeker.highest_qualification %>
-</p>
+<div class="col-md-2">
+  <br/><strong>Highest Qualification:</strong>
+</div>
+<div class="col-md-10">
+  <br/><%= @jobseeker.highest_qualification %>
+</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @jobseeker.description %>
-</p>
+<div class="col-md-2">
+  <br/><strong>Profile:</strong>
+</div>
+<div class="col-md-10">
+  <br/><%= @jobseeker.description %>
+</div>
 
-<p>
-  <strong>Wage:</strong>
-  <%= @jobseeker.wage %>
-</p>
-
-<p>
-  <strong>Start date:</strong>
-  <%= @jobseeker.start_date %>
-</p>
-
-<p>
-  <strong>End date:</strong>
-  <%= @jobseeker.end_date %>
-</p>
+<div class="col-md-2">
+  <br/><strong>Availability:</strong>
+</div>
+<div class="col-md-10">
+  <br/><%= @jobseeker.start_date %> to <%= @jobseeker.end_date %>
+</div>

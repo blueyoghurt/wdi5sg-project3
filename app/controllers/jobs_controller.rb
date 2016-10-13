@@ -12,7 +12,7 @@ class JobsController < ApplicationController
     # @jobs = Job.search(params[:search],params[:fieldtype]).order(sort_column + " " + sort_direction).paginate(:per_page => 5, :page => params[:page])
 
 
-# search(params[:search],params[:fieldtype]).
+    # search(params[:search],params[:fieldtype]).
 
     @jobs = Job.search(params[:search],params[:fieldtype]).order(sort_column + " " + sort_direction).paginate(:page => params[:page], :per_page => 5)
 
@@ -25,7 +25,12 @@ class JobsController < ApplicationController
 
   def bizowner
     params.permit!
+    @bizowner = current_user.bizowner
     @jobs = current_user.bizowner.jobs.paginate(:page => params[:page], :per_page => 5)
+  end
+
+  def show_public
+    @job = Job.find_by(id: Application.find_by(id: params[:id]).job_id)
   end
 
   # GET /jobs/1
@@ -83,10 +88,16 @@ class JobsController < ApplicationController
   # DELETE /jobs/1
   # DELETE /jobs/1.json
   def destroy
-    @job.destroy
-    respond_to do |format|
-      format.html { redirect_to jobs_url, notice: 'Job was successfully destroyed.' }
-      format.json { head :no_content }
+    if @current_user.is_admin || Bizowner.find_by(user_id: session[:user_id]).id == @job.bizowner_id
+      @job.destroy
+      respond_to do |format|
+        format.html { redirect_to jobs_url, notice: 'Job was successfully destroyed.' }
+        format.json { head :no_content }
+      end
+    else
+      flash[:notice] = "You do not have permission to edit listings that do not belong to you!"
+      redirect_to root_path
+      return
     end
   end
 

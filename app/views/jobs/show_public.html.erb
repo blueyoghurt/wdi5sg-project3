@@ -1,41 +1,40 @@
-<p id="notice"><%= notice %></p>
 <div class="page-header">
-  <h1><%= @job.job_title.capitalize %> @ <%= @job.company_name.capitalize %></h1>
+  <h1><%= @job.job_title %> @ <%= @job.company_name %></h1>
 </div>
 
 <div class="col-md-2">
   <br/><strong>Address:</strong>
 </div>
 <div class="col-md-10">
-  <br/><%= @job.address.capitalize %>
+  <br/><%= @job.address %>
 </div>
 
 <div class="col-md-2">
   <br/><strong>Company Name:</strong>
 </div>
 <div class="col-md-10">
-  <br/><%= @job.company_name.capitalize %>
+  <br/><%= @job.company_name %>
 </div>
 
 <div class="col-md-2">
   <br/><strong>Job title:</strong>
 </div>
 <div class="col-md-10">
-  <br/><%= @job.job_title.capitalize %>
+  <br/><%= @job.job_title %>
 </div>
 
 <div class="col-md-2">
   <br/><strong>Job description:</strong>
 </div>
 <div class="col-md-10">
-  <br/><%= @job.job_description.capitalize %>
+  <br/><%= @job.job_description %>
 </div>
 
 <div class="col-md-2">
   <br/><strong>Industry:</strong>
 </div>
 <div class="col-md-10">
-  <br/><%= @job.industry.capitalize %>
+  <br/><%= @job.industry %>
 </div>
 
 <div class="col-md-2">
@@ -48,10 +47,3 @@
   <br/><%= "Closed "%>
   <% end %>
 </div>
-
-<% if current_user.is_biz %>
-<%= link_to 'Edit', edit_job_path(@job) %>
-<% end %>
-<% if current_user.is_seeker %>
-<%= link_to 'Apply', application_path, method: :post, data: { confirm: 'Are you sure?' } %>
-<% end %>

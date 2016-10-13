@@ -32,7 +32,7 @@ source 'https://rails-assets.org' do
 end
 gem 'figaro'
 
-gem 'sqlite3'
+
 # gem 'bootstrap-generators'
 gem 'geocoder'
 gem 'gmaps4rails'
