@@ -65,12 +65,8 @@ function displayOnMap(position){
 
   <% end %>
 
+<div class ="jobs-table-border">
 
-
-</div>
-<div class = "container">
-
-  <div class="table-responsive">
     <table class="table-striped">
       <thead class="thead-inverse">
         <tr>
@@ -110,9 +106,10 @@ function displayOnMap(position){
         <% end %>
       </tbody>
     </table>
+  </div>
     <%= will_paginate @jobs %>
 
-  </div>
+
     <br>
     <% if current_user %>
     <% if current_user.is_biz %>
