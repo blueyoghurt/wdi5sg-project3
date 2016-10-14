@@ -5,6 +5,10 @@ class BizownersReviewsController < ApplicationController
   # GET /bizowners_reviews.json
   def index
     @bizowners_reviews = BizownersReview.all
+    @bizowner = Bizowner.find_by(user_id: current_user.id)
+    @job = Job.where(bizowner_id: @bizowner.id)
+    @all_my_applications= Application.where(job_id: @job.ids)
+    @applications = @all_my_applications.where(status: "Approved")
   end
 
   # GET /bizowners_reviews/1
