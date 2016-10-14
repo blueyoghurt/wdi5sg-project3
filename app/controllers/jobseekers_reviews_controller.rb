@@ -8,7 +8,6 @@ class JobseekersReviewsController < ApplicationController
     @jobseeker = Jobseeker.find_by(user_id: current_user.id)
     @all_my_applications= Application.where(jobseeker_id: @jobseeker.id)
     @applications = @all_my_applications.where(status: "Approved")
-    puts @applicatons.inspect
   end
 
   # GET /jobseekers_reviews/1
