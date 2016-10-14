@@ -1,39 +1,35 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Bizowners Reviews</h1>
+<h1>Pending Reviews</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Bizowner Name</th>
-      <th>Jobseeker Name</th>
-      <th>Bizowner review star</th>
-      <th>Business review description</th>
-      <th>Job end date</th>
-      <th>Status</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @bizowners_reviews.each do |bizowners_review| %>
-    <tr>
-      <td><%= current_user.name%></td>
-      <td><%= bizowners_review.bizowner.user.first_name unless bizowners_review.bizowner.blank? %></td>
-      <td><%= bizowners_review.bizowner_review_star %></td>
-      <td><%= bizowners_review.business_review_description %></td>
-      <td><%= bizowners_review.job_end_date %></td>
-      <td><%= bizowners_review.status %></td>
-      <td><%= link_to 'Show', bizowners_review %></td>
-      <td><%= link_to 'Edit', edit_bizowners_review_path(bizowners_review) %></td>
-      <td><%= link_to 'Destroy', bizowners_review, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<br>
+<div class="table-responsive">
+  <table class="table-striped">
+    <thead class="thead-inverse">
+      <tr>
+        <th>Applicant</th>
+        <th>Job</th>
+        <th>Description</th>
+        <th>Status</th>
+        <th colspan="1"></th>
+      </tr>
+    </thead>
 
-<% if current_user.is_seeker? %>
-<%= link_to 'New Bizowners Review', new_bizowners_review_path %>
-<% end %>
+    <tbody>
+      <% @applications.each do |application| %>
+      <tr>
+        <td><%= link_to application.jobseeker.user.name.capitalize, show_seeker_path(application.jobseeker_id) %></td>
+        <td><%= link_to application.job.job_title.capitalize, show_job_path(application) %></td>
+        <td><%= application.job.job_description.capitalize %></td>
+        <td><%= application.status %></td>
+        <% if current_user %>
+        <td><%= link_to 'Review it!', new_jobseekers_review_path(application), class: "btn btn-info" %></td>
+        <% else%>
+        <td></td>
+        <% end %>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
