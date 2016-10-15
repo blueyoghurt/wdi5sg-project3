@@ -3,11 +3,12 @@ class JobseekersReviewsController < ApplicationController
 
   # GET /jobseekers_reviews
   # GET /jobseekers_reviews.json
+
   def index
+    # If admin user, send him all JobseekersReviews
     @jobseekers_reviews = JobseekersReview.all
-    @jobseeker = Jobseeker.find_by(user_id: current_user.id)
-    @all_my_applications= Application.where(jobseeker_id: @jobseeker.id)
-    @applications = @all_my_applications.where(status: "Approved")
+    # Find the applications where job status are "Approved"
+    @applications = Application.where(jobseeker_id: Jobseeker.find_by(user_id: current_user.id).id).where(status: "Approved")
   end
 
   # GET /jobseekers_reviews/1
@@ -18,6 +19,8 @@ class JobseekersReviewsController < ApplicationController
   # GET /jobseekers_reviews/new
   def new
     @jobseekers_review = JobseekersReview.new
+    # Find the related application for the review and display the relavant information in the view
+    @application = Application.find_by(id: params[:application])
   end
 
   # GET /jobseekers_reviews/1/edit
@@ -28,14 +31,17 @@ class JobseekersReviewsController < ApplicationController
   # POST /jobseekers_reviews.json
   def create
     @jobseekers_review = JobseekersReview.new(jobseekers_review_params)
-    @jobseekers_review.update(bizowner_id: current_user.id)
+    @jobseekers_review.update(jobseeker_id: Jobseeker.find_by(user_id: current_user.id).id)
+    # @jobseekers_review.update(bizowner_id: 1)
+    # @jobseekers_review.update(application_id: 1)
     @jobseekers_review.update(status: true)
     respond_to do |format|
       if @jobseekers_review.save
-        format.html { redirect_to @jobseekers_review, notice: 'Jobseekers review was successfully created.' }
+        format.html { redirect_to jobseekers_reviews_path, notice: 'Jobseekers review was successfully created.' }
         format.json { render :show, status: :created, location: @jobseekers_review }
       else
-        format.html { render :new }
+        # format.html { render :new }
+        format.html { redirect_to jobseekers_reviews_path, notice: 'Creation failed.' }
         format.json { render json: @jobseekers_review.errors, status: :unprocessable_entity }
       end
     end
@@ -73,6 +79,6 @@ class JobseekersReviewsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def jobseekers_review_params
-      params.require(:jobseekers_review).permit(:jobseeker_id, :bizowner_id, :jobseeker_review_star, :jobseeker_review_description, :job_end_date, :status)
+      params.require(:jobseekers_review).permit(:star, :description)
     end
 end

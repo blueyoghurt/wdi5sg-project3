@@ -1,40 +1,32 @@
 <%= form_for(bizowners_review) do |f| %>
-  <% if bizowners_review.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(bizowners_review.errors.count, "error") %> prohibited this bizowners_review from being saved:</h2>
+<% if bizowners_review.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(bizowners_review.errors.count, "error") %> prohibited this bizowners_review from being saved:</h2>
 
-      <ul>
-      <% bizowners_review.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-<div class ="review-title form-review">
-  Your first-hand experiences really help other Jobseekers. Thanks!
-  <br>
-  <br>
+  <ul>
+    <% bizowners_review.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
 </div>
+<% end %>
 
-  <div class="form-group">
-    <%= f.label :how_will_you_rate_it, class: "col-md-2 control-label" %>
-<div class="col-md-10">
-    <%= f.number_field :bizowner_review_star, :step => 0.1, class: "form-control" %><br/>
+<div class="form-group">
+  <strong><%= f.label :how_will_you_rate_it, class: "col-md-2 control-label" %></strong>
+  <div class="col-md-10">
+    <%= f.number_field :star, :step => 0.1, class: "form-control" %><br/>
   </div>
 </div>
 
-  <div class="form-group">
-    <%= f.label :tell_us_more_about_it, class: "col-md-2 control-label" %>
-<div class="col-md-10">
-    <%= f.text_area :business_review_description, class: "form-control" %><br/>
+<div class="form-group">
+  <strong><%= f.label :tell_us_more_about_it, class: "col-md-2 control-label" %></strong>
+  <div class="col-md-10">
+    <%= f.text_area :description, class: "form-control" %><br/>
   </div>
 </div>
 
-
-
-  <div class="form-group form-review">
-    <div class="col-sm-offset-2 col-md-10">
+<div class="form-group form-review">
+  <div class="col-sm-offset-2 col-md-10">
     <%= f.submit class: "btn btn-primary"%>
   </div>
 </div>
