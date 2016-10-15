@@ -23,11 +23,7 @@
         <td><%= link_to application.job.job_title.capitalize, show_job_path(application) %></td>
         <td><%= application.job.job_description.capitalize %></td>
         <td><%= application.status %></td>
-        <% if current_user %>
-        <td><%= link_to 'Review it!', new_jobseekers_review_path(:application => application.id), class: "btn btn-info" %></td>
-        <% else%>
-        <td></td>
-        <% end %>
+        <td><%= link_to 'Leave a review', new_jobseekers_review_path(:application => application.id), class: "btn btn-info" %></td>
       </tr>
       <% end %>
     </tbody>
