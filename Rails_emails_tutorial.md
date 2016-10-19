@@ -2,7 +2,6 @@
 
 In this article we will walk through a simple app to demonstrate how to send emails through a Rails application with ActionMailer, ActionMailer Preview, and through a third party email service provider such as Gmail or Mailgun. We will also demostrate how to use Active Job to send the email with a background processor.
 
-You can find the code for this tutorial here
 
 ##Sending Emails Using ActionMailer and Gmail
 
@@ -75,8 +74,11 @@ We also need to create the text part for this email as not all clients prefer HT
 app/views/example_mailer/sample_email.text.erb
 ```
 
+```javascript
 Hi <%= @user.name %>
 Sample mail sent using smtp.
+```
+
 In the development environment we can use ActionMailer Preview to test our application. We are going to use the test/mailers/previews/example_mailer_preview.rb file created while generating mailers. We will just call any user (first user in this case) to preview the email.
 
 test/mailers/previews/example_mailer_preview.rb
@@ -92,8 +94,10 @@ class ExampleMailerPreview < ActionMailer::Preview
 end
 ```
 
-When you visit http://localhost:3000/rails/mailers/example_mailer/sample_mail_preview you will see preview of the email. By default email previews are placed in test/mailers/previews. You can change this by setting up different a path in /config/environments/development.rb. Just set config.action_mailer.preview_path to the desired path and add preview file to the corresponding location.
+When you visit http://localhost:3000/rails/mailers/example_mailer/sample_mail_preview you will see preview of the email. By default email previews are placed in test/mailers/previews.
+
+You can change this by setting up different a path in /config/environments/development.rb. Just set config.action_mailer.preview_path to the desired path and add preview file to the corresponding location.
 
 
-Source:
+Source & codes can be found here:
 https://launchschool.com/blog/handling-emails-in-rails
