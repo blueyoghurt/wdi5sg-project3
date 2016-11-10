@@ -47,7 +47,7 @@ class JobsController < ApplicationController
   def edit
     @job = Job.find params[:id]
     unless @current_user.is_admin || Bizowner.find_by(user_id: session[:user_id]).id == @job.bizowner_id
-      flash[:notice] = "You do not have permission to edit listings that do not belong to you!"
+      flash[:notice] = "You do not have permission to edit jobs that do not belong to you!"
       redirect_to root_path
       return
     end

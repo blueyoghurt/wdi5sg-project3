@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   root 'jobs#index'
 
-  get "reviews" => "public#index"
-
   get "job/:id" => "jobs#show_public", as: "show_job"
 
   post "applications/:id" => "applications#create"
@@ -49,9 +47,7 @@ Rails.application.routes.draw do
   resources :bizowners_reviews
   resources :applications
   resources :users
-  # resources :jobseekers
   resources :bizowners
-  resources :stores
   resources :jobs
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

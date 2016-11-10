@@ -1,4 +1,34 @@
-<h1>New Review for Company</h1>
+<h1>Review the talent</h1>
 
+<div class ="review-title form-review col-md-12">
+  Share your experience. It helps others to make the decision!
+</div><br/><br/>
 
-<%= render 'form', bizowners_review: @bizowners_review %>
+<div>
+  <div class="col-md-2">
+    <strong>Applicant:</strong><br/>
+  </div>
+  <div class="col-md-10">
+    <%= @application.jobseeker.user.name %><br/><br/>
+  </div>
+</div>
+
+<div>
+  <div class="col-md-2">
+    <strong>Job title:</strong><br/>
+  </div>
+  <div class="col-md-10">
+    <%= @application.job.job_title.capitalize %><br/><br/>
+  </div>
+</div>
+
+<div>
+  <div class="col-md-2">
+    <strong>Employment dates:</strong><br/>
+  </div>
+  <div class="col-md-10">
+    <%= @application.job.job_start_date %> to <%= @application.job.job_end_date %><br/><br/>
+  </div>
+</div>
+
+<br/><%= render 'form', bizowners_review: @bizowners_review %>

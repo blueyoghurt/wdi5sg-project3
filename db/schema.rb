@@ -39,10 +39,11 @@ ActiveRecord::Schema.define(version: 20161011150045) do
     t.integer  "jobseeker_id"
     t.integer  "bizowner_id"
     t.integer  "application_id"
-    t.integer  "bizowner_review_star"
-    t.text     "business_review_description"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.integer  "star"
+    t.text     "description"
+    t.boolean  "status"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.index ["application_id"], name: "index_bizowners_reviews_on_application_id", using: :btree
     t.index ["bizowner_id"], name: "index_bizowners_reviews_on_bizowner_id", using: :btree
     t.index ["jobseeker_id"], name: "index_bizowners_reviews_on_jobseeker_id", using: :btree
@@ -89,10 +90,11 @@ ActiveRecord::Schema.define(version: 20161011150045) do
     t.integer  "jobseeker_id"
     t.integer  "bizowner_id"
     t.integer  "application_id"
-    t.integer  "jobseeker_review_star"
-    t.text     "jobseeker_review_description"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.integer  "star"
+    t.text     "description"
+    t.boolean  "status"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.index ["application_id"], name: "index_jobseekers_reviews_on_application_id", using: :btree
     t.index ["bizowner_id"], name: "index_jobseekers_reviews_on_bizowner_id", using: :btree
     t.index ["jobseeker_id"], name: "index_jobseekers_reviews_on_jobseeker_id", using: :btree

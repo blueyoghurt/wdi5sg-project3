@@ -1,3 +1,34 @@
 <h1>Tell us about your experience!</h1>
 
-<%= render 'form', jobseekers_review: @jobseekers_review %>
+<div class ="review-title form-review col-md-12">
+  Share your experience. It helps others to make the decision!
+</div><br/><br/>
+
+<div>
+  <div class="col-md-2">
+    <strong>Company:</strong><br/>
+  </div>
+  <div class="col-md-10">
+    <%= @application.job.company_name.capitalize %><br/><br/>
+  </div>
+</div>
+
+<div>
+  <div class="col-md-2">
+    <strong>Job:</strong><br/>
+  </div>
+  <div class="col-md-10">
+    <%= @application.job.job_title.capitalize %><br/><br/>
+  </div>
+</div>
+
+<div>
+  <div class="col-md-2">
+    <strong>Employment dates:</strong><br/>
+  </div>
+  <div class="col-md-10">
+    <%= @application.job.job_start_date %> to <%= @application.job.job_end_date %><br/><br/>
+  </div>
+</div>
+
+<br/><%= render 'form', jobseekers_review: @jobseekers_review %>

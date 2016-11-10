@@ -26,31 +26,11 @@ User.find_or_create_by!(email: ENV["biz_email"]) do |user|
   user.contact = 12345678
 end
 
-User.find_or_create_by!(email: ENV["job_email"]) do |user|
-  user.first_name = 'JobSeeker'
-  user.last_name = 'Kuan Yu'
-  user.is_seeker = true
-  user.is_biz = false
-  user.is_admin = false
-  user.password = ENV["seed_password"]
-  user.contact = 12345678
-end
-
 User.find_or_create_by!(email: ENV["biz2_email"]) do |user|
   user.first_name = 'Bizowner'
   user.last_name = 'Victor'
   user.is_seeker = false
   user.is_biz = true
-  user.is_admin = false
-  user.password = ENV["seed_password"]
-  user.contact = 12345678
-end
-
-User.find_or_create_by!(email: ENV["job2_email"]) do |user|
-  user.first_name = 'Charlie'
-  user.last_name = 'Find-A-Job'
-  user.is_seeker = true
-  user.is_biz = false
   user.is_admin = false
   user.password = ENV["seed_password"]
   user.contact = 12345678
@@ -66,6 +46,25 @@ User.find_or_create_by!(email: ENV["biz3_email"]) do |user|
   user.contact = 12345678
 end
 
+User.find_or_create_by!(email: ENV["job_email"]) do |user|
+  user.first_name = 'JobSeeker'
+  user.last_name = 'Kuan Yu'
+  user.is_seeker = true
+  user.is_biz = false
+  user.is_admin = false
+  user.password = ENV["seed_password"]
+  user.contact = 12345678
+end
+User.find_or_create_by!(email: ENV["job2_email"]) do |user|
+  user.first_name = 'Charlie'
+  user.last_name = 'Find-A-Job'
+  user.is_seeker = true
+  user.is_biz = false
+  user.is_admin = false
+  user.password = ENV["seed_password"]
+  user.contact = 12345678
+end
+
 Bizowner.find_or_create_by!(user_id: User.find_by(email: ENV["biz_email"]).id) do |biz|
   biz.user_id = User.find_by(email: ENV["biz_email"]).id
   biz.name = 'Hush Cosmetics'
@@ -73,20 +72,6 @@ Bizowner.find_or_create_by!(user_id: User.find_by(email: ENV["biz_email"]).id) d
   biz.postal_code = "643282"
   biz.description = 'Sells Korean beauty products'
   biz.license_number = '201426278W'
-end
-
-Jobseeker.find_or_create_by!(user_id: User.find_by(email: ENV["job_email"]).id) do |job|
-  job.user_id = User.find_by(email: ENV["job_email"]).id
-  job.dob = '1990-10-31'
-  job.postal_code = "643282"
-  job.highest_qualification = 'A Levels'
-  job.preferred_area = 'North'
-  job.preferred_location = 'Ang Mo Kio'
-  job.description = 'Hard worker'
-  job.wage = 7
-  job.start_date = '2016-10-01'
-  job.end_date = '2016-10-28'
-  job.availability = true
 end
 
 Bizowner.find_or_create_by!(user_id: User.find_by(email: ENV["biz2_email"]).id) do |biz|
@@ -105,6 +90,20 @@ Bizowner.find_or_create_by!(user_id: User.find_by(email: ENV["biz3_email"]).id) 
   biz.postal_code = "098138"
   biz.description = 'Sells Burgers'
   biz.license_number = '203212343W'
+end
+
+Jobseeker.find_or_create_by!(user_id: User.find_by(email: ENV["job_email"]).id) do |job|
+  job.user_id = User.find_by(email: ENV["job_email"]).id
+  job.dob = '1990-10-31'
+  job.postal_code = "643282"
+  job.highest_qualification = 'A Levels'
+  job.preferred_area = 'North'
+  job.preferred_location = 'Ang Mo Kio'
+  job.description = 'Hard worker'
+  job.wage = 7
+  job.start_date = '2016-10-01'
+  job.end_date = '2016-10-28'
+  job.availability = true
 end
 
 Jobseeker.find_or_create_by!(user_id: User.find_by(email: ENV["job2_email"]).id) do |job|
@@ -151,6 +150,20 @@ job_start_date: '2016-10-01',
 job_end_date: '2016-10-14',
 status: true)
 
+Job.create(bizowner_id: Bizowner.find_by(user_id: User.find_by(email: ENV["biz_email"]).id).id,
+latitude: 1.2789591,
+longitude: 103.8392531,
+name: 'recruit express',
+address: '1 keong saik road singapore',
+company_name: "hush.sg",
+job_title: "part time packer",
+job_description: 'be a pack rat',
+industry: 'slavery',
+vacancy: 4,
+wage_per_hour: 1.9,
+job_start_date: '2016-10-01',
+job_end_date: '2016-10-07',
+status: true)
 
 Job.create(bizowner_id: Bizowner.find_by(user_id: User.find_by(email: ENV["biz2_email"]).id).id,
 latitude: 1.3188724,
@@ -210,21 +223,6 @@ vacancy: 4,
 wage_per_hour: 10,
 job_start_date: '2016-10-01',
 job_end_date: '2016-10-31',
-status: true)
-
-Job.create(bizowner_id: Bizowner.find_by(user_id: User.find_by(email: ENV["biz_email"]).id).id,
-latitude: 1.2789591,
-longitude: 103.8392531,
-name: 'recruit express',
-address: '1 keong saik road singapore',
-company_name: "hush.sg",
-job_title: "part time packer",
-job_description: 'be a pack rat',
-industry: 'slavery',
-vacancy: 4,
-wage_per_hour: 1.9,
-job_start_date: '2016-10-01',
-job_end_date: '2016-10-07',
 status: true)
 
 Application.create(
